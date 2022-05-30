@@ -10,7 +10,7 @@ export default function Home() {
      }).then(res => res.json()).then(data =>{
        setChallenges(data)
      })
-  })
+  },[])
   return (
     <div>
       home

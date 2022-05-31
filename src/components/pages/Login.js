@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Styles/Login.css';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+//  login to the website
+function Login(props) {
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -19,10 +20,9 @@ function Login() {
     } else if (name === 'password') {
       setPassword(value);
     }
-
-
   };
 
+  // submit click button
   const handleFormSubmit = (e) => {
     const userObj = {
       user_name: userName,
@@ -37,22 +37,19 @@ function Login() {
         "Content-Type": "application/json"
       }
     }).then(res => res.json()).then(res => {
-      // console.log(res.token)
       let token = res.token;
-            localStorage.setItem("SavedToken", 'Bearer ' + token);
-      if (res.token){
-        console.log(res)
-        
-          navigate(`/profile/`,{state:{id:res.user.id,name:res.user.user_name}});
-    
-      }else{
+      localStorage.setItem("SavedToken", 'Bearer ' + token);
+      if (res.token) {
+        props.setIsLoggedIn(true);
+        navigate(`/profile/`, { state: { id: res.user.id, name: res.user.user_name } });
+
+      } else {
         alert("login failed")
       }
     })
-    
+
     setUserName('');
     setPassword('');
-
     setErrorMessage("")
   };
 

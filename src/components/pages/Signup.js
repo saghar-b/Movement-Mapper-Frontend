@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Styles/Login.css';
-import { checkPassword , validateEmail  } from '../../utils/helpers';
-import { useNavigate} from 'react-router-dom';
+import { checkPassword, validateEmail } from '../../utils/helpers';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const navigate = useNavigate();
@@ -13,17 +13,15 @@ function Signup() {
   const handleInputChange = (e) => {
 
     const { name, value } = e.target;
-    
+
     if (name === 'userName') {
       setUserName(value);
 
     } else if (name === 'password') {
       setPassword(value);
-    } else{
+    } else {
       setEmail(value)
     }
-
-
   };
 
   const handleFormSubmit = (e) => {
@@ -36,9 +34,9 @@ function Signup() {
     e.preventDefault();
     if (!validateEmail(email) || !userName) {
       setErrorMessage('Email or username is invalid');
-      
+
       return;
-      
+
     }
     if (!checkPassword(password)) {
       setErrorMessage(
@@ -55,17 +53,16 @@ function Signup() {
       }
     }).then(res => res.json()).then(res => {
       let token = res.token;
-            localStorage.setItem("SavedToken", 'Bearer ' + token);
-      if (res.token){
-        console.log(res)
-        
-          navigate(`/profile/`,{state:{id:res.user.id,name:res.user.user_name}});
-    
-      }else{
+      localStorage.setItem("SavedToken", 'Bearer ' + token);
+      if (res.token) {
+
+        navigate(`/profile/`, { state: { id: res.user.id, name: res.user.user_name } });
+
+      } else {
         alert("Signup failed")
       }
     })
-    
+
     setUserName('');
     setPassword('');
     setEmail('')
@@ -111,7 +108,7 @@ function Signup() {
           <button className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
             Submit
           </button>
-          
+
           {errorMessage && (
             <div>
               <p className="error-text">{errorMessage}</p>

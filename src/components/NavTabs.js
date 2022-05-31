@@ -1,8 +1,43 @@
-import React from 'react';
+// import React from 'react';
 import '../styles/Navbar.css';
-// import  image from './Assets/saghar.jpeg'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import jwt from 'jwt-decode'
 
-function NavTabs({}) {
+
+function NavTabs(props) {
+  const [token, setToken] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const t = localStorage.getItem('SavedToken');
+    if (t) {
+      setToken(jwt(t))
+      props.setIsLoggedIn(true);
+
+    } else {
+      props.setIsLoggedIn(false);
+
+    }
+  }, [])
+
+  // logout button click
+  function handleLogout() {
+    localStorage.setItem('SavedToken', "")
+    props.setIsLoggedIn(false);
+    navigate(`/login`);
+  }
+
+  //  login button click
+  function handleLogin() {
+    navigate(`/login`);
+  }
+
+  //  Dashboard button
+  function handlePortfolio() {
+    navigate(`/profile/`, { state: { id: token.id, name: token.user_name } });
+  }
+
   return (
     <header >
       <nav className='navbar'>
@@ -14,9 +49,20 @@ function NavTabs({}) {
           <li className="nav-item">
             <a className="nav-link active" href="/home"> Home </a>
           </li>
-          <li className="nav-item" >
-            <a className="nav-link active" href="/login"> Login </a>
-          </li>
+          {props.isLoggedIn &&
+            <li className="nav-item" >
+              <a className="nav-link active" onClick={handleLogout}> Logout </a>
+            </li>
+          }
+          {props.isLoggedIn &&
+            <li className="nav-item" >
+              <a className="nav-link active" onClick={handlePortfolio}> Dashboard </a>
+            </li>
+          }
+          {!props.isLoggedIn &&
+            <li className="nav-item" > <a className="nav-link active" onClick={handleLogin} > Login </a> </li>
+          }
+
         </ul>
       </nav>
     </header>

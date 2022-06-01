@@ -5,32 +5,31 @@ import React, { useEffect, useState } from 'react';
 import Log from './Log';
 export default function Score() {
   // const location = useLocation();
-  const participate = {
+  const score = {
     distance: ""
   }
   const [challenge, setChallenge] = useState([]);
-  const [participants, setparticipants] = useState([
-    { user_name: "", participate }]);
+  const [scores, setScores] = useState([]);
 
   useEffect(() => {
-    setChallenge("data")
-    fetch("http://localhost:3001/challenge/3", {
+    // setChallenge("data")
+    fetch("http://localhost:3001/challenge/2", {
       headers: {
         "Content-Type": "application/json"
         //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
-      setChallenge(data)
-      setparticipants(data.participants)
-      
-      console.log(challenge)
-      console.log(participants)
 
-    })
+      setChallenge(data)
+      setScores(data.scores)    
+    }) 
   }, [])
 
-  function addLog(score){
-    console.log(score)
+  function addLog(newscore){
+
+    // setChallenge(challenge)
+    //   setScores(scores)
+
   }
   //   console.log("////")
   // console.log(participants)
@@ -45,19 +44,20 @@ export default function Score() {
         </div>
         <div className='card-body'>
 
-          {challenge.Challenge_name}
-          {participants.map(part => (
+          {challenge.Challenge_name} 
+          {/* {scores[0].user_name}   */}
+          {scores.map(part => (
             <p>
               {part.user_name}
-              {part.participate.distance}
+              {part.score.distance}
 
-            </p>
-          ))}
+             </p>
+          ))} 
 
         </div>
       </section>
 
-      <Log addLog={addLog}/>
+      <Log setScores={setScores} setChallenge={setChallenge} addLog={addLog}/>
 
     </>
   );

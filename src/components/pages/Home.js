@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 
 export default function Home() {
   const [types, setTypes] = useState([]);
+  const [type, setType] = useState(" ");
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3001/challenges/types", {
       headers: {
@@ -17,7 +20,10 @@ export default function Home() {
     })
   }, [])
   const getChallenge = () => {
-    console.log("clicked")
+    // setType()
+    navigate(`/challenges/`, { state: { type: type} });
+    console.log("//////\\\\\\\\")
+    console.log(type)
   }
   
   return (
@@ -25,7 +31,7 @@ export default function Home() {
       home
       <h1>Home Page</h1>
     <div className="card" style={{width: "18rem"}}>
-    {types.map((activity) => <Card card={activity.challenge_type} getChallenge={getChallenge}/>)}
+    {types.map((activity) => <Card card={activity.challenge_type} getChallenge={getChallenge} setType={setType}/>)}
 </div>
     </div>
     );

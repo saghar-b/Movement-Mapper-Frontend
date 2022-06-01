@@ -12,6 +12,8 @@ function NavTabs(props) {
   useEffect(() => {
     const t = localStorage.getItem('SavedToken');
     if (t) {
+      const token = jwt(t)
+      console.log(t)
       setToken(jwt(t))
       props.setIsLoggedIn(true);
 

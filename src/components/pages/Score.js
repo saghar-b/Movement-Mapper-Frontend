@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Log from './Log';
 
 export default function Score() {
-  // const location = useLocation();
+  const location = useLocation();
   const score = {
     distance: ""
   }
@@ -16,13 +16,14 @@ export default function Score() {
 
   useEffect(() => {
 //  get the specific challange
-    fetch("http://localhost:3001/challenge/1", {
+    fetch(`http://localhost:3001/challenge/${location.state.challenge_id}`, {
       headers: {
         "Content-Type": "application/json"
         //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
-
+console.log(" man in jam")
+console.log(data)
       setChallenge(data)
       setScores(data.scores)
       const today = new Date();
@@ -43,8 +44,9 @@ export default function Score() {
 
   return (
     <>
-      {/* <div>{location.state.name}</div>
-    <div>{location.state.id}</div> */}
+      <div>{location.state.challenge_id}</div>
+      <div>{location.state.name}</div>
+    <div>{location.state.id}</div>
       <h1>Score</h1>
       <section className='card'>
         <div className='card-head'>
@@ -67,9 +69,9 @@ export default function Score() {
 
         </div>
       </section>
-{ isCurrent &&
+{ isCurrent && location.state.id &&
 <>
-  <Log setScores={setScores} setChallenge={setChallenge} challenge ={challenge}/>
+  <Log setScores={setScores} setChallenge={setChallenge} challenge ={challenge} userId={location.state.id}/>
   
 </>
 }

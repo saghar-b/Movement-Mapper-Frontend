@@ -4,7 +4,7 @@ import Card from './Card';
 
 export default function Home() {
   const [types, setTypes] = useState([]);
-  const [type, setType] = useState(" ");
+  const [type, setType] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3001/challenges/types", {
@@ -14,24 +14,27 @@ export default function Home() {
       }
     }).then(res => res.json()).then(data => {
       setTypes(data)
+      setType(type)
       // 
-      console.log("/////////")
-      console.log(types)
-    })
+      // console.log("/////////")
+      // console.log(types)
+      // console.log(type)
+    }) 
   }, [])
-  const getChallenge = () => {
-    // setType()
-    navigate(`/challenges/`, { state: { type: type} });
-    console.log("//////\\\\\\\\")
-    console.log(type)
+  const getChallenge = (selectedType) => {
+   
+    console.log(selectedType)
+
+    navigate(`/challenges/`, { state: { type: selectedType} });
+  
   }
   
   return (
     <div>
       home
       <h1>Home Page</h1>
-    <div className="card" style={{width: "18rem"}}>
-    {types.map((activity) => <Card card={activity.challenge_type} getChallenge={getChallenge} setType={setType}/>)}
+    <div className="card" key={{type}} style={{width: "18rem"}}>
+    {types.map((activity) => <Card  key={types.id} card={activity.challenge_type} getChallenge={getChallenge} setType={setType}/>)}
 </div>
     </div>
     );

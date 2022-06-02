@@ -10,8 +10,13 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const t = localStorage.getItem('SavedToken');
-    setToken(jwt(t))
+    const token=localStorage.getItem('SavedToken');
+    if(token){
+      const t = "Bearer "+token;
+      setToken(jwt(t))
+    }else{
+      alert("please log in")
+    }
   }, [])
 
   const location = useLocation();
@@ -21,6 +26,7 @@ export default function Profile() {
     <>
       <h3 style={{textAlign: "center"}}>{location.state.name}'s Dashboard</h3>
       <p style={{textAlign: "center"}}>User ID: {location.state.id}</p>
+
 
       {/* saghar */}
       <button onClick={handleViewBtn} style={{textAlign: "center"}}>View Challenge</button>

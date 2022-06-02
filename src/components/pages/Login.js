@@ -38,7 +38,7 @@ function Login(props) {
       }
     }).then(res => res.json()).then(res => {
       let token = res.token;
-      localStorage.setItem("SavedToken", 'Bearer ' + token);
+      localStorage.setItem("SavedToken",token);
       if (res.token) {
         props.setIsLoggedIn(true);
         navigate(`/profile/`, { state: { id: res.user.id, name: res.user.user_name } });

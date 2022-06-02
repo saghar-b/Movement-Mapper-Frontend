@@ -16,13 +16,15 @@ export default function Log(props) {
   const handleFormSubmit = e => {
     e.preventDefault();
     const scoreObj = {
-      challenge_id: 1,
+      challenge_id: props.challenge.id,
       user_id: 1,
       distance: score,
 
     }
 
     console.log( localStorage.getItem("SavedToken"))
+    console.log("props.challenge.id vagheannnnnn")
+    console.log(props.challenge.id)
     console.log(scoreObj)
     // save the log
     fetch("http://localhost:3001/api/scores/new", {

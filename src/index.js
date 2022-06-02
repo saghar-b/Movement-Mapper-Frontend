@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // ask t/a's about the repition created by this 
   <React.StrictMode>
     <App />
   </React.StrictMode>

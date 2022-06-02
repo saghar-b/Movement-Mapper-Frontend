@@ -19,8 +19,11 @@ export default function Profile() {
 
   // saghar
   const location = useLocation();
-  function handleViewBtn() {
+  function handleScoreViewBtn() {
     navigate(`/score`, { state: { id: token.id, name: token.user_name } })
+  }
+  function handleNewViewBtn() {
+    navigate(`/profile/newchallenge`, { state: { id: token.id, name: token.user_name } })
   }
   return (
     <>
@@ -28,7 +31,8 @@ export default function Profile() {
       <div>{location.state.id}</div>
       <h1>Dashboard</h1>
       {/* saghar */}
-      <button onClick={handleViewBtn}>View Challenge</button>
+      <button onClick={handleScoreViewBtn}>View Challenge</button>
+      <button onClick={handleNewViewBtn}>Create a New Challenge</button>
       {/* saghar */}
     </>
   );

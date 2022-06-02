@@ -27,10 +27,9 @@ export default function Profile() {
       <h3 style={{textAlign: "center"}}>{location.state.name}'s Dashboard</h3>
       <p style={{textAlign: "center"}}>User ID: {location.state.id}</p>
 
-
+{/* '/challenges/:user_id' */}
       {/* saghar */}
       <button onClick={handleViewBtn} style={{textAlign: "center"}}>View Challenge</button>
-      {/* saghar */}
     </>
   );
 }

@@ -32,7 +32,7 @@ export default function Log(props) {
       body: JSON.stringify(scoreObj),
       headers: {
        "Content-Type": "application/json",
-        authorization: localStorage.getItem("SavedToken")
+        authorization:"Bearer"+ localStorage.getItem("SavedToken")
       }
     }).then(res => {
       console.log("res")

@@ -17,7 +17,7 @@ export default function Home() {
       setType(type)
       // 
       // console.log("/////////")
-      // console.log(types)
+      console.log(types)
       // console.log(type)
     }) 
   }, [])

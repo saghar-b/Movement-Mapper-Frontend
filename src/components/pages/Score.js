@@ -23,7 +23,7 @@ export default function Score() {
         //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
-// console.log(" man in jam")
+
 console.log(data)
       setChallenge(data)
       setScores(data.scores)
@@ -38,7 +38,7 @@ console.log(data)
         setIsCurrent(false)
       }
       
-      checkJoined;
+      // checkJoined;
       
     }) 
   }, [])

@@ -1,39 +1,71 @@
 import React from 'react';
 import './Styles/Profile.css';
+import Moment from 'moment';
+import PublicCard from './PublicCard';
 import { useLocation } from 'react-router-dom';
-// saghar
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
-// saghar
+
 
 export default function Profile() {
-  // saghar
+
   const [token, setToken] = useState([]);
+  const [challenges, setChallenges] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
-    const token=localStorage.getItem('SavedToken');
-    if(token){
-      const t = "Bearer "+token;
-      setToken(jwt(t))
-    }else{
+    const token = localStorage.getItem('SavedToken');
+    if (token) {
+      const t = "Bearer " + token;
+      // setToken(jwt(t))
+      console.log((jwt(t)).id);
+      fetch(`http://localhost:3001/challenges/creator/${(jwt(t)).id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: t
+        }
+      }).then(res => res.json()).then(challengesDB => {
+        setChallenges(challengesDB)
+        console.log(challengesDB);
+      })
+    } else {
       alert("please log in")
     }
   }, [])
 
-  // saghar
   const location = useLocation();
+
+  function handleScoreViewBtn() {
+    navigate(`/score`, { state: { id: token.id, name: token.user_name } })
+  }
+
+  function handleNewViewBtn() {
+    navigate(`/profile/newchallenge`, { state: { id: token.id, name: token.user_name } })
+  }
+
   function handleViewBtn() {
     navigate(`/score`, { state: { id: token.id, name: token.user_name } })
   }
+
+  function getoneChallenge(oneChallenge) {
+    navigate(`/score`, { state: { id: "", name: "", challenge_id: oneChallenge } })
+  }
+
+  // console.log("challenges: ",challenges);
   return (
     <>
-      <div>{location.state.name}</div>
-      <div>{location.state.id}</div>
-      <h1>Dashboard</h1>
-      {/* saghar */}
-      <button onClick={handleViewBtn}>View Challenge</button>
-      {/* saghar */}
+      <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
+      <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
+
+      {/* start of creator's card */}
+      {challenges.map(chal => (
+        <PublicCard challenge={chal} getoneChallenge={getoneChallenge}></PublicCard>
+      ))}
+
+      <button onClick={handleViewBtn} style={{ textAlign: "center" }}>View Challenge</button>
+      <button onClick={handleNewViewBtn}>Create a New Challenge</button>
     </>
-  );
+  )
+
 }

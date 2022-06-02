@@ -2,8 +2,8 @@ import React from 'react';
 import Moment from 'moment';
 
 function PublicCard({ challenge, getoneChallenge, setType }) {
-    console.log("challenge");
-    console.log(challenge);
+    // console.log("challenge");
+    // console.log(challenge);
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -17,8 +17,8 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
                 </div>
                 <div className='card-body'>
                     <h4>{challenge.creator.user_name}</h4>
-                    <h4>{Moment(challenge.starttimr).format('d MMM')}</h4>
-                    <h4>{Moment(challenge.end_timr).format('d MMM')}</h4>
+                    <h4>{Moment(challenge.start_time).format('DD MMM yyyy')}</h4>
+                    <h4>{Moment(challenge.end_time).format('DD MMM yyyy')}</h4>
                 </div>
             </section >
 

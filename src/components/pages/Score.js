@@ -12,6 +12,7 @@ export default function Score() {
   const [challenge, setChallenge] = useState([]);
   const [scores, setScores] = useState([]);
   const [isCurrent, setIsCurrent] = useState(false);
+  const [isJoined, setIsJoined] = useState(false);
  
 
   useEffect(() => {
@@ -22,10 +23,11 @@ export default function Score() {
         //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
-console.log(" man in jam")
+// console.log(" man in jam")
 console.log(data)
       setChallenge(data)
       setScores(data.scores)
+
       const today = new Date();
       const start = new Date(data.start_time);
     const end = new Date(data.end_time);
@@ -36,12 +38,45 @@ console.log(data)
         setIsCurrent(false)
       }
       
-      console.log("date")
-      // console.log(amount)
+      checkJoined;
       
     }) 
   }, [])
 
+ function checkJoined(){
+//   if (token) {
+//     const t = "Bearer " + token;
+//     console.log("logedin")
+//     navigate(`/score`, { state: { id: jwt(t).id, name: jwt(t).name, challenge_id: oneChallenge } })
+   
+//   } else {
+//     console.log("Notlogedin")
+//     navigate(`/score`, { state: { id: "", name: "", challenge_id: oneChallenge } })
+//   }
+//   fetch(`http://localhost:3001/challenge/score/${}/${location.state.challenge_id}`, {
+//       headers: {
+//         "Content-Type": "application/json"
+//       }
+//     }).then(res => res.json()).then(data => {
+// // console.log(" man in jam")
+// console.log(data)
+//       setChallenge(data)
+//       setScores(data.scores)
+
+//       const today = new Date();
+//       const start = new Date(data.start_time);
+//     const end = new Date(data.end_time);
+//       if (start < today && end>today)  {
+//         setIsCurrent(true)
+//         console.log("current")
+//       }else{
+//         setIsCurrent(false)
+//       }
+      
+//       checkJoined;
+      
+ }
+// TODO: check if the person is in the event
   return (
     <>
       <div>{location.state.challenge_id}</div>
@@ -57,7 +92,7 @@ console.log(data)
           {challenge.Challenge_name} 
           {/* {scores[0].user_name}   */}
           <ul>
-
+{/* show all the participants */}
           {scores.map(part => (
             <li key="{part.id}">
               {part.user_name}

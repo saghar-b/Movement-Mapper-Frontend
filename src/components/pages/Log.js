@@ -12,7 +12,7 @@ export default function Log(props) {
 
   useEffect(() => {
     setScore(score)
-      }, [])
+  }, [])
   const handleFormSubmit = e => {
     e.preventDefault();
     const scoreObj = {
@@ -22,7 +22,7 @@ export default function Log(props) {
 
     }
 
-    console.log( localStorage.getItem("SavedToken"))
+    console.log(localStorage.getItem("SavedToken"))
     console.log("props.challenge.id vagheannnnnn")
     console.log(props.challenge.id)
     console.log(scoreObj)
@@ -31,8 +31,8 @@ export default function Log(props) {
       method: "POST",
       body: JSON.stringify(scoreObj),
       headers: {
-       "Content-Type": "application/json",
-        authorization:"Bearer"+ localStorage.getItem("SavedToken")
+        "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("SavedToken")
       }
     }).then(res => {
       console.log("res")
@@ -43,15 +43,13 @@ export default function Log(props) {
         alert("failed to upload Log")
       }
     })
-  
+
 
     const newLog = {
       score: score,
       unit: unit
     }
-    // props.addLog(newLog)
-    // props.setChallenge([])
-    
+
     setScore(0);
     setUnit("Mile");
   }
@@ -61,16 +59,12 @@ export default function Log(props) {
       <h1>Log Activity</h1>
       <form className="Form" onSubmit={handleFormSubmit}>
         <input placeholder="text" name="text" type="number" value={score} onChange={(e) => { setScore(e.target.value) }} />
-       <label>{props.challenge.unit}</label>
-        {/* <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
-          <option value="Mile">Mile</option>
-          <option value="KM">Kilo Meter</option>
+        <label>{props.challenge.unit}</label>
 
-        </select> */}
         <button>Log new Score!</button>
       </form>
 
-      <UnitConverter setScore={setScore}/>
+      <UnitConverter setScore={setScore} />
     </>
   );
 }

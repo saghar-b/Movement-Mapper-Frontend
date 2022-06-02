@@ -12,9 +12,13 @@ export default function Profile() {
   const [token, setToken] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    const t = localStorage.getItem('SavedToken');
+    const token=localStorage.getItem('SavedToken');
+    if(token){
+      const t = "Bearer "+token;
       setToken(jwt(t))
-
+    }else{
+      alert("please log in")
+    }
   }, [])
 
   // saghar

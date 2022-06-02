@@ -3,6 +3,7 @@ import './Styles/Score.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from './Log';
+
 export default function Score() {
   // const location = useLocation();
   const score = {
@@ -10,10 +11,12 @@ export default function Score() {
   }
   const [challenge, setChallenge] = useState([]);
   const [scores, setScores] = useState([]);
+  const [isCurrent, setIsCurrent] = useState(false);
+ 
 
   useEffect(() => {
-    // setChallenge("data")
-    fetch("http://localhost:3001/challenge/2", {
+//  get the specific challange
+    fetch("http://localhost:3001/challenge/1", {
       headers: {
         "Content-Type": "application/json"
         //  authorization: localStorage.getItem("SavedToken")
@@ -21,18 +24,23 @@ export default function Score() {
     }).then(res => res.json()).then(data => {
 
       setChallenge(data)
-      setScores(data.scores)    
+      setScores(data.scores)
+      const today = new Date();
+      const start = new Date(data.start_time);
+    const end = new Date(data.end_time);
+      if (start < today && end>today)  {
+        setIsCurrent(true)
+        console.log("current")
+      }else{
+        setIsCurrent(false)
+      }
+      
+      console.log("date")
+      // console.log(amount)
+      
     }) 
   }, [])
 
-  function addLog(newscore){
-
-    // setChallenge(challenge)
-    //   setScores(scores)
-
-  }
-  //   console.log("////")
-  // console.log(participants)
   return (
     <>
       {/* <div>{location.state.name}</div>
@@ -46,18 +54,25 @@ export default function Score() {
 
           {challenge.Challenge_name} 
           {/* {scores[0].user_name}   */}
+          <ul>
+
           {scores.map(part => (
-            <p>
+            <li key="{part.id}">
               {part.user_name}
               {part.score.distance}
 
-             </p>
+             </li>
           ))} 
+          </ul>
 
         </div>
       </section>
-
-      <Log setScores={setScores} setChallenge={setChallenge} addLog={addLog}/>
+{ isCurrent &&
+<>
+  <Log setScores={setScores} setChallenge={setChallenge} challenge ={challenge}/>
+  
+</>
+}
 
     </>
   );

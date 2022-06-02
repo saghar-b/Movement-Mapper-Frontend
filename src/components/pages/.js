@@ -2,17 +2,13 @@
 // import './Styles/Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import UnitConverter from './UnitConverter';
+
 
 export default function Log(props) {
-  //  const [amount, setAmount] = useState(0);
   const [score, setScore] = useState(0)
   const [unit, setUnit] = useState("Mile")
   const location = useLocation();
 
-  useEffect(() => {
-    setScore(score)
-      }, [])
   const handleFormSubmit = e => {
     e.preventDefault();
     const scoreObj = {
@@ -68,7 +64,6 @@ export default function Log(props) {
         <button>Log new Score!</button>
       </form>
 
-      <UnitConverter setScore={setScore}/>
     </>
   );
 }

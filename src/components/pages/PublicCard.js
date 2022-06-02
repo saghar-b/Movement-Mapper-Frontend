@@ -26,10 +26,10 @@ const [token, setToken] = useState([]);
             console.log(jwt(t))
             insertToDB(addChallenge)
           }else{
-            //   saghar not to show the join btn if not logged in 
+            // saghar not to show the join btn if not logged in 
             // saghar not to show delete button unless on dashboard page 
-           
-            // console.log(addChallenge)
+            // TODO: Only show the edit & delete button when the creator is on their dashboard page
+            
             alert("please log in")
           }
         
@@ -55,7 +55,9 @@ const [token, setToken] = useState([]);
                     <h4>{Moment(challenge.starttimr).format('d MMM')}</h4>
                     <h4>{Moment(challenge.end_timr).format('d MMM')}</h4>
                     <button onClick={handleJoinBtn}>Join</button>
+                    <button>Edit</button>
                     <button>Delete</button>
+
                 </div>
             </section >
 

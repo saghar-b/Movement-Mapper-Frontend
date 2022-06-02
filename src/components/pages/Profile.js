@@ -40,7 +40,7 @@ export default function Profile() {
       <p style={{textAlign: "center"}}>User ID: {location.state.id}</p>
 
 {/* start of public card */}
-<section data-type={challenge} className='card' onClick={handleChallengeClick}>
+{/* <section data-type={challenge} className='card' onClick={handleChallengeClick}>
                 <div >
                     <h1 data-type={challenge.id}>{challenge.Challenge_name}</h1>
                 </div>
@@ -51,7 +51,7 @@ export default function Profile() {
                     <button onClick={handleJoinBtn}>Join</button>
                     <button>Delete</button>
                 </div>
-            </section >
+            </section > */}
 
 {/* '/challenges/:user_id' */}
       {/* saghar made this*/}

@@ -32,9 +32,19 @@ export default function Profile() {
   }, [])
 
   const location = useLocation();
+  function handleScoreViewBtn() {
+    navigate(`/score`, { state: { id: token.id, name: token.user_name } })
+
+  }
+   
+  function handleNewViewBtn() {
+    navigate(`/profile/newchallenge`, { state: { id: token.id, name: token.user_name } })
+  }
+
   function handleViewBtn() {
     navigate(`/score`, { state: { id: token.id, name: token.user_name } })
-  } return (
+  }
+  return (
     <>
       <h3 style={{textAlign: "center"}}>{location.state.name}'s Dashboard</h3>
       <p style={{textAlign: "center"}}>User ID: {location.state.id}</p>
@@ -56,6 +66,8 @@ export default function Profile() {
 {/* '/challenges/:user_id' */}
       {/* saghar made this*/}
       <button onClick={handleViewBtn} style={{textAlign: "center"}}>View Challenge</button>
-    </>
-  );
+      <button onClick={handleNewViewBtn}>Create a New Challenge</button>
+      </>
+     )       
+  
 }

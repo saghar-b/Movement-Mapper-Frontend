@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode';
+import dateFormat from "dateformat";
 
-
+//drop down on form type AND/OR new option
 //drop down menu for form unit
 //creator id from local storage session
 //add more to dropdown menu
@@ -41,17 +42,20 @@ function NewChallenge() {
     const handleFormSubmit = (e) => {
         const t = localStorage.getItem('SavedToken');
         // setToken(jwt(t))
-        console.log(jwt(t).user_name)
+        console.log("jwt username ",jwt(t).user_name)
+        console.log("jwt id ",jwt(t).id)
+
 
         const challengeObj = {
           Challenge_name: formTitle,
           description: formDescription,
           Challenge_type: formType,
-          start_time: formStartDate,
-          end_time: formEndDate,
+          start_time: dateFormat(formStartDate,"isoUtcDateTime"),
+          end_time: dateFormat(formEndDate,"isoUtcDateTime"),
           picture_path: formPicture,
           unit: unit,
-          creator_id: jwt(t).user_name
+          user_name: jwt(t).user_name,
+          creator_id: jwt(t).id
         }
         console.log('challengeObj', challengeObj)
     
@@ -61,7 +65,7 @@ function NewChallenge() {
         body: JSON.stringify(challengeObj),
         headers: {
         "Content-Type": "application/json",
-        authorization: localStorage.getItem("SavedToken")
+        authorization: "Bearer "+ t
         }
         }).then(res => {
             if (res.ok){
@@ -69,6 +73,7 @@ function NewChallenge() {
                 return res.json();
             } else{
                 throw res.json
+                console.log('an error has occurred')
             }})
             
 
@@ -112,7 +117,7 @@ function NewChallenge() {
             <label>Unit:</label>
             <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
             <option value="Mile">Mile</option>
-            <option value="KM">km</option>
+            <option value="km">km</option>
             </select>
 
             <label>Start:</label>

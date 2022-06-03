@@ -52,8 +52,8 @@ const [token, setToken] = useState([]);
                 </div>
                 <div className='card-body'>
                     <h4>{challenge.creator.user_name}</h4>
-                    <h4>{Moment(challenge.starttimr).format('d MMM')}</h4>
-                    <h4>{Moment(challenge.end_timr).format('d MMM')}</h4>
+                    <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
+                    <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     <button onClick={handleJoinBtn}>Join</button>
                 </div>
             </section >

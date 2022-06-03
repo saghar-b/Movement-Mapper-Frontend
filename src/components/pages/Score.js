@@ -53,20 +53,21 @@ export default function Score() {
       const t = "Bearer " + token;
   
       
-      // navigate(`/score`, { state: { id: jwt(t).id, name: jwt(t).name, challenge_id: oneChallenge } })
+      // check the use is joined
       fetch(`http://localhost:3001/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
         headers: {
           "Content-Type": "application/json"
         }
       }).then(res => res.json()).then(data => {
 
-        console.log("data",data)
-        if (data) {
+        console.log("dathhhhhhhhhhhhhha",data.msg)
+        if (data.msg === "NO") {
 
+          setIsJoined(false)
+        } else {
           setIsJoined(true)
           console.log("joined")
-        } else {
-          setIsJoined(false)
+         
         }
       })
     } else {

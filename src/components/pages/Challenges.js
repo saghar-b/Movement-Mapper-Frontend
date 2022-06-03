@@ -20,8 +20,8 @@ export default function Challenges() {
     })
   }, [])
   function getoneChallenge(oneChallenge) {
-    console.log("oneChallenge")
-    console.log(oneChallenge)
+    // console.log("oneChallenge")
+    // console.log(oneChallenge)
     
     const token = localStorage.getItem('SavedToken');
     if (token) {

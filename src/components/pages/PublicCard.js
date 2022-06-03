@@ -46,9 +46,9 @@ const [token, setToken] = useState([]);
     }
     return (
         <>
-            <section data-type={challenge} className='card'>
+            <section data-type={challenge} className='card' >
                 <div >
-                    <h1 data-type={challenge.id}>{challenge.Challenge_name}</h1>
+                    <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                 </div>
                 <div className='card-body'>
                     <h4>{challenge.creator.user_name}</h4>

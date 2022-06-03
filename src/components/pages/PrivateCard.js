@@ -55,6 +55,9 @@ const [token, setToken] = useState([]);
                     <h4>{Moment(challenge.starttimr).format('d MMM')}</h4>
                     <h4>{Moment(challenge.end_timr).format('d MMM')}</h4>
                     <button onClick={handleJoinBtn}>Join</button>
+                    <button>Edit</button>
+                    <button>Delete</button>
+
                 </div>
             </section >
 

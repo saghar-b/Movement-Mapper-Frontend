@@ -11,30 +11,58 @@ import jwt from 'jwt-decode'
 export default function Profile() {
 
   const [token, setToken] = useState([]);
-  const [challenges, setChallenges] = useState([]);
+  const [createdChallenges, setCreatedChallenges] = useState([]);
+  const [participatingChallenges, setParticipatingChallenges] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
+  // This gets challenges AND the creator because of the route
+   getCreatedChallenges();
+  // This does not include the creator information in the route
+   getParticipatingChallenges();
+  }, [])
+
+  const location = useLocation();
+
+  function getCreatedChallenges(){
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
       // setToken(jwt(t))
-      console.log((jwt(t)).id);
+      // console.log((jwt(t)).id);
       fetch(`http://localhost:3001/challenges/creator/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
-        }
-      }).then(res => res.json()).then(challengesDB => {
-        setChallenges(challengesDB)
-        console.log(challengesDB);
-      })
-    } else {
-      alert("please log in")
-    }
-  }, [])
+         }
+       }).then(res => res.json()).then(challengesDB => {
+         setCreatedChallenges(challengesDB)
+         console.log(challengesDB);
+       })
+     } else {
+       alert("please log in")
+     }
+  }
 
-  const location = useLocation();
+  function getParticipatingChallenges(){
+    const token = localStorage.getItem('SavedToken');
+    if (token) {
+      const t = "Bearer " + token;
+      // setToken(jwt(t))
+      console.log("Jwt ID:",(jwt(t)).id);
+      fetch(`http://localhost:3001/challenges/joined/${(jwt(t)).id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: t
+         }
+       }).then(res => res.json()).then(challengesDB => {
+         setParticipatingChallenges(challengesDB)
+         console.log(challengesDB);
+       })
+     } else {
+       alert("please log in")
+     }
+  }
 
   function handleScoreViewBtn() {
     navigate(`/score`, { state: { id: token.id, name: token.user_name } })
@@ -69,7 +97,13 @@ export default function Profile() {
       <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
 
       {/* start of creator's card */}
-      {challenges.map(chal => (
+      <h1>Created Challenges</h1>
+      {createdChallenges.map(chal => (
+        <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
+      ))}
+      <h1>Joined Challenges</h1>
+
+       {participatingChallenges.map(chal => (
         <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
       ))}
 

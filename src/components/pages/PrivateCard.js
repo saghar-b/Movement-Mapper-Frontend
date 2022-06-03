@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
+import './Styles/PrivateCard.css';
 function PublicCard({ challenge, getoneChallenge, setType }) {
 const [token, setToken] = useState([]);
-    console.log("challenge");
-    console.log(challenge);
+    // console.log("challenge");
+    // console.log(challenge);
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -46,12 +47,14 @@ const [token, setToken] = useState([]);
     }
     return (
         <>
+        
+        <div className='privateCard'>
             <section data-type={challenge} className='card'>
                 <div >
                     <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                 </div>
                 <div className='card-body'>
-                    <h4>{challenge.creator.user_name}</h4>
+                    {/* {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>} */}
                     <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     <button>Edit</button>
@@ -59,6 +62,7 @@ const [token, setToken] = useState([]);
 
                 </div>
             </section >
+        </div>
 
         </>
     );

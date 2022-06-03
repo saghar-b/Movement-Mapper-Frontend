@@ -18,6 +18,43 @@ function NewChallenge() {
     const [formStartDate, setFormStartDate] = useState(new Date());
     const [formEndDate, setFormEndDate] = useState(new Date());
     const [formPicture, setFormPicture] = useState('');
+    const [selectedFile, setSelectedFile] = useState('');
+    const [previewSource, setPreviewSource] = useState('');
+    const [imageIds, setImageIds] = useState('');
+    
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        previewFile(file);
+
+    };
+
+    const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        }
+    }
+
+    const handleSubmitFile = (e) => {
+        // e.preventDefault();
+        console.log('hello submit')
+        if (!previewSource) return;
+        uploadImage(previewSource);
+    }
+
+    const uploadImage = async (base64EncodedImage) => {
+        console.log(base64EncodedImage);
+        try {
+            await fetch('http://localhost:3001/api/images/upload',{
+                method: 'POST',
+                body: JSON.stringify({ data: base64EncodedImage }),
+                headers: { 'Content-type': 'application/json' }
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -40,11 +77,11 @@ function NewChallenge() {
     }
 
     const handleFormSubmit = (e) => {
+        e.preventDefault();
         const t = localStorage.getItem('SavedToken');
-        // setToken(jwt(t))
-        console.log("jwt username ", jwt(t).user_name)
-        console.log("jwt id ", jwt(t).id)
-
+        console.log("jwt username ", jwt(t).user_name);
+        console.log("jwt id ", jwt(t).id);
+        handleSubmitFile();
 
         const challengeObj = {
             Challenge_name: formTitle,
@@ -88,7 +125,6 @@ function NewChallenge() {
         setFormStartDate('')
         setFormEndDate('')
         setFormPicture('')
-        e.preventDefault();
     };
     function insertToDB(userId,challenge_name) {
         console.log("vaghean")
@@ -122,7 +158,7 @@ function NewChallenge() {
 
     return (
         <>
-            <form className="form">
+            <form className="form" onSubmit={handleFormSubmit}>
                 <label>Title:</label>
                 <input
                     type="text"
@@ -165,16 +201,23 @@ function NewChallenge() {
 
                 <label>Picture?:</label>
                 <input
-                    type="text"
+                    type="file"
                     value={formPicture}
-                    onChange={handleInputChange}
+                    onChange={handleFileInputChange}
                     name="formPicture"
+                    className="form-input"
                 />
-                <input
+                {previewSource && (
+                    <img src={previewSource} alt="chosen"
+                    style={{ height: '300px', width: '300px' }}/>
+                )}
+                <button
                     type="submit"
                     value="Submit"
-                    onClick={handleFormSubmit}
-                />
+                    className="challenge-submit-btn">
+                        Submit
+                </button>
+
             </form>
         </>
     )

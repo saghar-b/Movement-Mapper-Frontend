@@ -1,7 +1,7 @@
 import React from 'react';
 import './Styles/Profile.css';
 import Moment from 'moment';
-import PublicCard from './PublicCard';
+import PrivateCard from './PrivateCard';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -60,7 +60,7 @@ export default function Profile() {
 
       {/* start of creator's card */}
       {challenges.map(chal => (
-        <PublicCard challenge={chal} getoneChallenge={getoneChallenge}></PublicCard>
+        <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
       ))}
 
       <button onClick={handleViewBtn} style={{ textAlign: "center" }}>View Challenge</button>

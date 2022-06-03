@@ -49,7 +49,17 @@ export default function Profile() {
   }
 
   function getoneChallenge(oneChallenge) {
-    navigate(`/score`, { state: { id: "", name: "", challenge_id: oneChallenge } })
+    
+    const token = localStorage.getItem('SavedToken');
+    if (token) {
+      const t = "Bearer " + token;
+      console.log("logedin")
+      navigate(`/score`, { state: { id: jwt(t).id, name: jwt(t).name, challenge_id: oneChallenge } })
+     
+    } else {
+      console.log("Notlogedin")
+    }
+
   }
 
   // console.log("challenges: ",challenges);

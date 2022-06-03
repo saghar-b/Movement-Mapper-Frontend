@@ -9,5 +9,7 @@ root.render(
   // ask t/a's about the repition created by this 
   <React.StrictMode>
     <App />
+   
   </React.StrictMode>
+  
 );

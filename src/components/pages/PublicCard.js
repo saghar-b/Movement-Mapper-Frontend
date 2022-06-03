@@ -90,7 +90,7 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
     <>
       <div className='publicCard'>
         <section data-type={challenge} className='card' >
-          <div >
+          <div>
             <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
           </div>
           <div className='card-body'>

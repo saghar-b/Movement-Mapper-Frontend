@@ -10,6 +10,7 @@ import NewChallenge from './components/pages/NewChallenge';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from "./components/pages/Signup";
 const App = () => {
+    window.addEventListener("beforeunload", () => localStorage.removeItem('SavedToken'));
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return(
 

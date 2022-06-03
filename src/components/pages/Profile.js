@@ -16,15 +16,13 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  // This gets challenges AND the creator because of the route
-   getCreatedChallenges();
-  // This does not include the creator information in the route
-   getParticipatingChallenges();
+    getCreatedChallenges();
+    getParticipatingChallenges();
   }, [])
 
   const location = useLocation();
 
-  function getCreatedChallenges(){
+  function getCreatedChallenges() {
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
@@ -34,34 +32,34 @@ export default function Profile() {
         headers: {
           "Content-Type": "application/json",
           authorization: t
-         }
-       }).then(res => res.json()).then(challengesDB => {
-         setCreatedChallenges(challengesDB)
-         console.log(challengesDB);
-       })
-     } else {
-       alert("please log in")
-     }
+        }
+      }).then(res => res.json()).then(challengesDB => {
+        setCreatedChallenges(challengesDB)
+        console.log(challengesDB);
+      })
+    } else {
+      alert("please log in")
+    }
   }
 
-  function getParticipatingChallenges(){
+  function getParticipatingChallenges() {
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
       // setToken(jwt(t))
-      console.log("Jwt ID:",(jwt(t)).id);
+      console.log("Jwt ID:", (jwt(t)).id);
       fetch(`http://localhost:3001/challenges/joined/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
-         }
-       }).then(res => res.json()).then(challengesDB => {
-         setParticipatingChallenges(challengesDB)
-         console.log(challengesDB);
-       })
-     } else {
-       alert("please log in")
-     }
+        }
+      }).then(res => res.json()).then(challengesDB => {
+        setParticipatingChallenges(challengesDB)
+        console.log(challengesDB);
+      })
+    } else {
+      alert("please log in")
+    }
   }
 
   function handleScoreViewBtn() {
@@ -77,13 +75,13 @@ export default function Profile() {
   }
 
   function getoneChallenge(oneChallenge) {
-    
+
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
       console.log("logedin")
       navigate(`/score`, { state: { id: jwt(t).id, name: jwt(t).name, challenge_id: oneChallenge } })
-     
+
     } else {
       console.log("Notlogedin")
     }
@@ -103,7 +101,7 @@ export default function Profile() {
       ))}
       <h1>Joined Challenges</h1>
 
-       {participatingChallenges.map(chal => (
+      {participatingChallenges.map(chal => (
         <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
       ))}
 

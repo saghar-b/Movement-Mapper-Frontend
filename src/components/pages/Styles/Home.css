@@ -1,0 +1,12 @@
+.headers{
+    color: purple !important;
+    padding-bottom: 0rem !important;
+}
+.card{
+    /* work on this to change the design of the activity cards on homepage */
+    /* display: flex !important;
+    flex-direction: row !important;
+    min-width: 10px !important; */
+}
+
+/* use !important to override bootstrap css */

@@ -86,20 +86,21 @@ export default function Score() {
       <div>{location.state.challenge_id}</div>
       <div>{location.state.name}</div>
       <div>{location.state.id}</div>
-      <h1>Score</h1>
+      <h1>Leaderboard</h1>
+      {/* changed "score to leaderboard" */}
       <section className='card'>
         <div className='card-head'>
           <h3>{challenge.Challenge_type}</h3>
         </div>
         <div className='card-body'>
 
-          {challenge.Challenge_name}
+        <label for="challenge">Challenge:</label>{challenge.Challenge_name}
           {/* {scores[0].user_name}   */}
           <ul>
             {/* show all the participants */}
             {scores.map(part => (
               <li key="{part.id}">
-                {part.user_name}
+                 <label for="participant">Participant:</label>{part.user_name}
                 {part.score.distance}
 
               </li>

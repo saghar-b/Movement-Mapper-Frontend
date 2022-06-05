@@ -1,8 +1,12 @@
 
 .card{
-width: 90%;
+width: 60%;
 margin: 20px;
 }
 .card-head{
     background-color: teal;
 }
+
+/* .label{
+    padding-right: 50px !important;
+} */

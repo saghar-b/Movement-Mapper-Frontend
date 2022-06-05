@@ -3,6 +3,7 @@ import '../styles/Navbar.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode'
+import M from '../assets/M.png'
 
 
 function NavTabs(props) {
@@ -44,8 +45,7 @@ function NavTabs(props) {
     <header >
       <nav className='navbar'>
         <div className='logo'>
-          <img src="{image}" className="d-inline-block align-text-center  "></img>
-          <h3>Challenger...?</h3>
+          <img src={M} className="d-inline-block align-text-center  "></img>
         </div>
         <ul className="nav nav-tabs">
           <li className="nav-item">

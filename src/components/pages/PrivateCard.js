@@ -45,6 +45,23 @@ const [token, setToken] = useState([]);
               authorization: localStorage.getItem("SavedToken")
     }})
     }
+// delete challenges
+   const  handleDeleteBtn =async ()=>{
+    const response = await fetch(`http://localhost:3001/api/challenges/${challenge.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+    if (response.ok) {
+        console.log("response")
+        console.log(response)
+        window.location.reload(false);
+    } else {
+        alert('Failed to delete');
+    }
+    // setIsJoined(false)
+   }
     return (
         <>
         
@@ -57,8 +74,8 @@ const [token, setToken] = useState([]);
                     {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>}
                     <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    {/* <button>Edit</button> */}
+                    <button onClick={handleDeleteBtn}>Delete</button>
 
                 </div>
             </section >

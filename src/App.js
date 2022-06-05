@@ -23,7 +23,7 @@ const App = () => {
             <Route path="/challenges" element={<Challenges />} />
             <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/score" element={<Score />} />
+            <Route path="/leaderboard" element={<Score />} />
             <Route path='/profile/newchallenge' element={<NewChallenge/>} />
             <Route path="*" component = {() => "404 NOT FOUND"}/>
         </Routes>

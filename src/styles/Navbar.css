@@ -29,10 +29,11 @@ header{
 
 
 
-.logo {
+.logo img {
   display: flex;
   flex-direction: row;
-  color: white;
+  padding-left: 10px;
+  width: 125px;
 }
 
 img {

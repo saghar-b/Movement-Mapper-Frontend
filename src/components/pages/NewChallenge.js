@@ -145,7 +145,8 @@ console.log(imagepath)
            const  addToScore = {
                 challenge_id: newChallengesId.id,
                 user_id: userId,
-                distance: "0"
+                distance: "0",
+                join :true
             }
             // save the new challge and user to the score
         fetch("http://localhost:3001/api/scores/new", {

@@ -1,12 +1,14 @@
 import React from 'react';
 import './Styles/Profile.css';
-import Moment from 'moment';
+// import Moment from 'moment';
 import PrivateCard from './PrivateCard';
+import PendingCard from './PendingCard';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
 import PublicCard from './PublicCard';
+// import PendingCard from './PendingCard';
 
 
 export default function Profile() {
@@ -14,11 +16,13 @@ export default function Profile() {
   const [token, setToken] = useState();
   const [createdChallenges, setCreatedChallenges] = useState([]);
   const [participatingChallenges, setParticipatingChallenges] = useState([]);
+  const [PendingChallenges, setPendingChallenges] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     getCreatedChallenges();
     getParticipatingChallenges();
+    getPendingChallenges();
   }, [])
 
   const location = useLocation();
@@ -36,7 +40,7 @@ export default function Profile() {
         }
       }).then(res => res.json()).then(challengesDB => {
         setCreatedChallenges(challengesDB)
-        console.log(challengesDB);
+        // console.log(challengesDB);
       })
     } else {
       alert("please log in")
@@ -56,7 +60,26 @@ export default function Profile() {
         }
       }).then(res => res.json()).then(challengesDB => {
         setParticipatingChallenges(challengesDB)
-        console.log(challengesDB);
+        // console.log(challengesDB);
+      })
+    } else {
+      alert("please log in")
+    }
+  }
+  function getPendingChallenges() {
+    const token = localStorage.getItem('SavedToken');
+    if (token) {
+      const t = "Bearer " + token;
+      setToken(t)
+      console.log("Jwt ID:", (jwt(t)).id);
+      fetch(`http://localhost:3001/challenges/pending/${(jwt(t)).id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: t
+        }
+      }).then(res => res.json()).then(challengesDB => {
+        setPendingChallenges(challengesDB)
+        // console.log(challengesDB);
       })
     } else {
       alert("please log in")
@@ -111,8 +134,15 @@ export default function Profile() {
         {participatingChallenges.map(chal => (
           <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
         ))}
+      </div>
+      <div>
+        <h1>Pending Challenges</h1>
 
-
+      </div>
+      <div className='joinedChallenges'>
+        {PendingChallenges.map(chal => (
+          <PendingCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PendingCard>
+        ))}
       </div>
       
 

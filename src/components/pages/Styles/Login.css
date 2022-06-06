@@ -1,27 +1,26 @@
-.contact{
+.login-form {
     display: flex;
-    flex-direction: row;
-    margin-left: 7%;
-    margin-top: 30px;
-}
-.form{
-display: flex;
-flex-direction: column;
-padding-left: 20px;
-}
-.form div {
-    margin-bottom: 10px;
-}
-input , textarea , button{
-    width: 500px;
-    border-radius: 5px;
-    
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-.btn {
-    
-    line-height: 1px;
+.login-title{
+    margin: 30px;
+    font-size: 48px;
 }
+
+.login-form div{
+    margin: 20px;
+}
+
+.login-form input{
+    width: 40%;
+    padding: 10px;
+}
+
+
 
 @media screen and (max-width: 390px) {
     .contact{

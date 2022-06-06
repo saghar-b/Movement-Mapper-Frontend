@@ -102,6 +102,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                 <section data-type={challenge} className='card-hearder1' >
                     <div>
                         <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
+                   <img src={challenge.picture_path}/>
                     </div>
                     <div className='card-body'>
                         <h4>{challenge.creator.user_name}</h4>

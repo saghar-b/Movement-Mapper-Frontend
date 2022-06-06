@@ -35,7 +35,7 @@ export default function Home() {
   }
   
   return (
-    <div>
+    <div className ='homepage'>
 <Carousel className='container' variant="dark">
   <Carousel.Item>
     <img
@@ -70,11 +70,13 @@ export default function Home() {
   </Carousel.Item>
 </Carousel>
 <Container>
+<div className='homepage-cards'>
 <Row md={4}>
     <Col className="card" key={{type}} style={{width: "18rem"}}>
     {types.map((activity) => <Card  key={types.id} card={activity.challenge_type} getChallenge={getChallenge} setType={setType}/>)}
-</Col>
+  </Col>
 </Row>
+</div>
 </Container>
     </div>
     );

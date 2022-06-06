@@ -14,10 +14,10 @@ const Card = ({card,getChallenge,setType}) =>
  return (
      <div data-type={card} className='card' onClick={handleChallengeClick}>
          <div className='card-body'>
-         <h1 data-type={card}>{card}</h1>
-         <img className="card-img-top" src="https://thumbs.dreamstime.com/b/fast-run-icon-rush-graphic-design-logo-web-site-social-media-mobile-app-ui-illustration-183359890.jpg" alt="Card image"></img>
+            <h1 data-type={card}>{card}</h1>
+            <img className="card-img-top" src="https://thumbs.dreamstime.com/b/fast-run-icon-rush-graphic-design-logo-web-site-social-media-mobile-app-ui-illustration-183359890.jpg" alt="Card image"></img>
          </div>
-         </div>
+    </div>
  )
 }
 

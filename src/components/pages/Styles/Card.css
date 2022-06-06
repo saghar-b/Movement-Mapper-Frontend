@@ -2,6 +2,16 @@
     text-align: center;
 }
 
+.card-body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
 /* .card{
     /* display: flex !important;
     flex-direction: row !important;

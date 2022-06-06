@@ -4,6 +4,14 @@
     margin-left: 7%;
     margin-top: 30px;
 }
+
+.profile-page h1{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
 aside{
   
     display: flex;
@@ -12,6 +20,8 @@ aside{
     min-height: 100px;
    
 }
+
+
 .line {
 
     height: 100%;

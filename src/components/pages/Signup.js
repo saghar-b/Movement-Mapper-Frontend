@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Styles/Login.css';
+import './Styles/Signup.css';
 import { checkPassword, validateEmail } from '../../utils/helpers';
 import { useNavigate } from 'react-router-dom';
 
@@ -70,8 +70,8 @@ function Signup() {
   };
 
   return (
-    <div  >
-      <h2>Signup</h2>
+    <div className ='signup-form'  >
+      <h2 className = 'signup-title'>Signup</h2>
 
       <div >
 

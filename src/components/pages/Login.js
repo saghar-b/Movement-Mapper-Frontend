@@ -54,8 +54,8 @@ function Login(props) {
   };
 
   return (
-    <div  >
-      <h2>Login</h2>
+    <div className="login-form"  >
+      <h2 className='login-title'>Login</h2>
 
       <div >
 
@@ -76,7 +76,7 @@ function Login(props) {
               name="password"
               onChange={handleInputChange}
               type="password"
-              placeholder=""
+              placeholder="Password"
             />
           </div>
 

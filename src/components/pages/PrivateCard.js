@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './Styles/PrivateCard.css';
+import { useNavigate } from 'react-router-dom';
 function PublicCard({ challenge, getoneChallenge, setType }) {
-const [token, setToken] = useState([]);
-    // console.log("challenge");
-    // console.log(challenge);
+// const [token, setToken] = useState([]);
+
+    const navigate = useNavigate();
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -27,10 +28,7 @@ const [token, setToken] = useState([]);
             console.log(jwt(t))
             insertToDB(addChallenge)
           }else{
-            // saghar not to show the join btn if not logged in 
-            // saghar not to show delete button unless on dashboard page 
-            // TODO: Only show the edit & delete button when the creator is on their dashboard page
-            
+           
             alert("please log in")
           }
         
@@ -42,23 +40,44 @@ const [token, setToken] = useState([]);
             body: JSON.stringify(addChallenge),
             headers: {
               "Content-Type": "application/json",
-              authorization: localStorage.getItem("SavedToken")
+              authorization: "Bearer "+ localStorage.getItem("SavedToken")
     }})
     }
+// delete challenges
+   const  handleDeleteBtn =async ()=>{
+    const response = await fetch(`http://localhost:3001/api/challenges/${challenge.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: "Bearer "+ localStorage.getItem("SavedToken")
+        }
+    });
+    if (response.ok) {
+        
+    } else {
+        alert('Failed to delete');
+    }
+    // setIsJoined(false)
+   }
+
+   function handleViewInvitedBtn() {
+    navigate(`/invite`, { state: {challenge: challenge} })
+  }
     return (
         <>
         
         <div className='privateCard'>
-            <section data-type={challenge} className='card'>
-                <div >
+            <section data-type={challenge} >
+                <div className='card-hearder'>
                     <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                 </div>
                 <div className='card-body'>
                     {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>}
                     <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    {/* <button>Edit</button> */}
+                    <button onClick={handleDeleteBtn} className="button">Delete</button>
+                    <button className='button' onClick={handleViewInvitedBtn}>invite Challenge</button>
 
                 </div>
             </section >

@@ -6,6 +6,7 @@ import Score from './components/pages/Score';
 import Profile from './components/pages/Profile';
 import Challenges from './components/pages/Challenges';
 import Login from './components/pages/Login';
+import Invite from './components/pages/Invite';
 import NewChallenge from './components/pages/NewChallenge';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from "./components/pages/Signup";
@@ -23,8 +24,9 @@ const App = () => {
             <Route path="/challenges" element={<Challenges />} />
             <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/score" element={<Score />} />
+            <Route path="/leaderboard" element={<Score />} />
             <Route path='/profile/newchallenge' element={<NewChallenge/>} />
+            <Route path='/invite' element={<Invite/>} />
             <Route path="*" component = {() => "404 NOT FOUND"}/>
         </Routes>
     </BrowserRouter>

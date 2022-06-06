@@ -3,6 +3,7 @@ import './Styles/Score.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from './Log';
+import Chart from './Chart';
 import jwt from 'jwt-decode'
 
 export default function Score() {
@@ -51,8 +52,8 @@ export default function Score() {
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
-  
-      
+
+
       // check the use is joined
       fetch(`http://localhost:3001/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
         headers: {
@@ -60,29 +61,32 @@ export default function Score() {
         }
       }).then(res => res.json()).then(data => {
 
-        console.log("dathhhhhhhhhhhhhha",data.msg)
+        console.log("dathhhhhhhhhhhhhha", data.msg)
         if (data.msg === "NO") {
 
           setIsJoined(false)
         } else {
           setIsJoined(true)
           console.log("joined")
-         
+
         }
       })
     } else {
       console.log("Notlogedin")
       // navigate(`/score`, { state: { id: "", name: "", challenge_id: oneChallenge } })
     }
-    console.log(location.state.id)
-      console.log(location.state.challenge_id)
-      console.log(isCurrent)
+    // console.log(location.state.id)
+    // console.log("location.state.challenge_id")
+
 
 
   }
+
+  console.log(scores)
   // TODO: check if the person is in the event
   return (
     <>
+
       <div>{location.state.challenge_id}</div>
       <div>{location.state.name}</div>
       <div>{location.state.id}</div>
@@ -94,13 +98,13 @@ export default function Score() {
         </div>
         <div className='card-body'>
 
-        <label for="challenge">Challenge:</label>{challenge.Challenge_name}
-          {/* {scores[0].user_name}   */}
+          <label for="challenge">Challenge:</label>{challenge.Challenge_name}
+          <label for="participant">Participant:</label>
           <ul>
             {/* show all the participants */}
             {scores.map(part => (
               <li key="{part.id}">
-                 <label for="participant">Participant:</label>{part.user_name}
+                {part.user_name}
                 {part.score.distance}
 
               </li>
@@ -115,6 +119,9 @@ export default function Score() {
 
         </>
       }
+
+      <Chart scores={scores}></Chart>
+
 
     </>
   );

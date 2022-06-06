@@ -25,6 +25,8 @@ function NewChallenge() {
     const [imageIds, setImageIds] = useState('');
     const [imagepath, setImagepath] = useState('');
     const handleFileInputChange = (e) => {
+
+        console.log("handleFileInputChange")
         const file = e.target.files[0];
         previewFile(file);
 
@@ -81,12 +83,14 @@ function NewChallenge() {
         }
     }
 
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const t = localStorage.getItem('SavedToken');
         console.log("jwt username ", jwt(t).user_name);
         console.log("jwt id ", jwt(t).id);
         // handleSubmitFile();
+
 console.log("imagepath")
 console.log(imagepath)
         const challengeObj = {
@@ -113,7 +117,7 @@ console.log(imagepath)
         }).then(res => {
             if (res.ok) {
                 console.log(res)
-                // insertToDB(jwt(t).id,formTitle)
+                insertToDB(jwt(t).id,formTitle)
                 return res.json();
                 
                 alert("new challenge created!!")
@@ -211,7 +215,12 @@ console.log(imagepath)
                 </div>
 
                 <label>Picture?:</label>
-                <ImageUpload setImagepath={setImagepath} ></ImageUpload>
+                {/* <img imagepath/> */}
+                <ImageUpload setImagepath={setImagepath} onChange={handleFileInputChange} ></ImageUpload>
+                {previewSource && (
+                    <img src={previewSource} alt="chosen"
+                    style={{ height: '300px', width: '300px' }}/>
+                )}
                 <button
                     type="submit"
                     value="Submit"

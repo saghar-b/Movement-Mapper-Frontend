@@ -1,0 +1,18 @@
+label{
+padding: 10px;
+}
+
+.inviteUser{
+margin: 20px;
+}
+
+.button{
+    background-color: white;
+    width: fit-content;
+    border-radius: 6px;
+}
+
+.box{
+    margin: 30px;
+
+}

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './Styles/PrivateCard.css';
+import { useNavigate } from 'react-router-dom';
 function PublicCard({ challenge, getoneChallenge, setType }) {
-const [token, setToken] = useState([]);
-    // console.log("challenge");
-    // console.log(challenge);
+// const [token, setToken] = useState([]);
+
+    const navigate = useNavigate();
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -39,7 +40,7 @@ const [token, setToken] = useState([]);
             body: JSON.stringify(addChallenge),
             headers: {
               "Content-Type": "application/json",
-              authorization: localStorage.getItem("SavedToken")
+              authorization: "Bearer "+ localStorage.getItem("SavedToken")
     }})
     }
 // delete challenges
@@ -48,17 +49,20 @@ const [token, setToken] = useState([]);
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
+            authorization: "Bearer "+ localStorage.getItem("SavedToken")
         }
     });
     if (response.ok) {
-        console.log("response")
-        console.log(response)
-        window.location.reload(false);
+        
     } else {
         alert('Failed to delete');
     }
     // setIsJoined(false)
    }
+
+   function handleViewInvitedBtn() {
+    navigate(`/invite`, { state: {challenge: challenge} })
+  }
     return (
         <>
         
@@ -73,6 +77,7 @@ const [token, setToken] = useState([]);
                     <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     {/* <button>Edit</button> */}
                     <button onClick={handleDeleteBtn} className="button">Delete</button>
+                    <button className='button' onClick={handleViewInvitedBtn}>invite Challenge</button>
 
                 </div>
             </section >

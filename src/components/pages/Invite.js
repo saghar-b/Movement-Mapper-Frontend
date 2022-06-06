@@ -125,7 +125,7 @@ console.log(userName)
 
     </div>
 
-  );
+  )
 }
 
 export default Invite;

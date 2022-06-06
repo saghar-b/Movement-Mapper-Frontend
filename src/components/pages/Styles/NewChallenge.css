@@ -1,0 +1,35 @@
+.newchallenge-form form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 50px;
+    background-color: aqua;
+}
+
+.challengeform-container{
+    border: 5px dotted black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+    width: 50%;
+    background-color: aqua;
+}
+
+.newchallenge-form label{
+    font-size: 24px;
+    margin: 10px;
+}
+
+.newchallenge-form input{
+    width: 80%;
+}
+
+.newchallenge-form select{
+    width: 80%;
+}
+
+.newchallenge-form button{
+    margin: 20px;
+    width: 80%;
+}

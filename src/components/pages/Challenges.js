@@ -13,11 +13,12 @@ export default function Challenges() {
 
 
   useEffect(() => {
-    // const t =""
-    // const tokenrow = localStorage.getItem('SavedToken');
-    // if (tokenrow) {
-    //  const t = "Bearer " + tokenrow;
-    //   setToken(t)
+    const t =""
+    const tokenrow = localStorage.getItem('SavedToken');
+    if (tokenrow) {
+     const t = "Bearer " + tokenrow;
+      setToken(t)
+    }
     //   fetch(`http://localhost:3001/challenges/types/login/${ jwt(t).id}/${location.state.type}`, {
     //   headers: {
     //     "Content-Type": "application/json"
@@ -38,8 +39,6 @@ export default function Challenges() {
   
       })
 
-    // }
-    
   }, [])
 
 

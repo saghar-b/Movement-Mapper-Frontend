@@ -4,9 +4,22 @@ import jwt from 'jwt-decode'
 import './Styles/PrivateCard.css';
 import { useNavigate } from 'react-router-dom';
 function PublicCard({ challenge, getoneChallenge, setType }) {
-// const [token, setToken] = useState([]);
-
+    const [isPsast, setIsPsast] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        const today = new Date();
+        const start = new Date(challenge.start_time);
+        const end = new Date(challenge.end_time);
+        if (end < today) {
+          setIsPsast(false)
+          console.log("past")
+          console.log(isPsast)
+        } else {
+          setIsPsast(true)
+        }
+  
+    },[])
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -53,7 +66,7 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
         }
     });
     if (response.ok) {
-        
+        window.location.reload(false);
     } else {
         alert('Failed to delete');
     }
@@ -77,7 +90,10 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
                     <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     {/* <button>Edit</button> */}
                     <button onClick={handleDeleteBtn} className="button">Delete</button>
+                    {isPsast &&
+
                     <button className='button' onClick={handleViewInvitedBtn}>invite Challenge</button>
+                    }
 
                 </div>
             </section >

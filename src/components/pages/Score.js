@@ -18,7 +18,7 @@ export default function Score() {
 
 
   useEffect(() => {
-    //  get the specific challange
+    //  get the specific challange that already joined
     fetch(`http://localhost:3001/challenge/${location.state.challenge_id}`, {
       headers: {
         "Content-Type": "application/json"
@@ -33,8 +33,6 @@ export default function Score() {
       const today = new Date();
       const start = new Date(data.start_time);
       const end = new Date(data.end_time);
-      console.log(start);
-      console.log(end);
       if (start < today && end > today) {
         setIsCurrent(true)
         console.log("current")

@@ -25,7 +25,8 @@ function PublicCard({ challenge, getoneChallenge, token }) {
             const addChallenge = {
                 challenge_id: challenge.id,
                 user_id: jwt(token).id,
-                distance: "0"
+                distance: "0",
+                join :true
             }
          
             insertToDB(addChallenge)

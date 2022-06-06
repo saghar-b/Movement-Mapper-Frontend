@@ -71,9 +71,7 @@ export default function Profile() {
     navigate(`/profile/newchallenge`, { state: { id: token.id, name: token.user_name } })
   }
 
-  function handleViewBtn() {
-    navigate(`/Leaderboard`, { state: { id: token.id, name: token.user_name } })
-  }
+  
 
   function getoneChallenge(oneChallenge) {
 
@@ -95,7 +93,7 @@ export default function Profile() {
       <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
       <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
       <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
-
+      
       {/* start of creator's card */}
       <h1>Created Challenges</h1>
       <div className='createdChallenges'>
@@ -116,8 +114,7 @@ export default function Profile() {
 
 
       </div>
-      {/* <button onClick={handleViewBtn} style={{ textAlign: "center" }}>View Challenge</button> */}
-
+      
 
     </>
   )

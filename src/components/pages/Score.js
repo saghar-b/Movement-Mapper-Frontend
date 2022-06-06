@@ -95,12 +95,12 @@ export default function Score() {
         <div className='card-body'>
 
         <label for="challenge">Challenge:</label>{challenge.Challenge_name}
-          {/* {scores[0].user_name}   */}
+        <label for="participant">Participant:</label>
           <ul>
             {/* show all the participants */}
             {scores.map(part => (
               <li key="{part.id}">
-                 <label for="participant">Participant:</label>{part.user_name}
+                {part.user_name}
                 {part.score.distance}
 
               </li>

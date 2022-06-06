@@ -98,7 +98,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
     return (
         <>
             <div className='publicCard'>
-                <section data-type={challenge} className='card' >
+                <section data-type={challenge} className='card-hearder1' >
                     <div>
                         <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                     </div>
@@ -107,10 +107,10 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                         <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                         <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                         {isJoined &&
-                            <button onClick={handleLeaveBtn}>Leave</button>
+                            <button className="button" onClick={handleLeaveBtn}>Leave</button>
                         }
                         {!isJoined &&
-                            <button onClick={handleJoinBtn}>Join</button>
+                            <button className="button" onClick={handleJoinBtn}>Join</button>
                         }
 
 

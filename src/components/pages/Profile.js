@@ -94,20 +94,31 @@ export default function Profile() {
     <>
       <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
       <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
+      <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
 
       {/* start of creator's card */}
       <h1>Created Challenges</h1>
-      {createdChallenges.map(chal => (
-        <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
-      ))}
-      <h1>Joined Challenges</h1>
+      <div className='createdChallenges'>
 
-      {participatingChallenges.map(chal => (
-        <PublicCard challenge={chal} getoneChallenge={getoneChallenge}  token={token}></PublicCard>
-      ))}
+        {createdChallenges.map(chal => (
+          <PrivateCard challenge={chal} getoneChallenge={getoneChallenge}></PrivateCard>
+        ))}
 
-      <button onClick={handleViewBtn} style={{ textAlign: "center" }}>View Challenge</button>
-      <button onClick={handleNewViewBtn}>Create a New Challenge</button>
+      </div>
+      <div>
+        <h1>Joined Challenges</h1>
+
+      </div>
+      <div className='joinedChallenges'>
+        {participatingChallenges.map(chal => (
+          <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
+        ))}
+
+
+      </div>
+      {/* <button onClick={handleViewBtn} style={{ textAlign: "center" }}>View Challenge</button> */}
+
+
     </>
   )
 

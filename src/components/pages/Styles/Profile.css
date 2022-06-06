@@ -1,128 +1,31 @@
-.work{
+
+.createdChallenges{
+    margin: 5%;
+    width: 90%;
+    background-color: rgb(184, 211, 211);
+    border: 3px solid green;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
-    margin-left: 7%;
-    margin-top: 30px;
-}
-aside{
-  
-    display: flex;
-    flex-direction: row;
- 
-    min-height: 100px;
-   
-}
-.line {
-
-    height: 100%;
-
-    border-right: 5px solid var(--dark-navy);
-    /* position: absolute; */
-    margin-left: 40px;
-}
-.projects{
-    display: flex;
-    flex-direction: column;
-}
-.container {
-   
-    position:relative;
-    padding-bottom: 10px;
+    flex-wrap: wrap;
 }
 
-img:hover {
-    filter: sepia(90%)
-}
-.small-project {
-    display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-}
-.small-image {
-    
-    height: 300px;
-    width: 400px;
-    border: 1px solid gray;
-   
+.joinedChallenges{
+  margin: 5%;
+  width: 90%;
+  background-color: rgb(240, 218, 158);
+  border: 3px solid rgb(231, 145, 15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-
-.text-block {
-    background-color: var(--dark-navy);
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    text-align: left;
-}
-
-.text-block>p {
-    text-align: left;
-}
-.btn {
-    
-    line-height: 1px;
+.buttons{
+  background-color: white;
+  width: fit-content;
+  border-radius: 6px;
 }
 @media screen and (max-width: 390px) {
-    .work{
-        display: flex;
-        flex-direction: column;
-        margin-left: 10%;
-    }
-    aside{
-      
-        display: flex;
-        flex-direction: column;
-     
-        min-height: 100px;
-       
-    }
-    .line {
-
-     
-    
-        border-bottom: 3px solid var(--dark-navy);
-        position:relative;
-        right: 15px;
-        margin-left: 10px;
-    }
-
-    .container {
    
-        position:relative;
-        padding-top: 0px;
-        bottom: 40px;
-    } 
-   
-    .small-image {
-        height: 90%;
-        width: 90%;
-    
-    }
-    .small-project {
-        
-        flex-direction: column;
-        
-    }
-    
-    .text-block {
-        background-color: var(--dark-navy);
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        text-align: left;
-        
-    }
-    p{
-        font-size:8px;
-        text-align: left;
-    }
-    .textfont{
-        font-size:6px;
-    }
-   
-    .btn {
-        background-color: var(--dark-navy);
-        line-height: 1px;
-       
-    }
   }

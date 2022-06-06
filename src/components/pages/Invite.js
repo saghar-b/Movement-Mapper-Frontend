@@ -52,17 +52,14 @@ console.log(userName)
     console.log(tokenrow)
     if (tokenrow) {
       const t = "Bearer " + tokenrow;
-      // setToken(jwt(t))
        inviteObj = {
         challenge_id: location.state.challenge.id,
         user_id: foundUser.id,
         distance: "0",
         join: false
       }
-     
-      // console.log(jwt(t))
+    
       saveInvite(inviteObj)
-      // console.log(inviteObj)
     } else {
 
       alert("please log in")
@@ -102,9 +99,7 @@ console.log(userName)
             placeholder="User Name"
           />
         </div>
-
-
-
+        
         <button className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
           Search
         </button>

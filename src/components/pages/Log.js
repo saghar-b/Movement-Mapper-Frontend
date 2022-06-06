@@ -3,21 +3,31 @@
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from './UnitConverter';
+import jwt from 'jwt-decode'
 
 export default function Log(props) {
-  //  const [amount, setAmount] = useState(0);
   const [score, setScore] = useState(0)
   const [unit, setUnit] = useState("Mile")
+  const [token, setToken] = useState("");
   const location = useLocation();
 
   useEffect(() => {
     setScore(score)
+    const tokenrow = localStorage.getItem('SavedToken');
+    if (tokenrow) {
+     const t = "Bearer " + tokenrow;
+      setToken(t)
+    
+    }
+    else {
+      alert("Please log in")
+    }
   }, [])
   const handleFormSubmit = e => {
     e.preventDefault();
     const scoreObj = {
       challenge_id: props.challenge.id,
-      user_id: 1,
+      user_id: jwt(token).id,
       distance: score,
 
     }

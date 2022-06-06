@@ -35,7 +35,8 @@ function PublicCard({ challenge, getoneChallenge, token }) {
         }
     }
     function checkJoined() {
-    
+    console.log("hahahaha")
+    console.log(token)
         if (token != "") {
           
             // check the use is joined

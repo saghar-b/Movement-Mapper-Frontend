@@ -1,0 +1,12 @@
+:root {
+    --ming: #006D77;
+    --MBG: #83C5BE;
+    --aliceBlue: #EDF6F9;
+    --silk: #FFDDD2;
+    --darkSalmon: #E29578;
+    background-color: aliceblue;
+}
+
+.body{
+    background-color: aliceblue;
+}

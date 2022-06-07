@@ -9,7 +9,8 @@
     flex-direction: column !important;
     min-width: 10px !important;
     background-color: salmon !important;
-    margin: 20px !important
+    margin: 20px !important;
+
     /* work on this to change the design of the activity cards on homepage */
     /* display: flex !important;
     flex-direction: row !important;
@@ -25,11 +26,9 @@
     margin-bottom: 50px;
 }
 
-.card{
+.homepage-cards{
     display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 

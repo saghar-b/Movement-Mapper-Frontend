@@ -12,6 +12,7 @@ import ImageUpload from '../imageUpload/ImageUpload';
 //creator id from local storage session
 //add more to dropdown menu
 function NewChallenge() {
+    const [token, setToken] = useState();
     const navigate = useNavigate();
     const [formTitle, setTitle] = useState('');
     const [formDescription, setFormDescription] = useState('');
@@ -20,17 +21,15 @@ function NewChallenge() {
     const [formStartDate, setFormStartDate] = useState(new Date());
     const [formEndDate, setFormEndDate] = useState(new Date());
     const [formPicture, setFormPicture] = useState('');
-    const [selectedFile, setSelectedFile] = useState('');
     const [previewSource, setPreviewSource] = useState('');
-    const [imageIds, setImageIds] = useState('');
     const [imagepath, setImagepath] = useState('');
+    
     const handleFileInputChange = (e) => {
-
         console.log("handleFileInputChange")
         const file = e.target.files[0];
         previewFile(file);
-
     };
+    
     useEffect(() => {
         setImagepath(imagepath);
     }, [])
@@ -164,6 +163,7 @@ console.log(imagepath)
             console.log("new challange id")
             console.log(addToScore)
             console.log(newChallengesId)
+            
         })
     }
 
@@ -180,7 +180,7 @@ console.log(imagepath)
                 />
 
                 <label>Description:</label>
-                <input
+                <textarea
                     type="text"
                     value={formDescription}
                     onChange={handleInputChange}
@@ -214,19 +214,16 @@ console.log(imagepath)
                     <DatePicker name='formEndDate' selected={formEndDate} onChange={(date) => setFormEndDate(date)} />
                 </div>
 
-                <label>Picture?:</label>
-                {/* <img imagepath/> */}
-                <ImageUpload setImagepath={setImagepath} onChange={handleFileInputChange} ></ImageUpload>
-                {previewSource && (
-                    <img src={previewSource} alt="chosen"
-                    style={{ height: '300px', width: '300px' }}/>
-                )}
+                <label>Picture:</label>
+                <ImageUpload setImagepath={setImagepath}></ImageUpload>
+                <img src={imagepath}/>
                 <button
                     type="submit"
                     value="Submit"
                     className="challenge-submit-btn">
                         Submit
                 </button>
+                <div id="challenge-confirmation"></div>
 
             </form>
         </div>

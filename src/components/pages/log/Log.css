@@ -1,0 +1,21 @@
+
+ h1{
+    font-size:12px
+}
+  
+
+
+@media screen and (max-width: 390px) {
+
+    h2{
+        font-size: var(--fs-10);
+    }
+
+    .logInput> input{
+        width: 10%;
+    }
+    Form> button{
+        font-size: var(--fs-10);
+        background-color: white;
+    }
+}

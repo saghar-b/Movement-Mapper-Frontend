@@ -1,0 +1,31 @@
+
+.createdChallenges{
+    margin: 5%;
+    width: 90%;
+    background-color: rgb(184, 211, 211);
+    border: 3px solid green;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.joinedChallenges{
+  margin: 5%;
+  width: 90%;
+  background-color: rgb(240, 218, 158);
+  border: 3px solid rgb(231, 145, 15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.buttons{
+  background-color: white;
+  width: fit-content;
+  border-radius: 6px;
+}
+@media screen and (max-width: 390px) {
+   
+  }

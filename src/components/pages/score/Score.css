@@ -1,0 +1,13 @@
+
+.card{
+width: 60%;
+margin: 20px;
+border: 2px solid red;
+}
+.card-head{
+    background-color: teal;
+}
+
+.Leaderboard{
+    margin: 5%;
+}

@@ -1,0 +1,90 @@
+:root {
+  --dark-navy: #233554;
+  --light-text: #ccd6f6;
+  --no_color: rgba(0, 0, 0, 0);
+  --baby-blue: rgb(42, 153, 161);
+  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --detailColor: #ffc107;
+
+}
+header{
+  height: 120px;
+}
+.navbar {
+  background: var(--dark-navy);
+  height: 120px;
+  text-align: end;
+  justify-content: end;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+
+
+.logo img {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  width: 125px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin: 5px;
+  /* line-height: 3; */
+}
+
+@media screen and (max-width: 390px) {
+  header{
+    height: 130px;
+  }
+  .navbar {
+    background: #dab317;
+    height: 90px;
+    display: flex;
+    /* flex-direction: column; */
+    /* text-align:left; */
+  
+  justify-content: left;
+ 
+  justify-content:flex-start;
+  }
+  .navbar ul{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: left; */
+    font-size: 8px;
+  }
+  .navbar ul li a{
+    color: var(--dark-navy);
+  }
+
+  .navbar a {
+    color: white;
+    font-size: 0.5rem;
+    text-decoration: none;
+    margin: 5px;
+    /* line-height: 3; */
+  }
+  img {
+    height: 75px;
+    width: 75px;
+  
+  }
+
+}

@@ -1,0 +1,23 @@
+.privateCard {
+    /* background-color: darkslategray; */
+    border: 1px solid gray;
+    width: 400px;
+    margin: 30px;
+   
+}
+.button{
+    background-color: white;
+    width: fit-content;
+    border-radius: 6px;
+}
+.card-body{
+    padding: 20px;
+}
+.card-hearder{
+    background-color:rgb(75, 105, 105);
+    padding: 20px;
+    height: 150px;
+}
+.msg{
+    color: red;
+}

@@ -1,0 +1,53 @@
+.newchallenge-form form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: lightgrey;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin: 40px;
+}
+
+.challengeform-container{ 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    /* width: 50%; */
+    /* background-color: grey; */
+}
+
+.newchallenge-form label{
+    font-size: 24px;
+    margin: 10px;
+}
+
+.newchallenge-form input{
+    width: 80%;
+}
+
+.newchallenge-form select{
+    width: 80%;
+}
+
+.newchallenge-form button{
+    margin: 20px;
+    width: 80%;
+}
+
+img[src=""]{
+    display:none;  
+}
+
+.newchallenge-form img{
+    width: 300px;
+    height: 300px;
+}
+
+.newchallenge-form textarea{
+    width: 80%;
+}

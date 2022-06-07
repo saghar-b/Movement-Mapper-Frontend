@@ -12,7 +12,7 @@ function NewChallenge() {
     const navigate = useNavigate();
     const [formTitle, setTitle] = useState('');
     const [formDescription, setFormDescription] = useState('');
-    const [formType, setFormType] = useState('');
+    const [formType, setFormType] = useState('Run');
     const [unit, setUnit] = useState("Mile")
     const [formStartDate, setFormStartDate] = useState(new Date());
     const [formEndDate, setFormEndDate] = useState(new Date());

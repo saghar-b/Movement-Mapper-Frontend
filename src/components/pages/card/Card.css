@@ -8,12 +8,24 @@
     text-align: center;
     align-content: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
+.card img{
+height: 150px;
+width: 150px;
+}
 
-
-/* .card{
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-} */
+@media screen and (max-width: 750px) {
+    .card img{
+        height: 100px;
+        width: 100px;
+    }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .card img{
+            height: 50px;
+            width: 50px;
+        }
+    }

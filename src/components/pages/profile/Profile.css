@@ -26,6 +26,12 @@
   width: fit-content;
   border-radius: 6px;
 }
+
+#challBtn{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 @media screen and (max-width: 390px) {
    
   }

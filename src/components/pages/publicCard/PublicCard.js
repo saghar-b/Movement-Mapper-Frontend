@@ -102,10 +102,12 @@ function PublicCard({ challenge, getoneChallenge, token }) {
             <div className='publicCard'>
                 <section data-type={challenge} className='card-hearder1' >
                     <div>
-                        <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
+                        <h1 className='public-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
+                   <div className='public-img'>
                    <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                   </div>
                     </div>
-                    <div className='card-body'>
+                    <div className='card-body2'>
                         <h4>{challenge.creator.user_name}</h4>
                         <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                         <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>

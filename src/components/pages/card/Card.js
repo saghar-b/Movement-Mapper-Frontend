@@ -1,24 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Card.css';
+import run from '../../../assets/run.png'
+import hike from '../../../assets/hike.png'
+import bike from '../../../assets/bike.png'
+import walk from '../../../assets/walk.png'
+import swim from '../../../assets/swim.png'
+import row from '../../../assets/row.png'
+import weight from '../../../assets/weight.png'
+
 
 const Card = ({card,getChallenge,setType}) =>
 {
-//     console.log("card******")
-//     console.log(card)
+    console.log("card", card)
+    const [image, setImage] = useState(false);
+    // const [isRun, setIsRun] = useState(false);
+    useEffect(() => {
+        if(card === "Run"){
+            setImage(run)
+            
+        } else if(card === "Hike"){
+            setImage(hike)
+        }
+    else if(card === "Bike"){
+        setImage(bike)
+    }
+    else if(card === "Walk"){
+        setImage(walk)
+    }
+    else if(card === "Swim"){
+        setImage(swim)
+    }
+    else if(card === "Row"){
+        setImage(row)
+    }    
+    else if(card === "Weights"){
+        setImage(weight)
+    }
+      }, [])
+    
     function handleChallengeClick(e){
         e.preventDefault();
-        // console.log(e.target.dataset.type)
-        // setType(e.target.dataset.type)
         getChallenge(e.target.dataset.type);
     }
  return (
      <div data-type={card} className='card' onClick={handleChallengeClick}>
          <div className='card-body'>
             <h1 data-type={card}>{card}</h1>
-            <img className="card-img-top" src="https://thumbs.dreamstime.com/b/fast-run-icon-rush-graphic-design-logo-web-site-social-media-mobile-app-ui-illustration-183359890.jpg" alt="Card image"></img>
+            <img  data-type={card} className="card-img-top" src={image} alt="Card image" onClick={handleChallengeClick}></img>
          </div>
     </div>
  )
 }
-
 export default Card;

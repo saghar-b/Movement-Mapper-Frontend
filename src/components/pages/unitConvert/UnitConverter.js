@@ -5,8 +5,8 @@ const converter = require('length-distance-converter')
 
 export default function UnitConverter(props) {
   
-  const [unit, setUnit] = useState("Mile")
-  const [originalValue, setOriginalValue] = useState("Mile")
+  const [unit, setUnit] = useState("mile")
+  const [originalValue, setOriginalValue] = useState("0")
   
 
   const handleFormSubmit = e => {

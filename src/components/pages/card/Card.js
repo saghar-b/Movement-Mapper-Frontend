@@ -46,7 +46,7 @@ const Card = ({card,getChallenge,setType}) =>
      <div data-type={card} className='card' onClick={handleChallengeClick}>
          <div className='card-body'>
             <h1 data-type={card}>{card}</h1>
-            <img className="card-img-top" src={image} alt="Card image"></img>
+            <img  data-type={card} className="card-img-top" src={image} alt="Card image" onClick={handleChallengeClick}></img>
          </div>
     </div>
  )

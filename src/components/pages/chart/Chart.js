@@ -1,12 +1,12 @@
 // import React from 'react';
-import './Styles/Score.css';
+// import './Styles/Score.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import Log from './Log';
+// import Log from '../Log';
 import jwt from 'jwt-decode'
 // import Canvas from './Canvas'
 // import CanvasJSReact from './canvasjs.react';
-import CanvasJSReact from '../../assets/canvasjs.react';
+import CanvasJSReact from '../../../assets/canvasjs.react';
 //var CanvasJSReact = require('./canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;

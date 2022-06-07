@@ -1,13 +1,14 @@
 import React from 'react';
-import './Styles/Profile.css';
+import './Profile.css';
 // import Moment from 'moment';
-import PrivateCard from './PrivateCard';
-import PendingCard from './PendingCard';
+import PrivateCard from '../privateCard/PrivateCard';
+import PendingCard from '../pendingCard/PendingCard';
+import PublicCard from '../publicCard/PublicCard';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
-import PublicCard from './PublicCard';
+
 // import PendingCard from './PendingCard';
 
 

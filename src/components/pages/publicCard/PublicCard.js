@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
-import './Styles/PublicCard.css';
+import './PublicCard.css';
 function PublicCard({ challenge, getoneChallenge, token }) {
 
     const [isJoined, setIsJoined] = useState(false);

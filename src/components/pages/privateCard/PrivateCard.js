@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
-import './Styles/PrivateCard.css';
+import './PrivateCard.css';
 import { useNavigate } from 'react-router-dom';
 function PublicCard({ challenge, getoneChallenge, setType }) {
     const [isPsast, setIsPsast] = useState(false);

@@ -1,6 +1,6 @@
 
 import React, {  useState } from 'react';
-
+const converter = require('length-distance-converter')
 
 export default function UnitConverter(props) {
   
@@ -10,12 +10,20 @@ export default function UnitConverter(props) {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    if(unit==="Mile")
+    if(unit==="mile")
     {
-     props.setScore( originalValue*1.60934)
+     props.setScore( converter.kmToMiles(originalValue))
     }
-    else{
-      props.setScore( originalValue*0.621371)
+    else if(unit==="km"){
+      props.setScore(converter.milesToKm(originalValue))
+ 
+    }
+    else if(unit==="feet"){
+      props.setScore( converter.metersToFeet(originalValue))
+ 
+    }
+    else if(unit==="meter"){
+      props.setScore( converter.feetToMeter(originalValue))
  
     }
    
@@ -28,8 +36,10 @@ export default function UnitConverter(props) {
         <input placeholder="0" name="originalalue" type="number" value={originalValue} onChange={(e) => { setOriginalValue(e.target.value) }} />
        {/* <label>{props.challenge.unit}</label> */}
         <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
-          <option value="Mile">Mile</option>
-          <option value="KM">km</option>
+          <option value="mile">km to mile</option>
+          <option value="km">mile to km</option>
+          <option value="feet">meter to feet</option>
+          <option value="meter">feet to meter</option>
 
         </select>
         <button>Convert!</button>

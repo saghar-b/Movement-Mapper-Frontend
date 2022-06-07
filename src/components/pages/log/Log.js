@@ -2,7 +2,7 @@
 // import './Styles/Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import UnitConverter from './UnitConverter';
+import UnitConverter from '../unitConvert/UnitConverter';
 import jwt from 'jwt-decode'
 
 export default function Log(props) {

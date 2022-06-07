@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from './Card';
+import Card from '../card/Card';
 import {Carousel} from 'react-bootstrap';
 import {Container} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
-import './Styles/Home.css';
+import './Home.css';
 
 export default function Home() {
   const [types, setTypes] = useState([]);

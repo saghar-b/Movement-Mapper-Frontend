@@ -1,10 +1,10 @@
 // import React from 'react';
-import './Styles/Score.css';
+import './Score.css';
+// import './Styles/PrivateCard.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import Log from './Log';
-import Chart from './Chart';
-import jwt from 'jwt-decode'
+import Log from '../log/Log';
+import Chart from '../chart/Chart';
 
 export default function Score() {
   const location = useLocation();
@@ -22,7 +22,6 @@ export default function Score() {
     fetch(`http://localhost:3001/challenge/${location.state.challenge_id}`, {
       headers: {
         "Content-Type": "application/json"
-        //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
 
@@ -71,54 +70,48 @@ export default function Score() {
       })
     } else {
       console.log("Notlogedin")
-      // navigate(`/score`, { state: { id: "", name: "", challenge_id: oneChallenge } })
     }
-    // console.log(location.state.id)
-    // console.log("location.state.challenge_id")
-
-
 
   }
 
   console.log(scores)
-  // TODO: check if the person is in the event
+
   return (
     <>
+      <div className='Leaderboard'>
+        <h1>Leaderboard</h1>
 
-      <div>{location.state.challenge_id}</div>
-      <div>{location.state.name}</div>
-      <div>{location.state.id}</div>
-      <h1>Leaderboard</h1>
-      {/* changed "score to leaderboard" */}
-      <section className='card'>
-        <div className='card-head'>
-          <h3>{challenge.Challenge_type}</h3>
-        </div>
-        <div className='card-body'>
+        <section className='card'>
+          <div className='card-head'>
+            <h3>{challenge.Challenge_type}</h3>
+          </div>
+          <div className='card-body'>
 
-          <label for="challenge">Challenge:</label>{challenge.Challenge_name}
-          <label for="participant">Participant:</label>
-          <ul>
-            {/* show all the participants */}
-            {scores.map(part => (
-              <li key="{part.id}">
-                {part.user_name}
-                {part.score.distance}
+            <label for="challenge">Challenge:</label>{challenge.Challenge_name}
+            <label for="participant">Participant:</label>
+            <ul>
+              {/* show all the participants */}
+              {scores.map(part => (
+                <li key="{part.id}">
+                  {part.user_name}
+                  {part.score.distance}
 
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
 
-        </div>
-      </section>
-      {isCurrent && location.state.id && isJoined &&
-        <>
-          <Log setScores={setScores} setChallenge={setChallenge} challenge={challenge} userId={location.state.id} />
+          </div>
+        </section>
+        {isCurrent && location.state.id && isJoined &&
+          <>
+            <Log setScores={setScores} setChallenge={setChallenge} challenge={challenge} userId={location.state.id} />
 
-        </>
-      }
+          </>
+        }
 
-      <Chart scores={scores}></Chart>
+        <Chart scores={scores}></Chart>
+
+      </div>
 
 
     </>

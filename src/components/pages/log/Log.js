@@ -1,5 +1,5 @@
 // import React from 'react';
-// import './Styles/Log.css';
+import './Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from '../unitConvert/UnitConverter';

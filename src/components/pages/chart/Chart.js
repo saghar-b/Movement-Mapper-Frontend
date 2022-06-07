@@ -23,7 +23,7 @@ scores.forEach(element => {
 console.log(data)
   const options = {
     title: {
-      text: "Leaderboard Chart"
+      text: "."
     },
     data: [{				
               type: "column",
@@ -33,6 +33,9 @@ console.log(data)
  
   return (
     <>
+    <div>
+      <h2>Leaderboard Chart</h2>
+    </div>
      <div>
         <CanvasJSChart options = {options}
         />

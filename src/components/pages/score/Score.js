@@ -44,7 +44,6 @@ export default function Score() {
   }, [])
 
   function checkJoined() {
-    console.log("joinnnnnn")
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;

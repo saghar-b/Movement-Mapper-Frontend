@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../card/Card';
 import { Carousel } from 'react-bootstrap';
+import {getBaseUrl} from '../../../utils/API'
 // import {Container} from 'react-bootstrap';
 // import {Col} from 'react-bootstrap';
 // import {Row} from 'react-bootstrap';
 import './Home.css';
+import '../../../../src/global.css'
 
 export default function Home() {
   const [types, setTypes] = useState([]);
   const [type, setType] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:3001/challenges/types", {
+    fetch(`${getBaseUrl()}/challenges/types`, {
       headers: {
         "Content-Type": "application/json"
         //  authorization: localStorage.getItem("SavedToken")
@@ -38,34 +40,28 @@ export default function Home() {
     <div className='homepage'>
       <Carousel className='container' variant="dark">
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="http://webvision.med.utah.edu/wp-content/uploads/2012/06/50-percent-gray.jpg"
-            alt="First slide"
-          />
+          <div id="box1"
+            className="d-block w-100">
+          </div>
           <Carousel.Caption className='headers'>
-            <h3>Welcome to MoveMovement Mapper</h3>
+            <h3 id="welcome">Welcome to MoveMovement Mapper</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="http://webvision.med.utah.edu/wp-content/uploads/2012/06/50-percent-gray.jpg"
-            alt="Second slide"
-          />
+        <div id="box2"
+            className="d-block w-100">
+          </div>
           <Carousel.Caption className='headers'>
-            <h3>Find Challenges to Join</h3>
+            <h3 id="join">Find Challenges to Join</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="http://webvision.med.utah.edu/wp-content/uploads/2012/06/50-percent-gray.jpg"
-            alt="Third slide"
-          />
+        <div id="box3"
+            className="d-block w-100">
+          </div>
 
           <Carousel.Caption className='headers'>
-            <h3>Create Challenges with your Friends!</h3>
+            <h3 id="create">Create Challenges with your Friends!</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

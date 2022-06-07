@@ -6,11 +6,9 @@ import jwt from 'jwt-decode';
 import dateFormat from "dateformat";
 import './NewChallenge.css'
 import ImageUpload from '../imageUpload/ImageUpload';
+import {getBaseUrl} from '../../../utils/API'
 
-//drop down on form type AND/OR new option
-//drop down menu for form unit
-//creator id from local storage session
-//add more to dropdown menu
+
 function NewChallenge() {
     const [token, setToken] = useState();
     const navigate = useNavigate();
@@ -24,44 +22,10 @@ function NewChallenge() {
     const [previewSource, setPreviewSource] = useState('');
     const [imagepath, setImagepath] = useState('');
     
-    const handleFileInputChange = (e) => {
-        console.log("handleFileInputChange")
-        const file = e.target.files[0];
-        previewFile(file);
-    };
     
     useEffect(() => {
         setImagepath(imagepath);
     }, [])
-    
-    const previewFile = (file) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        }
-    }
-
-    const handleSubmitFile = (e) => {
-        // e.preventDefault();
-        console.log('hello submit')
-        if (!previewSource) return;
-        uploadImage(previewSource);
-    }
-
-    const uploadImage = async (base64EncodedImage) => {
-        console.log(base64EncodedImage);
-        try {
-            await fetch('http://localhost:3001/api/images/upload',{
-                method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
-                headers: { 'Content-type': 'application/json' }
-            });
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -86,12 +50,7 @@ function NewChallenge() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const t = localStorage.getItem('SavedToken');
-        console.log("jwt username ", jwt(t).user_name);
-        console.log("jwt id ", jwt(t).id);
-        // handleSubmitFile();
-
-console.log("imagepath")
-console.log(imagepath)
+        
         const challengeObj = {
             Challenge_name: formTitle,
             description: formDescription,
@@ -103,10 +62,8 @@ console.log(imagepath)
             user_name: jwt(t).user_name,
             creator_id: jwt(t).id
         }
-        console.log('challengeObj', challengeObj)
-
-
-        fetch("http://localhost:3001/api/challenges/new", {
+        
+        fetch(`${getBaseUrl()}/api/challenges/new`, {
             method: "POST",
             body: JSON.stringify(challengeObj),
             headers: {
@@ -115,14 +72,14 @@ console.log(imagepath)
             }
         }).then(res => {
             if (res.ok) {
-                console.log(res)
                 insertToDB(jwt(t).id,formTitle)
-                return res.json();
-                
                 alert("new challenge created!!")
+                navigate(`/profile/`, { state: { id: jwt(t).id, name: jwt(t).user_name } });
+                // return res.json();
+                
+                
             } else {
                 throw res.json
-                console.log('an error has occurred')
             }
         })
 
@@ -136,10 +93,8 @@ console.log(imagepath)
         setFormPicture('')
     };
     function insertToDB(userId,challenge_name) {
-        console.log("vaghean")
         // get the new challenge id
-        
-        fetch(`http://localhost:3001/challenges/score/id/${challenge_name}`, {
+        fetch(`${getBaseUrl()}/challenges/score/id/${challenge_name}`, {
             headers: {
                 "Content-Type": "application/json",
                 // authorization: "Bearer " + localStorage.getItem("SavedToken")
@@ -152,7 +107,7 @@ console.log(imagepath)
                 join :true
             }
             // save the new challge and user to the score
-        fetch("http://localhost:3001/api/scores/new", {
+        fetch(`${getBaseUrl()}/api/scores/new`, {
             method: "POST",
             body: JSON.stringify(addToScore),
             headers: {
@@ -160,9 +115,6 @@ console.log(imagepath)
                 authorization: localStorage.getItem("SavedToken")
             }
         })
-            console.log("new challange id")
-            console.log(addToScore)
-            console.log(newChallengesId)
             
         })
     }
@@ -200,8 +152,11 @@ console.log(imagepath)
 
                 <label>Unit:</label>
                 <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
-                    <option value="Mile">Mile</option>
+                    <option value="mile">Mile</option>
                     <option value="km">km</option>
+                    <option value="feet">Feet</option>
+                    <option value="meter">Meter</option>
+                    <option value="rep">Rep</option>
                 </select>
 
                 <label>Start:</label>

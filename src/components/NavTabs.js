@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode'
 import M from '../assets/M.png'
+import '../../src/global.css';
 
 
 function NavTabs(props) {
@@ -14,7 +15,6 @@ function NavTabs(props) {
     const t = localStorage.getItem('SavedToken');
     if (t) {
       const token = jwt(t)
-      // console.log(t)
       setToken(jwt(t))
       props.setIsLoggedIn(true);
 
@@ -38,7 +38,12 @@ function NavTabs(props) {
 
   //  Dashboard button
   function handlePortfolio() {
-    navigate(`/profile/`, { state: { id: token.id, name: token.user_name } });
+    const tok = localStorage.getItem('SavedToken');
+    if (tok) {
+      navigate(`/profile/`, { state: { id: jwt(tok).id, name: jwt(tok).user_name } });
+    } else{
+      alert("Please log in")
+    }
   }
 
   return (

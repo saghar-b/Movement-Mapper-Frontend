@@ -1,10 +1,11 @@
 // import React from 'react';
 import './Score.css';
-// import './Styles/PrivateCard.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from '../log/Log';
 import Chart from '../chart/Chart';
+import {getBaseUrl} from '../../../utils/API'
+
 
 export default function Score() {
   const location = useLocation();
@@ -19,7 +20,7 @@ export default function Score() {
 
   useEffect(() => {
     //  get the specific challange that already joined
-    fetch(`http://localhost:3001/challenge/${location.state.challenge_id}`, {
+    fetch(`${getBaseUrl()}/challenge/${location.state.challenge_id}`, {
       headers: {
         "Content-Type": "application/json"
       }
@@ -45,20 +46,18 @@ export default function Score() {
   }, [])
 
   function checkJoined() {
-    console.log("joinnnnnn")
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
 
 
       // check the use is joined
-      fetch(`http://localhost:3001/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
+      fetch(`${getBaseUrl()}/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
         headers: {
           "Content-Type": "application/json"
         }
       }).then(res => res.json()).then(data => {
 
-        console.log("dathhhhhhhhhhhhhha", data.msg)
         if (data.msg === "NO") {
 
           setIsJoined(false)
@@ -79,22 +78,28 @@ export default function Score() {
   return (
     <>
       <div className='Leaderboard'>
-        <h1>Leaderboard</h1>
+        <h1 className='saghar'>Leaderboard</h1>
 
-        <section className='card'>
-          <div className='card-head'>
+        <section className='Scorecard'>
+          <div className='cardHead'>
             <h3>{challenge.Challenge_type}</h3>
           </div>
-          <div className='card-body'>
+          <div className='cardBody'>
+            <div className='challenge'>
 
-            <label for="challenge">Challenge:</label>{challenge.Challenge_name}
-            <label for="participant">Participant:</label>
+              <label for="challenge">Challenge:</label>
+              {challenge.Challenge_name}
+            </div>
+            <div>
+
+              <label for="participant">Participant:</label>
+            </div>
             <ul>
               {/* show all the participants */}
               {scores.map(part => (
                 <li key="{part.id}">
-                  {part.user_name}
-                  {part.score.distance}
+                  <p>{part.user_name}</p>
+                  <p>{part.score.distance}</p>
 
                 </li>
               ))}
@@ -103,13 +108,15 @@ export default function Score() {
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&
-          <>
+          <div className='log'>
             <Log setScores={setScores} setChallenge={setChallenge} challenge={challenge} userId={location.state.id} />
 
-          </>
+          </div>
         }
+        <div className='chart'>
 
-        <Chart scores={scores}></Chart>
+          <Chart scores={scores}></Chart>
+        </div>
 
       </div>
 

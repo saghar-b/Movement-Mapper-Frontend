@@ -3,6 +3,8 @@ import './Signup.css';
 // import { checkPassword, validateEmail } from '../../utils/helpers';
 import { checkPassword, validateEmail } from '../../../utils/helpers';
 import { useNavigate } from 'react-router-dom';
+import {getBaseUrl} from '../../../utils/API'
+
 
 function Signup() {
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ function Signup() {
       return;
     }
 
-    fetch("http://localhost:3001/api/users/signup", {
+    fetch(`${getBaseUrl()}/api/users/signup`, {
       method: "POST",
       body: JSON.stringify(userObj),
       headers: {

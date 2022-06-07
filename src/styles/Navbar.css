@@ -1,5 +1,4 @@
 :root {
-  --dark-navy: #233554;
   --light-text: #ccd6f6;
   --no_color: rgba(0, 0, 0, 0);
   --baby-blue: rgb(42, 153, 161);
@@ -19,7 +18,7 @@ header{
   height: 120px;
 }
 .navbar {
-  background: var(--dark-navy);
+  background: var(--ming);
   height: 120px;
   text-align: end;
   justify-content: end;
@@ -32,8 +31,9 @@ header{
 .logo img {
   display: flex;
   flex-direction: row;
-  padding-left: 10px;
+  margin-left: 10px; 
   width: 125px;
+  border-radius: 20px;
 }
 
 img {

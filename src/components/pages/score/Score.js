@@ -57,7 +57,6 @@ export default function Score() {
         }
       }).then(res => res.json()).then(data => {
 
-        console.log("dathhhhhhhhhhhhhha", data.msg)
         if (data.msg === "NO") {
 
           setIsJoined(false)

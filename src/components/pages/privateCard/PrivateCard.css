@@ -1,23 +1,38 @@
 .privateCard {
     /* background-color: darkslategray; */
     border: 1px solid gray;
-    width: 400px;
+    width: 300px;
+    height: 400px;
     margin: 30px;
-   
 }
-.button{
+
+.card-body1 {
     background-color: white;
-    width: fit-content;
-    border-radius: 6px;
+    padding: 20px !important;
+    margin-top: 100px !important;
+    margin-left: 20px ;
+    margin-right: 20px ;
 }
-.card-body{
+
+.card-hearder {
+    background-color: rgb(75, 105, 105);
     padding: 20px;
+    height: 100px;
 }
-.card-hearder{
-    background-color:rgb(75, 105, 105);
-    padding: 20px;
-    height: 150px;
-}
-.msg{
+
+.msg {
     color: red;
+}
+
+.private-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.private-img{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
 }

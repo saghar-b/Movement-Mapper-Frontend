@@ -105,9 +105,10 @@ export default function Profile() {
   return (
     <>
       <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
-      <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
+      <p style={{ textAlign: "center", display: "none" }}>User ID: {location.state.id}</p>
+      <div id="challBtn">
       <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
-
+      </div>
       {/* start of creator's card */}
       <h1>Created Challenges</h1>
       <div className='createdChallenges'>

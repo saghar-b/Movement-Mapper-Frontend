@@ -32,7 +32,7 @@ export default function UnitConverter(props) {
   return (
     <>
 
-      <h1>Unit Conventor</h1>
+      <h2>Unit Conventor</h2>
       <form className="Form Conventor" onSubmit={handleFormSubmit}>
         <input placeholder="0" name="originalalue" type="number" value={originalValue} onChange={(e) => { setOriginalValue(e.target.value) }} />
         <select className="unit" name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>

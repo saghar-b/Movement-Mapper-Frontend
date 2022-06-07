@@ -7,17 +7,15 @@
 
 @media screen and (max-width: 390px) {
 
-    h1{
+    h2{
         font-size: var(--fs-10);
     }
 
-    Form> input{
-        width: 30%;
-    }
-    .Form{
-        padding-bottom: 10px;
+    .logInput> input{
+        width: 10%;
     }
     Form> button{
         font-size: var(--fs-10);
+        background-color: white;
     }
 }

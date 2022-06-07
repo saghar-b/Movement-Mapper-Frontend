@@ -1,16 +1,4 @@
-
-.card{
-width: 60%;
-margin: 20px;
-border: 2px solid red;
-}
-.card-head{
-    background-color: teal;
-}
-
-.Leaderboard{
-    margin: 5%;
-}:root {
+:root {
     --light-gray: #EDF6F9;
     --light-teal: #83C5BE;
     --dark-teal: #006D77;
@@ -38,7 +26,7 @@ border: 2px solid red;
     border: 2px solid var(--dark-teal)
 }
 
-.card-head {
+.cardHead {
     background-color: var(--light-teal);
 }
 
@@ -47,6 +35,7 @@ border: 2px solid red;
 }
 
 label {
+
     font-size: var(--fs-20);
     font-weight: bold;
 }
@@ -61,8 +50,9 @@ p {
     padding-right: 20px;
 }
 
-.log {
-    margin: 20px;
+.log  {
+    margin-top: 60px;
+    margin-left: 20px;
 }
 
 .Leaderboard>h1 {
@@ -73,13 +63,19 @@ p {
 .challenge p {
     margin-left: 60px;
 }
-h3{
+
+h3 {
     text-align: center;
 }
 
-.card-head{
-padding: 20px;
+.card-head {
+    padding: 20px;
 }
+
+.challenge{
+    text-align: left;
+}
+
 @media screen and (max-width: 390px) {
     .Leaderboard>h1 {
         padding-left: 20px;
@@ -95,35 +91,43 @@ padding: 20px;
     .card-head {
         background-color: var(--light-teal);
     }
+
     label {
         font-size: var(--fs-12);
-        font-weight:normal;
+        font-weight: normal;
         padding: 0%;
     }
-    
+
     li {
         display: flex;
         flex-direction: row;
         font-size: var(--fs-20);
         padding: 0%;
     }
-    
+
     p {
         padding-right: 10px;
     }
-    
+
     .log {
         margin: 20px;
     }
-
+    .log input{
+       width: 30%;
+    }
+  
     .challenge p {
         padding: 0%;
         margin-left: 40px;
     }
 
 
-.card-head{
-    padding: 6px;
+    .card-head {
+        padding: 6px;
+    }
+
+  .log>  h2{
+        font-size: var(--fs-14)
     }
 
 }

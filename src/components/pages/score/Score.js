@@ -80,10 +80,10 @@ export default function Score() {
         <h1 className='saghar'>Leaderboard</h1>
 
         <section className='Scorecard'>
-          <div className='card-head'>
+          <div className='cardHead'>
             <h3>{challenge.Challenge_type}</h3>
           </div>
-          <div className='card-body'>
+          <div className='cardBody'>
             <div className='challenge'>
 
               <label for="challenge">Challenge:</label>
@@ -98,7 +98,7 @@ export default function Score() {
               {scores.map(part => (
                 <li key="{part.id}">
                   <p>{part.user_name}</p>
-                 <p>{part.score.distance}</p> 
+                  <p>{part.score.distance}</p>
 
                 </li>
               ))}
@@ -112,8 +112,10 @@ export default function Score() {
 
           </div>
         }
+        <div className='chart'>
 
-        <Chart  scores={scores}></Chart>
+          <Chart scores={scores}></Chart>
+        </div>
 
       </div>
 

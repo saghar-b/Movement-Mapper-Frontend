@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode';
 import dateFormat from "dateformat";
 import './NewChallenge.css'
+import ImageUpload from '../imageUpload/ImageUpload';
 
 //drop down on form type AND/OR new option
 //drop down menu for form unit
@@ -22,13 +23,18 @@ function NewChallenge() {
     const [selectedFile, setSelectedFile] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [imageIds, setImageIds] = useState('');
-    
+    const [imagepath, setImagepath] = useState('');
     const handleFileInputChange = (e) => {
+
+        console.log("handleFileInputChange")
         const file = e.target.files[0];
         previewFile(file);
 
     };
-
+    useEffect(() => {
+        setImagepath(imagepath);
+    }, [])
+    
     const previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -77,20 +83,23 @@ function NewChallenge() {
         }
     }
 
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const t = localStorage.getItem('SavedToken');
         console.log("jwt username ", jwt(t).user_name);
         console.log("jwt id ", jwt(t).id);
-        handleSubmitFile();
+        // handleSubmitFile();
 
+console.log("imagepath")
+console.log(imagepath)
         const challengeObj = {
             Challenge_name: formTitle,
             description: formDescription,
             Challenge_type: formType,
             start_time: dateFormat(formStartDate, "isoUtcDateTime"),
             end_time: dateFormat(formEndDate, "isoUtcDateTime"),
-            picture_path: formPicture,
+            picture_path: imagepath,
             unit: unit,
             user_name: jwt(t).user_name,
             creator_id: jwt(t).id
@@ -107,7 +116,7 @@ function NewChallenge() {
             }
         }).then(res => {
             if (res.ok) {
-                console.log(res.json)
+                console.log(res)
                 insertToDB(jwt(t).id,formTitle)
                 return res.json();
                 
@@ -179,12 +188,15 @@ function NewChallenge() {
                 />
 
                 <label>Type:</label>
-                <input
-                    type="text"
-                    value={formType}
-                    onChange={handleInputChange}
-                    name="formType"
-                />
+                <select name="type" value={formType} onChange={(e) => { setFormType(e.target.value) }}>
+                    <option value="Run">Run</option>
+                    <option value="Bike">Bike</option>
+                    <option value="Hike">Hike</option>
+                    <option value="Walk">Walk</option>
+                    <option value="Swim">Swim</option>
+                    <option value="Weights">Weights</option>
+                    <option value="Row">Row</option>
+                </select>
 
                 <label>Unit:</label>
                 <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
@@ -203,13 +215,8 @@ function NewChallenge() {
                 </div>
 
                 <label>Picture?:</label>
-                <input
-                    type="file"
-                    value={formPicture}
-                    onChange={handleFileInputChange}
-                    name="formPicture"
-                    className="form-input"
-                />
+                {/* <img imagepath/> */}
+                <ImageUpload setImagepath={setImagepath} onChange={handleFileInputChange} ></ImageUpload>
                 {previewSource && (
                     <img src={previewSource} alt="chosen"
                     style={{ height: '300px', width: '300px' }}/>

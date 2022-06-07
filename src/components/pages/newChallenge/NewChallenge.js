@@ -20,7 +20,7 @@ function NewChallenge() {
     const [formEndDate, setFormEndDate] = useState(new Date());
     const [formPicture, setFormPicture] = useState('');
     const [previewSource, setPreviewSource] = useState('');
-    const [imagepath, setImagepath] = useState('');
+    const [imagepath, setImagepath] = useState(`https://topnaija.ng/wp-content/uploads/2017/12/challenges.png`);
     
     
     useEffect(() => {
@@ -172,6 +172,7 @@ function NewChallenge() {
                 <label>Picture:</label>
                 <ImageUpload setImagepath={setImagepath}></ImageUpload>
                 <img src={imagepath}/>
+                
                 <button
                     type="submit"
                     value="Submit"

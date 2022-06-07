@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import PublicCard from './PublicCard';
+import PublicCard from '../publicCard/PublicCard';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode'
 

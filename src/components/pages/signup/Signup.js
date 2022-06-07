@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Styles/Signup.css';
-import { checkPassword, validateEmail } from '../../utils/helpers';
+import './Signup.css';
+// import { checkPassword, validateEmail } from '../../utils/helpers';
+import { checkPassword, validateEmail } from '../../../utils/helpers';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {

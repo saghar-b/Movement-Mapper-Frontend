@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Styles/Invite.css';
+import './Invite.css';
 // import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import jwt from 'jwt-decode'

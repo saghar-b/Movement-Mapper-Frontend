@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode';
 import dateFormat from "dateformat";
-import './Styles/NewChallenge.css'
+import './NewChallenge.css'
 
 //drop down on form type AND/OR new option
 //drop down menu for form unit

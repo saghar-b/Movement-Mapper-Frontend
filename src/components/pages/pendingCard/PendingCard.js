@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode';
-import './Styles/PendingCard.css';
+import './PendingCard.css';
 // import { useNavigate } from 'react-router-dom';
 
 

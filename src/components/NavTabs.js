@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode'
 import M from '../assets/M.png'
+import '../../src/global.css';
 
 
 function NavTabs(props) {

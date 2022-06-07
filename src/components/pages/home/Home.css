@@ -17,7 +17,11 @@
     min-width: 10px !important; */
 }
 
-
+.homepage{
+    margin-top: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
 
 .homepage h3{
     display: flex;
@@ -33,6 +37,42 @@
 
 }
 
+.container h3{
+    font-size: 40px;
+}
+
+#box1{
+    height: 50vh;
+    background-color: #83C5BE !important;
+    /* border-radius: 30px; */
+}
+
+#box2{
+    height: 50vh;
+    background-color: #83C5BE !important;
+    /* border-radius: 30px; */
+}
+
+#box3{
+    height: 50vh;
+    background-color: #83C5BE !important;
+    /* border-radius: 30px; */
+}
+
+#welcome{
+    text-align: center;
+    margin-bottom: 130px;
+}
+
+#join{
+    text-align: center;
+    margin-bottom: 130px;
+}
+
+#create{
+    text-align: center;
+    margin-bottom: 130px;
+}
 
 
 /* use !important to override bootstrap css */

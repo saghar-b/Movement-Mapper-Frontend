@@ -26,9 +26,11 @@
     margin-bottom: 50px;
 }
 
+
 .homepage-cards{
     display: flex;
     flex-direction: row;
+
 }
 
 

@@ -6,6 +6,8 @@ import jwt from 'jwt-decode';
 import dateFormat from "dateformat";
 import './NewChallenge.css'
 import ImageUpload from '../imageUpload/ImageUpload';
+import {getBaseUrl} from '../../../utils/API'
+
 
 function NewChallenge() {
     const [token, setToken] = useState();
@@ -61,7 +63,7 @@ function NewChallenge() {
             creator_id: jwt(t).id
         }
         
-        fetch("http://localhost:3001/api/challenges/new", {
+        fetch(`${getBaseUrl()}/api/challenges/new`, {
             method: "POST",
             body: JSON.stringify(challengeObj),
             headers: {
@@ -92,7 +94,7 @@ function NewChallenge() {
     };
     function insertToDB(userId,challenge_name) {
         // get the new challenge id
-        fetch(`http://localhost:3001/challenges/score/id/${challenge_name}`, {
+        fetch(`${getBaseUrl()}/challenges/score/id/${challenge_name}`, {
             headers: {
                 "Content-Type": "application/json",
                 // authorization: "Bearer " + localStorage.getItem("SavedToken")
@@ -105,7 +107,7 @@ function NewChallenge() {
                 join :true
             }
             // save the new challge and user to the score
-        fetch("http://localhost:3001/api/scores/new", {
+        fetch(`${getBaseUrl()}/api/scores/new`, {
             method: "POST",
             body: JSON.stringify(addToScore),
             headers: {

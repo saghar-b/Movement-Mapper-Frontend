@@ -4,6 +4,8 @@ import './Invite.css';
 // import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import jwt from 'jwt-decode'
+import {getBaseUrl} from '../../../utils/API'
+
 
 function Invite() {
 
@@ -31,7 +33,7 @@ function Invite() {
 console.log(userName)
     e.preventDefault();
     //   find the searched username
-    fetch(`http://localhost:3001/user/${userName}`, {
+    fetch(`${getBaseUrl()}/user/${userName}`, {
       headers: {
         "Content-Type": "application/json",
         authorization: "Bearer " + localStorage.getItem("SavedToken")
@@ -66,7 +68,7 @@ console.log(userName)
     }
   }
  async function saveInvite(inviteObj) {
-    const response = await fetch("http://localhost:3001/api/scores/invite", {
+    const response = await fetch(`${getBaseUrl()}/api/scores/invite`, {
       method: "POST",
       body: JSON.stringify(inviteObj),
       headers: {

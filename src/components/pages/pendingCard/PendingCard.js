@@ -3,6 +3,8 @@ import Moment from 'moment';
 import jwt from 'jwt-decode';
 import './PendingCard.css';
 // import { useNavigate } from 'react-router-dom';
+import {getBaseUrl} from '../../../utils/API'
+
 
 
 // function PendingCard({ challenge, getoneChallenge, setType }) {
@@ -40,7 +42,7 @@ function PendingCard({ challenge, getoneChallenge, token }) {
     }
 
     function insertToDB(addChallenge) {
-        fetch("http://localhost:3001/api/scores/new", {
+        fetch(`${getBaseUrl()}/api/scores/new`, {
             method: "POST",
             body: JSON.stringify(addChallenge),
             headers: {

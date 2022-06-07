@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
+import {getBaseUrl} from '../../../utils/API'
+
 
 //  login to the website
 function Login(props) {
@@ -30,7 +32,7 @@ function Login(props) {
     }
     e.preventDefault();
 
-    fetch("http://localhost:3001/api/users/login", {
+    fetch(`${getBaseUrl()}/api/users/login`, {
       method: "POST",
       body: JSON.stringify(userObj),
       headers: {

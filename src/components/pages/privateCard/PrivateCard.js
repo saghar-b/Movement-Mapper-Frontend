@@ -3,6 +3,8 @@ import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './PrivateCard.css';
 import { useNavigate } from 'react-router-dom';
+import {getBaseUrl} from '../../../utils/API'
+
 function PublicCard({ challenge, getoneChallenge, setType }) {
     const [isPsast, setIsPsast] = useState(false);
     const navigate = useNavigate();
@@ -48,7 +50,7 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
        
     }
     function insertToDB(addChallenge){
-        fetch("http://localhost:3001/api/scores/new", {
+        fetch(`${getBaseUrl()}/api/scores/new`, {
             method: "POST",
             body: JSON.stringify(addChallenge),
             headers: {
@@ -58,7 +60,7 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
     }
 // delete challenges
    const  handleDeleteBtn =async ()=>{
-    const response = await fetch(`http://localhost:3001/api/challenges/${challenge.id}`, {
+    const response = await fetch(`${getBaseUrl()}/api/challenges/${challenge.id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

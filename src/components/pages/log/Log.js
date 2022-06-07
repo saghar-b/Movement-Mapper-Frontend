@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from '../unitConvert/UnitConverter';
 import jwt from 'jwt-decode'
+import {getBaseUrl} from '../../../utils/API'
+
 
 export default function Log(props) {
   const [score, setScore] = useState(0)
@@ -37,7 +39,7 @@ export default function Log(props) {
     console.log(props.challenge.id)
     console.log(scoreObj)
     // save the log
-    fetch("http://localhost:3001/api/scores/new", {
+    fetch(`${getBaseUrl()}/api/scores/new`, {
       method: "POST",
       body: JSON.stringify(scoreObj),
       headers: {

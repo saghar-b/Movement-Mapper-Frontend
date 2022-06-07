@@ -1,6 +1,5 @@
 import React from 'react';
 import './Profile.css';
-// import Moment from 'moment';
 import PrivateCard from '../privateCard/PrivateCard';
 import PendingCard from '../pendingCard/PendingCard';
 import PublicCard from '../publicCard/PublicCard';
@@ -8,8 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
-
-// import PendingCard from './PendingCard';
+import {getBaseUrl} from '../../../utils/API'
 
 
 export default function Profile() {
@@ -33,85 +31,77 @@ export default function Profile() {
     if (token) {
       const t = "Bearer " + token;
       setToken(t)
-      // console.log((jwt(t)).id);
-      fetch(`http://localhost:3001/challenges/creator/${(jwt(t)).id}`, {
+      fetch(`${getBaseUrl()}/challenges/creator/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
         }
       }).then(res => res.json()).then(challengesDB => {
         setCreatedChallenges(challengesDB)
-        // console.log(challengesDB);
       })
     } else {
       alert("please log in")
     }
   }
-
+  // check challenges that user joined
   function getParticipatingChallenges() {
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
       setToken(t)
-      console.log("Jwt ID:", (jwt(t)).id);
-      fetch(`http://localhost:3001/challenges/joined/${(jwt(t)).id}`, {
+      // check challenges that user joined
+      fetch(`${getBaseUrl()}/challenges/joined/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
         }
       }).then(res => res.json()).then(challengesDB => {
         setParticipatingChallenges(challengesDB)
-        // console.log(challengesDB);
+
       })
     } else {
       alert("please log in")
     }
   }
+
+  // get pending challenges
   function getPendingChallenges() {
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
       setToken(t)
-      console.log("Jwt ID:", (jwt(t)).id);
-      fetch(`http://localhost:3001/challenges/pending/${(jwt(t)).id}`, {
+      fetch(`${getBaseUrl()}/challenges/pending/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
         }
       }).then(res => res.json()).then(challengesDB => {
         setPendingChallenges(challengesDB)
-        // console.log(challengesDB);
+
       })
     } else {
       alert("please log in")
     }
   }
 
-  function handleScoreViewBtn() {
-    navigate(`/Leaderboard`, { state: { id: token.id, name: token.user_name } })
-  }
-
   function handleNewViewBtn() {
     navigate(`/profile/newchallenge`, { state: { id: token.id, name: token.user_name } })
   }
-
-  
 
   function getoneChallenge(oneChallenge) {
 
     const token = localStorage.getItem('SavedToken');
     if (token) {
       const t = "Bearer " + token;
-      console.log("logedin")
       navigate(`/Leaderboard`, { state: { id: jwt(t).id, name: jwt(t).name, challenge_id: oneChallenge } })
 
     } else {
-      console.log("Notlogedin")
+      alert("Notlogedin")
     }
 
   }
 
-  // console.log("challenges: ",challenges);
+
   return (
     <>
       <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
@@ -146,8 +136,6 @@ export default function Profile() {
           <PendingCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PendingCard>
         ))}
       </div>
-      
-
     </>
   )
 

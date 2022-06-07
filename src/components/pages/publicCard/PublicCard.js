@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './PublicCard.css';
+import {getBaseUrl} from '../../../utils/API'
+
 function PublicCard({ challenge, getoneChallenge, token }) {
 
     const [isJoined, setIsJoined] = useState(false);
@@ -40,7 +42,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
         if (token != "") {
           
             // check the use is joined
-            fetch(`http://localhost:3001/challenges/score/${jwt(token).id}/${challenge.id}`, {
+            fetch(`${getBaseUrl()}/challenges/score/${jwt(token).id}/${challenge.id}`, {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -63,7 +65,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
 
     }
     function insertToDB(addChallenge) {
-        fetch("http://localhost:3001/api/scores/new", {
+        fetch(`${getBaseUrl()}/api/scores/new`, {
             method: "POST",
             body: JSON.stringify(addChallenge),
             headers: {
@@ -82,7 +84,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
     }
 
     const handleLeaveBtn = async () => {
-        const response = await fetch(`http://localhost:3001/api/scores/${jwt(token).id}/${challenge.id}`, {
+        const response = await fetch(`${getBaseUrl()}/api/scores/${jwt(token).id}/${challenge.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

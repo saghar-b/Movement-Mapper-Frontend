@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from '../log/Log';
 import Chart from '../chart/Chart';
+import {getBaseUrl} from '../../../utils/API'
+
 
 export default function Score() {
   const location = useLocation();
@@ -18,7 +20,7 @@ export default function Score() {
 
   useEffect(() => {
     //  get the specific challange that already joined
-    fetch(`http://localhost:3001/challenge/${location.state.challenge_id}`, {
+    fetch(`${getBaseUrl()}/challenge/${location.state.challenge_id}`, {
       headers: {
         "Content-Type": "application/json"
       }
@@ -50,7 +52,7 @@ export default function Score() {
 
 
       // check the use is joined
-      fetch(`http://localhost:3001/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
+      fetch(`${getBaseUrl()}/challenges/score/${location.state.id}/${location.state.challenge_id}`, {
         headers: {
           "Content-Type": "application/json"
         }

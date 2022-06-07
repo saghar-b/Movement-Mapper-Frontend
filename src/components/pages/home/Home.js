@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../card/Card';
 import { Carousel } from 'react-bootstrap';
+import {getBaseUrl} from '../../../utils/API'
 // import {Container} from 'react-bootstrap';
 // import {Col} from 'react-bootstrap';
 // import {Row} from 'react-bootstrap';
@@ -13,7 +14,7 @@ export default function Home() {
   const [type, setType] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:3001/challenges/types", {
+    fetch(`${getBaseUrl()}/challenges/types`, {
       headers: {
         "Content-Type": "application/json"
         //  authorization: localStorage.getItem("SavedToken")

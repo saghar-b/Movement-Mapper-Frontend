@@ -7,6 +7,8 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
+import {getBaseUrl} from '../../../utils/API'
+
 
 export default function Profile() {
 
@@ -29,7 +31,7 @@ export default function Profile() {
     if (token) {
       const t = "Bearer " + token;
       setToken(t)
-      fetch(`http://localhost:3001/challenges/creator/${(jwt(t)).id}`, {
+      fetch(`${getBaseUrl()}/challenges/creator/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
@@ -48,7 +50,7 @@ export default function Profile() {
       const t = "Bearer " + token;
       setToken(t)
       // check challenges that user joined
-      fetch(`http://localhost:3001/challenges/joined/${(jwt(t)).id}`, {
+      fetch(`${getBaseUrl()}/challenges/joined/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t
@@ -68,7 +70,7 @@ export default function Profile() {
     if (token) {
       const t = "Bearer " + token;
       setToken(t)
-      fetch(`http://localhost:3001/challenges/pending/${(jwt(t)).id}`, {
+      fetch(`${getBaseUrl()}/challenges/pending/${(jwt(t)).id}`, {
         headers: {
           "Content-Type": "application/json",
           authorization: t

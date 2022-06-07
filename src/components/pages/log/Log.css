@@ -1,0 +1,23 @@
+
+ h1{
+    font-size:12px
+}
+  
+
+
+@media screen and (max-width: 390px) {
+
+    h1{
+        font-size: var(--fs-10);
+    }
+
+    Form> input{
+        width: 30%;
+    }
+    .Form{
+        padding-bottom: 10px;
+    }
+    Form> button{
+        font-size: var(--fs-10);
+    }
+}

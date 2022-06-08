@@ -33,9 +33,6 @@ console.log(data)
  
   return (
     <>
-    <div>
-      <h2>Leaderboard Chart</h2>
-    </div>
      <div>
         <CanvasJSChart options = {options}
         />

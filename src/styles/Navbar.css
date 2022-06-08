@@ -54,7 +54,7 @@ img {
     height: 130px;
   }
   .navbar {
-    background: #dab317;
+    background: var(--MBG);
     height: 90px;
     display: flex;
     /* flex-direction: column; */

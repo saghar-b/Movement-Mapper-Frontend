@@ -3,7 +3,8 @@ import Moment from 'moment';
 import jwt from 'jwt-decode';
 import './PendingCard.css';
 // import { useNavigate } from 'react-router-dom';
-import {getBaseUrl} from '../../../utils/API'
+import {getBaseUrl} from '../../../utils/API';
+import "../../../global.css";
 
 
 
@@ -62,18 +63,19 @@ function PendingCard({ challenge, getoneChallenge, token }) {
     return (
         <>
             <div className='pendingCard'>
-                <section data-type={challenge} className='card-hearder2' >
-                    <div>
-                        <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
-                        <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                <section data-type={challenge}>
+                    <div className='card-header1'>
+                        <h1 className='pending-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
+                        <img className='pending-img cursor-hand' data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
                     </div>
-                    <div className='card-body'>
+                    <div className='card-body2'>
+                        <div className='pending-card-body'>
                         <h4>{challenge.creator.user_name}</h4>
                         <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                         <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                         
                             <button className="button" onClick={handleAcceptBtn}>Accept</button>
-                        
+                        </div>
                         
                     </div>
                 </section >

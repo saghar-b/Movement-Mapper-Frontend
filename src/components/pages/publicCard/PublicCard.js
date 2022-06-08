@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './PublicCard.css';
-import {getBaseUrl} from '../../../utils/API'
+import {getBaseUrl} from '../../../utils/API';
+import "../../../global.css";
 
 function PublicCard({ challenge, getoneChallenge, token }) {
 
@@ -102,19 +103,20 @@ function PublicCard({ challenge, getoneChallenge, token }) {
     return (
         <>
             <div className='publicCard'>
-                <section data-type={challenge} className='card-hearder1' >
-                    <div>
+                <section data-type={challenge}>
+                    <div className='card-header1'>
                         <h1 className='public-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
-                   <div className='public-img'>
-                   <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                        <div className='public-img cursor-hand'>
+                            <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                        </div>
                    </div>
-                    </div>
+                
                     <div className='card-body2'>
-                        <div className="private-card-body">
+                        <div className="public-card-body">
                             <h4>{challenge.creator.user_name}</h4>
                             <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                             <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
-                        </div>
+                        
     
                         {isJoined &&
                             <button className="button" onClick={handleLeaveBtn}>Leave</button>
@@ -122,6 +124,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                         {!isJoined &&
                             <button className="button" onClick={handleJoinBtn}>Join</button>
                         }
+                        </div>
 
 
                     </div>

@@ -20,12 +20,6 @@
     text-align: center;
 }
 
-.card-hearder {
-    background-color: rgb(75, 105, 105);
-    padding: 20px;
-    height: 200px;
-}
-
 .msg {
     color: red;
 }
@@ -43,12 +37,6 @@
     text-align: center;  
 }
 
-.private-buttons button{
-    display: flex !important;
-    align-content: center !important;
-    justify-content: center !important;
-}
-
 .private-card-body h4{
     font-size: 14px;
     margin-top: 10px;
@@ -62,7 +50,7 @@
     .private-card-body{
         margin: 30px;
     }
-    .card-hearder{
+    .card-header{
         height: 150px;
     }
 }
@@ -75,7 +63,7 @@
         margin-top:10px;
         margin-left: 10px;
     }
-    .card-hearder{
+    .card-header{
         height: 225px;
     }
 }

@@ -105,13 +105,13 @@ export default function Profile() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
+      <h3 id='user-dashboard' style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
       <p style={{ textAlign: "center", display: "none" }}>User ID: {location.state.id}</p>
       <div id="challBtn">
       <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
       </div>
       {/* start of creator's card */}
-      <h1 className='profile-title cursor-pointer'>Created Challenges</h1>
+      <h1 className='profile-title'>Created Challenges</h1>
       <div className='createdChallenges'>
 
         {createdChallenges.map(chal => (
@@ -131,7 +131,7 @@ export default function Profile() {
         <h1 className='profile-title' id='pendingTitle'>Pending Challenges</h1>
 
       </div>
-      <div className='joinedChallenges'>
+      <div className='pendingChallenges'>
         {PendingChallenges.map(chal => (
           <PendingCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PendingCard>
         ))}

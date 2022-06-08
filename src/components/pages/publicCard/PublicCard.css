@@ -2,25 +2,34 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-   height: 400px;
+   height: 450px;
     margin: 30px;
-
 }
 
-.buttons {
-    background-color: white;
-    width: fit-content;
-    border-radius: 6px;
+.public-card-body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
 }
 
-.card-body2 {
+.public-card-body button{
+    margin-top: 5px;
+    width: 50%;
+    text-align: center;
+}
 
+.card-header1{
+    background-color: rgb(75, 105, 105);
+    padding: 20px;
+    height: 200px;
 }
 
 .public-title {
     text-align: center;
-    font-size: 30px;
-    margin: 10px;
+    font-size: 24px;
+    margin-top: 10px;
 }
 
 .public-img {
@@ -30,14 +39,34 @@
     text-align: center;
 }
 
-.card-hearder1{
-    background-color: rgb(75, 105, 105);
-    padding: 20px;
-    height: 100px;
+.public-card-body h4{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-.homepage-cards{
-    display: flex;
-    align-content: center;
-    justify-content: center;
+@media screen and (max-width: 390px) {
+    .public-title{
+        font-size: 18px;
+    }
+    .public-card-body{
+        margin: 30px;
+    }
+    .card-header1{
+        height: 150px;
+    }
 }
+
+@media screen and (max-width: 820px) {
+    .public-title{
+        font-size: 24px;
+    }
+    .public-card-body{
+        margin-top:10px;
+        margin-left: 10px;
+    }
+    .card-header1{
+        height: 225px;
+    }
+}
+

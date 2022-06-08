@@ -4,6 +4,7 @@ import jwt from 'jwt-decode'
 import './PrivateCard.css';
 import { useNavigate } from 'react-router-dom';
 import {getBaseUrl} from '../../../utils/API'
+import "../../../global.css"
 
 function PublicCard({ challenge, getoneChallenge, setType }) {
     const [isPsast, setIsPsast] = useState(false);
@@ -83,14 +84,14 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
         
         <div className='privateCard'>
             <section data-type={challenge} >
-                <div className='card-hearder'>
-                    <h1 className='private-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
-                    <div className='private-img'>
-                    <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                <div className='card-header1'>
+                    <h1 className='private-title cursor-hand' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
+                    <div className='private-img cursor-hand'>
+                        <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
                     </div>
                 </div>
                 <div className='card-body1'>
-                    <div className="private-card-body">
+                    <div className="private-card-body">Created by: 
                     {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>}
                     <h4>Start: {Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>End: {Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
@@ -99,7 +100,7 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
                     <button onClick={handleDeleteBtn} className="button">Delete</button>
                     {isPsast &&
 
-                    <button className='button' onClick={handleViewInvitedBtn}>invite Challenge</button>
+                    <button className='button' onClick={handleViewInvitedBtn}>Invite</button>
                     }
                     </div>
 

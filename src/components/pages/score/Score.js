@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from '../log/Log';
 import Chart from '../chart/Chart';
-import {getBaseUrl} from '../../../utils/API'
-
+import { getBaseUrl } from '../../../utils/API'
+import "../../../global.css"
 
 export default function Score() {
   const location = useLocation();
@@ -78,33 +78,32 @@ export default function Score() {
   return (
     <>
       <div className='Leaderboard'>
-        <h1 className='saghar'>Leaderboard</h1>
-
         <section className='Scorecard'>
           <div className='cardHead'>
             <h3>{challenge.Challenge_type}</h3>
           </div>
           <div className='cardBody'>
-            <div className='challenge'>
-
-              <label for="challenge">Challenge:</label>
-              {challenge.Challenge_name}
-            </div>
             <div>
-
-              <label for="participant">Participant:</label>
+            <div className='challenge'>
+              {/* <label for="challenge">Challenge:</label> */}
+              {challenge.Challenge_name} Challenge
             </div>
-            <ul>
-              {/* show all the participants */}
+            <div className='titles'>
+              <div id="participantHead">Participant:</div>
+              <div id="participantStats">Stats:</div>
+            </div>
+            <div className='scores'>
               {scores.map(part => (
                 <li key="{part.id}">
-                  <p>{part.user_name}</p>
-                  <p>{part.score.distance}</p>
-
+                  <p id="name">{part.user_name}</p>
+                  <p id="score">{part.score.distance}</p>
                 </li>
               ))}
-            </ul>
-
+            </div>
+            </div>
+            <div className='picture'>
+            <img className= "challengePic" src={challenge.picture_path}/>
+            </div>
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&
@@ -113,6 +112,7 @@ export default function Score() {
 
           </div>
         }
+        <h1 className='saghar'>Leaderboard</h1>
         <div className='chart'>
 
           <Chart scores={scores}></Chart>

@@ -2,6 +2,10 @@
  .unit{
     margin-right: 20px;
 }
+.unitCon{
+    font-size: 20px;
+    margin-left: 5px;
+}
 .Conventor{
     margin-bottom: 70PX;
 }
@@ -33,6 +37,11 @@
 
     .Conventor{
         margin-bottom: 40PX;
+    }
+
+    .unitCon{
+        font-size: 15px;
+        margin-left: 5px;
     }
     
 }

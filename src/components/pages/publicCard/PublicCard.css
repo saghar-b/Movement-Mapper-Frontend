@@ -1,20 +1,43 @@
 .publicCard {
     /* background-color: darkslategray; */
     border: 1px solid gray;
-    width: 400px;
+    width: 300px;
+   height: 400px;
     margin: 30px;
-   
+
 }
-.buttons{
+
+.buttons {
     background-color: white;
     width: fit-content;
     border-radius: 6px;
 }
-.card-body{
-    padding: 20px;
+
+.card-body2 {
+
 }
-.card-hearder{
-    background-color:rgb(75, 105, 105);
+
+.public-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.public-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-hearder1{
+    background-color: rgb(75, 105, 105);
     padding: 20px;
-    height: 150px;
+    height: 100px;
+}
+
+.homepage-cards{
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }

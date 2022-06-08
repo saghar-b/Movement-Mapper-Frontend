@@ -62,7 +62,7 @@ function PendingCard({ challenge, getoneChallenge, token }) {
     return (
         <>
             <div className='pendingCard'>
-                <section data-type={challenge} className='card-hearder1' >
+                <section data-type={challenge} className='card-hearder2' >
                     <div>
                         <h1 data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                         <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>

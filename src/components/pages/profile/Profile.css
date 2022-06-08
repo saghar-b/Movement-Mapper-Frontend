@@ -2,30 +2,50 @@
 .createdChallenges{
     margin: 5%;
     width: 90%;
-    background-color: rgb(184, 211, 211);
-    border: 3px solid green;
+    /* background-color: rgb(184, 211, 211); */
+    border: 3px solid rgb(184, 211, 211);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.joinedChallenges{
+.joinedChallenges {
   margin: 5%;
   width: 90%;
-  background-color: rgb(240, 218, 158);
-  border: 3px solid rgb(231, 145, 15);
+  /* background-color: rgb(240, 218, 158); */
+  border: 3px solid rgb(240, 218, 158);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
+.joinedChallenges:empty{
+  display: none;
+}
+
+
 .buttons{
   background-color: white;
   width: fit-content;
   border-radius: 6px;
 }
+
+#challBtn{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 @media screen and (max-width: 390px) {
-   
+   .profile-title{
+     text-align: center;
+     margin-top: 40px;
+   }
+
+   .private-card-body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+   }
   }

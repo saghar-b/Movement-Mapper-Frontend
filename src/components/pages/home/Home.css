@@ -2,13 +2,18 @@
     color: purple !important;
     padding-bottom: 0rem !important;
 }
+
+.card{
+    margin: 10px;
+    border-radius: 20px !important;
+}
 .card-body{
     display: flex !important;
     align-content: center !important;
     justify-content: center !important;
     flex-direction: column !important;
     min-width: 10px !important;
-    background-color: salmon !important;
+    background-color: white!important;
     margin: 20px !important;
 
     /* work on this to change the design of the activity cards on homepage */
@@ -61,18 +66,63 @@
 
 #welcome{
     text-align: center;
-    margin-bottom: 130px;
+    margin-bottom: 200px;
 }
 
 #join{
     text-align: center;
-    margin-bottom: 130px;
+    margin-bottom: 200px;
 }
 
 #create{
     text-align: center;
-    margin-bottom: 130px;
+    margin-bottom: 200px;
 }
 
+@media screen and (max-width: 750px) {
+.homepage-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap !important;
+}
+.container h3{
+    font-size: 30px;
+}
+#welcome{
+    text-align: center;
+    margin-bottom: 100px;
+}
 
+#join{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#create{
+    text-align: center;
+    margin-bottom: 100px;
+}
+}
+
+@media screen and (max-width: 480px) {
+    .homepage-cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap !important;
+    }
+    #welcome{
+        text-align: center;
+        margin-bottom: 90px;
+    }
+    
+    #join{
+        text-align: center;
+        margin-bottom: 90px;
+    }
+    
+    #create{
+        text-align: center;
+        margin-bottom: 90px;
+    }
+}
 /* use !important to override bootstrap css */

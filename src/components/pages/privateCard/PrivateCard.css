@@ -1,23 +1,74 @@
 .privateCard {
     /* background-color: darkslategray; */
     border: 1px solid gray;
-    width: 400px;
+    width: 300px;
+    height: 400px;
     margin: 30px;
-   
 }
-.button{
-    background-color: white;
-    width: fit-content;
-    border-radius: 6px;
+
+.private-card-body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.card-body{
+
+.card-hearder {
+    background-color: rgb(75, 105, 105);
     padding: 20px;
+    height: 200px;
 }
-.card-hearder{
-    background-color:rgb(75, 105, 105);
-    padding: 20px;
-    height: 150px;
-}
-.msg{
+
+.msg {
     color: red;
+}
+
+.private-title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.private-img{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+}
+
+.private-buttons button{
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+}
+
+.private-card-body h4{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 390px) {
+    .private-title{
+        font-size: 18px;
+    }
+    .private-card-body{
+        margin: 30px;
+    }
+    .card-hearder{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .private-title{
+        font-size: 24px;
+    }
+    .private-card-body{
+        margin-top:10px;
+        margin-left: 10px;
+    }
+    .card-hearder{
+        height: 225px;
+    }
 }

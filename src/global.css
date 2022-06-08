@@ -7,6 +7,13 @@
     background-color: aliceblue;
 }
 
+*{
+    font-family: 'Varela Round', sans-serif;
+}
 .body{
     background-color: aliceblue;
+}
+
+.cursor-hand {
+    cursor: pointer;
 }

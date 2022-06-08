@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
 import {getBaseUrl} from '../../../utils/API'
+import "../../../global.css"
 
 
 export default function Profile() {
@@ -105,11 +106,12 @@ export default function Profile() {
   return (
     <>
       <h3 style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
-      <p style={{ textAlign: "center" }}>User ID: {location.state.id}</p>
+      <p style={{ textAlign: "center", display: "none" }}>User ID: {location.state.id}</p>
+      <div id="challBtn">
       <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
-
+      </div>
       {/* start of creator's card */}
-      <h1>Created Challenges</h1>
+      <h1 className='profile-title cursor-pointer'>Created Challenges</h1>
       <div className='createdChallenges'>
 
         {createdChallenges.map(chal => (
@@ -118,8 +120,7 @@ export default function Profile() {
 
       </div>
       <div>
-        <h1>Joined Challenges</h1>
-
+        <h1 className='profile-title' id="joinedTitle">Joined Challenges</h1>
       </div>
       <div className='joinedChallenges'>
         {participatingChallenges.map(chal => (
@@ -127,7 +128,7 @@ export default function Profile() {
         ))}
       </div>
       <div>
-        <h1>Pending Challenges</h1>
+        <h1 className='profile-title' id='pendingTitle'>Pending Challenges</h1>
 
       </div>
       <div className='joinedChallenges'>

@@ -37,6 +37,10 @@
   display: none;
 }
 
+.pendingChallenges:empty{
+  display: none;
+}
+
 
 
 .pendingChallenges {

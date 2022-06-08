@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-   height: 400px;
+   height: 450px;
     margin: 30px;
 
 }
@@ -13,14 +13,10 @@
     border-radius: 6px;
 }
 
-.card-body2 {
-
-}
-
 .public-title {
     text-align: center;
-    font-size: 30px;
-    margin: 10px;
+    font-size: 24px;
+    margin-top: 10px;
 }
 
 .public-img {

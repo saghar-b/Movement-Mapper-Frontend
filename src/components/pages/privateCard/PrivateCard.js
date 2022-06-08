@@ -90,15 +90,18 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
                     </div>
                 </div>
                 <div className='card-body1'>
+                    <div className="private-card-body">
                     {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>}
-                    <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
-                    <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
+                    <h4>Start: {Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
+                    <h4>End: {Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     {/* <button>Edit</button> */}
+                    
                     <button onClick={handleDeleteBtn} className="button">Delete</button>
                     {isPsast &&
 
                     <button className='button' onClick={handleViewInvitedBtn}>invite Challenge</button>
                     }
+                    </div>
 
                 </div>
             </section >

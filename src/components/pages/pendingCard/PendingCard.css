@@ -1,20 +1,67 @@
 .pendingCard {
     /* background-color: darkslategray; */
     border: 1px solid gray;
-    width: 400px;
+    width: 300px;
+    height: 450px;
     margin: 30px;
    
 }
-.buttons{
-    background-color: white;
-    width: fit-content;
-    border-radius: 6px;
+
+.pending-card-body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
 }
-.card-body{
-    padding: 20px;
+
+.pending-card-body button{
+    margin-top: 5px;
+    width: 50%;
+    text-align: center;
 }
-.card-hearder2{
-    background-color:rgb(221, 174, 240);
-    padding: 20px;
-    height: 150px;
+
+.pending-title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
 }
+
+.pending-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pending-card-body h4{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 390px) {
+    .pending-title{
+        font-size: 18px;
+    }
+    .pending-card-body{
+        margin: 30px;
+    }
+    .card-header1{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .pending-title{
+        font-size: 24px;
+    }
+    .pending-card-body{
+        margin-top:10px;
+        margin-left: 10px;
+    }
+    .card-header1{
+        height: 225px;
+    }
+}
+

@@ -13,3 +13,7 @@
 .body{
     background-color: aliceblue;
 }
+
+.cursor-hand {
+    cursor: pointer;
+}

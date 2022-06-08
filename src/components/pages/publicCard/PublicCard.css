@@ -14,10 +14,7 @@
 }
 
 .card-body2 {
-    background-color: white;
-    padding: 20px !important;
-    margin-left: 20px ;
-    margin-right: 20px ;
+
 }
 
 .public-title {
@@ -37,4 +34,10 @@
     background-color: rgb(75, 105, 105);
     padding: 20px;
     height: 100px;
+}
+
+.homepage-cards{
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }

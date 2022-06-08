@@ -110,9 +110,12 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                    </div>
                     </div>
                     <div className='card-body2'>
-                        <h4>{challenge.creator.user_name}</h4>
-                        <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
-                        <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
+                        <div className="private-card-body">
+                            <h4>{challenge.creator.user_name}</h4>
+                            <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
+                            <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
+                        </div>
+    
                         {isJoined &&
                             <button className="button" onClick={handleLeaveBtn}>Leave</button>
                         }

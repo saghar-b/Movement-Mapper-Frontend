@@ -12,9 +12,16 @@ label {
     border-radius: 6px;
 }
 
+#searchBtn{
+    margin-top: 5px;
+}
 .box {
     margin: 30px;
 
+}
+
+.invite{
+margin-left: 30px;
 }
 
 .find{
@@ -25,7 +32,9 @@ label {
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
-    border: 2px solid black;
+    border: 3px solid rgb(184, 211, 211);
+    border-radius: 10px;
+    width: 500px;
 }
 
 @media screen and (max-width: 390px) {
@@ -52,4 +61,10 @@ label {
         font-size: 20px;
     }
 
+    .inviteContainer {
+        margin-top: 10px;
+        border: 3px solid rgb(184, 211, 211);
+        border-radius: 10px;
+        width: 350px;
+    }
 }

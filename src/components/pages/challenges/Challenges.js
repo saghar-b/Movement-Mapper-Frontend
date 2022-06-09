@@ -20,6 +20,7 @@ export default function Challenges() {
      const t = "Bearer " + tokenrow;
       setToken(t)
     }
+    // 
       fetch(`${getBaseUrl()}/challenges/types/no/${location.state.type}`, {
         headers: {
           "Content-Type": "application/json"

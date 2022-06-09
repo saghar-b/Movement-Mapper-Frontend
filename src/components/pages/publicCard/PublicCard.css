@@ -22,8 +22,10 @@
 
 .card-header1{
     background-color: rgb(75, 105, 105);
-    padding: 20px;
-    height: 200px;
+    padding: 10px 0px 0px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .public-title {

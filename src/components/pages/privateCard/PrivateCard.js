@@ -87,7 +87,7 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
                 <div className='card-header1'>
                     <h1 className='private-title cursor-hand' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                     <div className='private-img cursor-hand'>
-                        <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                        <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path} alt="a challenge to overcome"/>
                     </div>
                 </div>
                 <div className='card-body1'>

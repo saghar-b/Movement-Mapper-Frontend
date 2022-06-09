@@ -111,13 +111,13 @@ function Invite() {
           />
         </div>
 
-        <button id='searchBtn' className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
+        <button id='searchBtn' className="button" type="button" onClick={handleFormSubmit}>
           Search
         </button>
       </form>
       <div>
         {foundUser.id != 0 &&
-          <div >
+          <div className='invite'>
             <button className='button' onClick={handleInviteBtn}>Invite</button>
             <label>{foundUser.user_name}</label>
             <label>To</label>

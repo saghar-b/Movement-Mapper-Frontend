@@ -79,9 +79,9 @@ export default function Score() {
             <h3>{challenge.Challenge_type}</h3>
           </div>
           <div className='cardBody'>
-            <div>
+            <div className='cardBody-information'>
               <div className='challenge'>
-                {challenge.Challenge_name} Challenge
+                {challenge.Challenge_name} challenge
               </div>
               <div className='titles'>
                 <div id="participantHead">Participant:</div>
@@ -91,16 +91,17 @@ export default function Score() {
                 {scores.map(part => (
                   <li key="{part.id}">
                     <p id="name">{part.user_name}</p>
-                    <p id="score">{part.score.distance}</p>
-                    <p id="unit">{challenge.unit}</p>
+                    <p id="score">{part.score.distance} {challenge.unit}</p>
                   </li>
                 ))}
               </div>
-            </div>
-            <div className='picture'>
+              </div>
+              <div className='picture'>
               <img className="challengePic" src={challenge.picture_path} />
             </div>
-            <p>Description:{challenge.description}</p>
+            
+            
+            <p className='leaderboard-description'>Description:{challenge.description}</p>
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&

@@ -9,6 +9,10 @@
 
 }
 
+.leaderboard-description{
+    margin: 20px;
+}
+
 .Leaderboard {
     margin: 5%;
 }
@@ -84,20 +88,25 @@ h3 {
 
 .cardBody{
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-.picture {
-    margin-top: 10px;
-    margin-left: 90px;
-    margin-bottom: 20px;
+
+.cardBody-information{
+    width: 50%;
+}
+
+.picture{
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .challengePic {
+   
     width: 200px;
     height: 200px;
-    padding-bottom: 20px;
-
+    width: 35%;
 }
 
 @media screen and (max-width: 390px) {

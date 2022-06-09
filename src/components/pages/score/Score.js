@@ -107,6 +107,7 @@ export default function Score() {
             <div className='picture'>
             <img className= "challengePic" src={challenge.picture_path}/>
             </div>
+            <p>Description:{challenge.description}</p>
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&

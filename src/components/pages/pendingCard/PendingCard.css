@@ -15,6 +15,10 @@
     margin: 10px;
 }
 
+.pending-card-body h6{
+    text-decoration: underline;
+}
+
 .pending-card-body button{
     margin-top: 5px;
     width: 50%;

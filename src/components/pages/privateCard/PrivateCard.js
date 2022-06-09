@@ -5,6 +5,7 @@ import './PrivateCard.css';
 import { useNavigate } from 'react-router-dom';
 import {getBaseUrl} from '../../../utils/API'
 import "../../../global.css"
+import userImage from '../../../assets/user.png'
 
 function PrivateCard({ challenge, getoneChallenge, setType }) {
     const [isPsast, setIsPsast] = useState(false);
@@ -86,7 +87,12 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
                     </div>
                 </div>
                 <div className='card-body1'>
-                    <div className="private-card-body">Created by: 
+                    <div className='participant-circle'>
+                        <div className='participant-number'>{challenge.scores.length}</div>    
+                    </div>
+                    <img src={userImage} className='icon' alt='user'></img>
+                    <div className="private-card-body">
+                        <h6>Created by</h6> 
                     {challenge.creator.user_name && <h4>{challenge.creator.user_name}</h4>}
                     <h4>Start: {Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>End: {Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
@@ -99,7 +105,6 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
                         }
                     </div>
                     </div>
-                    <div >{challenge.scores.length}</div>
                 </div>
             </section >
         </div>

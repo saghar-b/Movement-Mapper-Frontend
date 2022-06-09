@@ -14,6 +14,32 @@
     margin: 10px;
 }
 
+.private-card-body h6{
+    text-decoration: underline;
+}
+
+.participant-circle{
+    background-color: var(--MBG);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 1%;
+    float: right;
+}
+
+.card-body1 img{
+    float: right;
+    margin-top: 1%;
+
+}
+
+.participant-number{
+    color: var(--aliceBlue);
+}
+
 .private-card-body button{
     margin-top: 5px;
     width: 50%;

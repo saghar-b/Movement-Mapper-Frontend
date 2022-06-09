@@ -4,6 +4,7 @@ import jwt from 'jwt-decode'
 import './PublicCard.css';
 import {getBaseUrl} from '../../../utils/API';
 import "../../../global.css";
+import userImage from '../../../assets/user.png'
 
 function PublicCard({ challenge, getoneChallenge, token }) {
 
@@ -111,8 +112,13 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                         </div>
                    </div>
                 
-                    <div className='card-body2'>
-                        <div className="public-card-body">Created by:
+                    <div className='card-body1'>
+                        <div className='participant-circle'>
+                            <div className='participant-number'>{challenge.scores.length}</div>    
+                        </div>
+                        <img src={userImage} className='icon' alt='user'></img>
+                        <div className="public-card-body">
+                        <h6>Created by</h6> 
                             <h4>{challenge.creator.user_name}</h4>
                             <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                             <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>

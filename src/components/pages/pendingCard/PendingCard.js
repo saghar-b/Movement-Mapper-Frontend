@@ -5,6 +5,7 @@ import './PendingCard.css';
 // import { useNavigate } from 'react-router-dom';
 import { getBaseUrl } from '../../../utils/API';
 import "../../../global.css";
+import userImage from '../../../assets/user.png'
 
 
 
@@ -69,6 +70,7 @@ function PendingCard({ challenge, getoneChallenge, token }) {
                     <div className='participant-circle'>
                         <div className='participant-number'>{challenge.scores.length}</div>    
                     </div>
+                    <img src={userImage} className='icon' alt='user'></img>
                         <div className='pending-card-body'>
                         <h6>Created by</h6> 
                             <h4>{challenge.creator.user_name}</h4>

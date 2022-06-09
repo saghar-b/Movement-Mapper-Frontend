@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-    height: 450px;
+    height: auto;
     margin: 30px;
 }
 
@@ -37,6 +37,11 @@
     text-align: center;  
 }
 
+.private-img > img{
+    width: 100%;
+    height: auto;
+}
+
 .private-card-body h4{
     font-size: 14px;
     margin-top: 10px;
@@ -60,7 +65,7 @@
         font-size: 24px;
     }
     .private-card-body{
-        margin-top:10px;
+        margin-top:50px;
         margin-left: 10px;
     }
     .card-header{

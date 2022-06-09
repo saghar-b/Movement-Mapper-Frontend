@@ -97,7 +97,9 @@ function Invite() {
 
 
   return (
+    <div className='inviteContainer'>
     <div className='inviteUser' >
+      <p className='find'>Find user to invite to challenge: </p>
       <form className="form box">
         <div>
           <input
@@ -109,7 +111,7 @@ function Invite() {
           />
         </div>
 
-        <button className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
+        <button id='searchBtn' className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
           Search
         </button>
       </form>
@@ -125,10 +127,8 @@ function Invite() {
         }
         <label className='msg'>{message}</label>
       </div>
-
-
     </div>
-
+    </div>
   )
 }
 

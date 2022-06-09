@@ -41,6 +41,11 @@
     text-align: center;
 }
 
+.public-img > img {
+    width: 100%;
+    height: auto;
+}
+
 .public-card-body h4{
     font-size: 14px;
     margin-top: 10px;
@@ -68,7 +73,7 @@
         margin-left: 10px;
     }
     .card-header1{
-        height: 225px;
+        height: auto;
     }
 }
 

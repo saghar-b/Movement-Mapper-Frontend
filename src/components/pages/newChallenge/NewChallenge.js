@@ -6,7 +6,7 @@ import jwt from 'jwt-decode';
 import dateFormat from "dateformat";
 import './NewChallenge.css'
 import ImageUpload from '../imageUpload/ImageUpload';
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
 
 
 function NewChallenge() {
@@ -21,8 +21,8 @@ function NewChallenge() {
     const [formPicture, setFormPicture] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [imagepath, setImagepath] = useState(`https://topnaija.ng/wp-content/uploads/2017/12/challenges.png`);
-    
-    
+
+
     useEffect(() => {
         setImagepath(imagepath);
     }, [])
@@ -46,11 +46,11 @@ function NewChallenge() {
         }
     }
 
-    
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const t = localStorage.getItem('SavedToken');
-        
+
         const challengeObj = {
             Challenge_name: formTitle,
             description: formDescription,
@@ -62,7 +62,7 @@ function NewChallenge() {
             user_name: jwt(t).user_name,
             creator_id: jwt(t).id
         }
-        
+
         fetch(`${getBaseUrl()}/api/challenges/new`, {
             method: "POST",
             body: JSON.stringify(challengeObj),
@@ -71,15 +71,16 @@ function NewChallenge() {
                 authorization: "Bearer " + t
             }
         }).then(res => {
+            console.log("res")
+            console.log(res)
+
             if (res.ok) {
-                insertToDB(jwt(t).id,formTitle)
+                insertToDB(jwt(t).id, formTitle)
                 alert("new challenge created!!")
                 navigate(`/profile/`, { state: { id: jwt(t).id, name: jwt(t).user_name } });
-                // return res.json();
-                
-                
+
             } else {
-                throw res.json
+                alert("Challenge Exist!!")
             }
         })
 
@@ -92,7 +93,7 @@ function NewChallenge() {
         setFormEndDate('')
         setFormPicture('')
     };
-    function insertToDB(userId,challenge_name) {
+    function insertToDB(userId, challenge_name) {
         // get the new challenge id
         fetch(`${getBaseUrl()}/challenges/score/id/${challenge_name}`, {
             headers: {
@@ -100,89 +101,89 @@ function NewChallenge() {
                 // authorization: "Bearer " + localStorage.getItem("SavedToken")
             }
         }).then(res => res.json()).then(newChallengesId => {
-           const  addToScore = {
+            const addToScore = {
                 challenge_id: newChallengesId.id,
                 user_id: userId,
                 distance: "0",
-                join :true
+                join: true
             }
             // save the new challge and user to the score
-        fetch(`${getBaseUrl()}/api/scores/new`, {
-            method: "POST",
-            body: JSON.stringify(addToScore),
-            headers: {
-                "Content-Type": "application/json",
-                authorization: localStorage.getItem("SavedToken")
-            }
-        })
-            
+            fetch(`${getBaseUrl()}/api/scores/new`, {
+                method: "POST",
+                body: JSON.stringify(addToScore),
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: localStorage.getItem("SavedToken")
+                }
+            })
+
         })
     }
 
     return (
         <div className="newchallenge-form">
-        <div className = 'challengeform-container'>
-            <form className="form" onSubmit={handleFormSubmit}>
-                <label>Title:</label>
-                <input
-                    type="text"
-                    value={formTitle}
-                    onChange={handleInputChange}
-                    name="formTitle"
-                />
+            <div className='challengeform-container'>
+                <form className="form" onSubmit={handleFormSubmit}>
+                    <label>Title:</label>
+                    <input
+                        type="text"
+                        value={formTitle}
+                        onChange={handleInputChange}
+                        name="formTitle"
+                    />
 
-                <label>Description:</label>
-                <textarea
-                    type="text"
-                    value={formDescription}
-                    onChange={handleInputChange}
-                    name="formDescription"
-                />
+                    <label>Description:</label>
+                    <textarea
+                        type="text"
+                        value={formDescription}
+                        onChange={handleInputChange}
+                        name="formDescription"
+                    />
 
-                <label>Type:</label>
-                <select name="type" value={formType} onChange={(e) => { setFormType(e.target.value) }}>
-                    <option value="Run">Run</option>
-                    <option value="Bike">Bike</option>
-                    <option value="Hike">Hike</option>
-                    <option value="Walk">Walk</option>
-                    <option value="Swim">Swim</option>
-                    <option value="Weights">Weights</option>
-                    <option value="Row">Row</option>
-                </select>
+                    <label>Type:</label>
+                    <select name="type" value={formType} onChange={(e) => { setFormType(e.target.value) }}>
+                        <option value="Run">Run</option>
+                        <option value="Bike">Bike</option>
+                        <option value="Hike">Hike</option>
+                        <option value="Walk">Walk</option>
+                        <option value="Swim">Swim</option>
+                        <option value="Weights">Weights</option>
+                        <option value="Row">Row</option>
+                    </select>
 
-                <label>Unit:</label>
-                <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
-                    <option value="mile">Mile</option>
-                    <option value="km">km</option>
-                    <option value="feet">Feet</option>
-                    <option value="meter">Meter</option>
-                    <option value="rep">Rep</option>
-                </select>
+                    <label>Unit:</label>
+                    <select name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
+                        <option value="mile">Mile</option>
+                        <option value="km">km</option>
+                        <option value="feet">Feet</option>
+                        <option value="meter">Meter</option>
+                        <option value="rep">Rep</option>
+                    </select>
 
-                <label>Start:</label>
-                <div>
-                    <DatePicker name='formStartDate' selected={formStartDate} onChange={(date) => setFormStartDate(date)} />
-                </div>
+                    <label>Start:</label>
+                    <div>
+                        <DatePicker name='formStartDate' selected={formStartDate} onChange={(date) => setFormStartDate(date)} />
+                    </div>
 
-                <label>End:</label>
-                <div>
-                    <DatePicker name='formEndDate' selected={formEndDate} onChange={(date) => setFormEndDate(date)} />
-                </div>
+                    <label>End:</label>
+                    <div>
+                        <DatePicker name='formEndDate' selected={formEndDate} onChange={(date) => setFormEndDate(date)} />
+                    </div>
 
-                <label>Picture:</label>
-                <ImageUpload setImagepath={setImagepath}></ImageUpload>
-                <img src={imagepath}/>
-                
-                <button
-                    type="submit"
-                    value="Submit"
-                    className="challenge-submit-btn">
+                    <label>Picture:</label>
+                    <ImageUpload setImagepath={setImagepath}></ImageUpload>
+                    <img src={imagepath} />
+
+                    <button
+                        type="submit"
+                        value="Submit"
+                        className="challenge-submit-btn">
                         Submit
-                </button>
-                <div id="challenge-confirmation"></div>
+                    </button>
+                    <div id="challenge-confirmation"></div>
 
-            </form>
-        </div>
+                </form>
+            </div>
         </div>
     )
 }

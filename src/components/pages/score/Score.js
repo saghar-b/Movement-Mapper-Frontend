@@ -73,6 +73,7 @@ export default function Score() {
 
   }
 
+  console.log("scores")
   console.log(scores)
 
   return (
@@ -97,6 +98,8 @@ export default function Score() {
                 <li key="{part.id}">
                   <p id="name">{part.user_name}</p>
                   <p id="score">{part.score.distance}</p>
+                  <p id="unit">  {challenge.unit}</p>
+
                 </li>
               ))}
             </div>

@@ -39,6 +39,7 @@
 .homepage-cards{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -46,20 +47,32 @@
     font-size: 40px;
 }
 
+.container{
+    display: flex;
+    flex-grow: 1;
+    margin: 0% !important;
+    padding: 0%;
+    width: 100vw !important;
+    justify-content: center !important;
+}
+
 #box1{
-    height: 50vh;
+    width: 100vw;
+    height: 30vh;
     background-color: #83C5BE !important;
     /* border-radius: 30px; */
 }
 
 #box2{
-    height: 50vh;
+    width: 100vw;
+    height: 30vh;
     background-color: #83C5BE !important;
     /* border-radius: 30px; */
 }
 
 #box3{
-    height: 50vh;
+    width: 100vw;
+    height: 30vh;
     background-color: #83C5BE !important;
     /* border-radius: 30px; */
 }
@@ -86,7 +99,7 @@
     flex-wrap: wrap !important;
 }
 .container h3{
-    font-size: 30px;
+    font-size: 20px;
 }
 #welcome{
     text-align: center;

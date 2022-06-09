@@ -75,6 +75,7 @@ function PendingCard({ challenge, getoneChallenge, token }) {
                         <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                         
                             <button className="button" onClick={handleAcceptBtn}>Accept</button>
+                            <h3 className=''> {challenge.scores.length}</h3>
                         </div>
                         
                     </div>

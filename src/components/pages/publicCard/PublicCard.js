@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import jwt from 'jwt-decode'
 import './PublicCard.css';
-import {getBaseUrl} from '../../../utils/API';
+import { getBaseUrl } from '../../../utils/API';
 import "../../../global.css";
 
 function PublicCard({ challenge, getoneChallenge, token }) {
-
+    const [isPsast, setIsPsast] = useState(false);
     const [isJoined, setIsJoined] = useState(false);
     useEffect(() => {
+        const today = new Date();
+        const start = new Date(challenge.start_time);
+        const end = new Date(challenge.end_time);
+        if (end < today) {
+            setIsPsast(true)
+        } else {
+            setIsPsast(false)
+        }
 
         checkJoined();
     }, [])
-    
+
     console.log("challenge");
     console.log(challenge);
     function handleChallengeClick(e) {
@@ -22,26 +30,25 @@ function PublicCard({ challenge, getoneChallenge, token }) {
     }
     function handleJoinBtn(e) {
         e.preventDefault();
-       
+
         if (token != "") {
-            
+
             const addChallenge = {
                 challenge_id: challenge.id,
                 user_id: jwt(token).id,
                 distance: "0",
-                join :true
+                join: true
             }
-         
+
             insertToDB(addChallenge)
         } else {
             alert("please log in")
         }
     }
     function checkJoined() {
-    console.log("hahahaha")
-    console.log(token)
+        console.log(token)
         if (token != "") {
-          
+
             // check the use is joined
             fetch(`${getBaseUrl()}/challenges/score/${jwt(token).id}/${challenge.id}`, {
                 headers: {
@@ -57,7 +64,7 @@ function PublicCard({ challenge, getoneChallenge, token }) {
 
                 }
             })
-        } 
+        }
         else {
             console.log("Notloged in")
 
@@ -107,25 +114,27 @@ function PublicCard({ challenge, getoneChallenge, token }) {
                     <div className='card-header1'>
                         <h1 className='public-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
                         <div className='public-img cursor-hand'>
-                            <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                            <img data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path} />
                         </div>
-                   </div>
-                
+                    </div>
+
                     <div className='card-body2'>
                         <div className="public-card-body">
                             <h4>{challenge.creator.user_name}</h4>
                             <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                             <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
-                        
-    
-                        {isJoined &&
-                            <button className="button" onClick={handleLeaveBtn}>Leave</button>
-                        }
-                        {!isJoined &&
-                            <button className="button" onClick={handleJoinBtn}>Join</button>
-                        }
-                        </div>
+                           
 
+
+                            {(isJoined && !isPsast)  &&
+                                <button className="button" onClick={handleLeaveBtn}>Leave</button>
+                            }
+                            {(!isJoined && !isPsast) && 
+                                <button className="button" onClick={handleJoinBtn}>Join</button>
+                            }
+                            {/* } */}
+                        </div>
+                        <h3 className=''> {challenge.scores.length}</h3>
 
                     </div>
                 </section >

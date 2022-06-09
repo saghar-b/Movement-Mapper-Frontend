@@ -3,7 +3,7 @@ import Moment from 'moment';
 import jwt from 'jwt-decode';
 import './PendingCard.css';
 // import { useNavigate } from 'react-router-dom';
-import {getBaseUrl} from '../../../utils/API';
+import { getBaseUrl } from '../../../utils/API';
 import "../../../global.css";
 
 
@@ -17,8 +17,6 @@ function PendingCard({ challenge, getoneChallenge, token }) {
         // checkJoined();
     }, [])
 
-    console.log("challenge");
-    console.log(challenge);
     function handleChallengeClick(e) {
         e.preventDefault();
 
@@ -53,9 +51,8 @@ function PendingCard({ challenge, getoneChallenge, token }) {
         }).then(res => res.json()).then(data => {
             if (data) {
                 window.location.reload(false);
-                // setIspending(true)
             } else {
-               console.log("not to be able to accept")
+                console.log("not to be able to accept")
 
             }
         })
@@ -66,18 +63,18 @@ function PendingCard({ challenge, getoneChallenge, token }) {
                 <section data-type={challenge}>
                     <div className='card-header1'>
                         <h1 className='pending-title' data-type={challenge.id} onClick={handleChallengeClick}>{challenge.Challenge_name}</h1>
-                        <img className='pending-img cursor-hand' data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path}/>
+                        <img className='pending-img cursor-hand' data-type={challenge.id} onClick={handleChallengeClick} src={challenge.picture_path} />
                     </div>
                     <div className='card-body2'>
                         <div className='pending-card-body'>Created by:
-                        <h4>{challenge.creator.user_name}</h4>
-                        <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
-                        <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
-                        <div className="cardButtons">
-                            <button className="button" onClick={handleAcceptBtn}>Accept</button>
+                            <h4>{challenge.creator.user_name}</h4>
+                            <h4>{Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
+                            <h4>{Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
+                            <div className="cardButtons">
+                                <button className="button" onClick={handleAcceptBtn}>Accept</button>
+                            </div>
                         </div>
-                        </div>
-                        
+                        <div >{challenge.scores.length}</div>
                     </div>
                 </section >
             </div>

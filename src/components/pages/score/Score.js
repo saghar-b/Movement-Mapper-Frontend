@@ -96,8 +96,7 @@ export default function Score() {
               {scores.map(part => (
                 <li key="{part.id}">
                   <p id="name">{part.user_name}</p>
-                  <p id="score">{part.score.distance} </p>
-                  <p id="unit">{part.score.distance} </p>
+                  <p id="score">{part.score.distance}</p>
                 </li>
               ))}
             </div>

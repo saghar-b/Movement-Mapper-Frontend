@@ -1,10 +1,11 @@
 // import React from 'react';
-// import './Styles/Log.css';
+import './Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from '../unitConvert/UnitConverter';
 import jwt from 'jwt-decode'
 import {getBaseUrl} from '../../../utils/API'
+
 
 
 export default function Log(props) {

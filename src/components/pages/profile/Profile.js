@@ -105,7 +105,7 @@ export default function Profile() {
 
   return (
     <>
-      <h3 id='user-dashboard' style={{ textAlign: "center" }}>{location.state.name}'s Dashboard</h3>
+      <h3 id='user-dashboard' style={{ textAlign: "center" }}>{location.state.name}'s dashboard</h3>
       <p style={{ textAlign: "center", display: "none" }}>User ID: {location.state.id}</p>
       <div id="challBtn">
       <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {getBaseUrl} from '../../../utils/API'
 import "../../../global.css"
 
-function PublicCard({ challenge, getoneChallenge, setType }) {
+function PrivateCard({ challenge, getoneChallenge, setType }) {
     const [isPsast, setIsPsast] = useState(false);
     const navigate = useNavigate();
 
@@ -96,12 +96,13 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
                     <h4>Start: {Moment(challenge.start_time).format('MMM DD yyyy')}</h4>
                     <h4>End: {Moment(challenge.end_time).format('MMM DD yyyy')}</h4>
                     {/* <button>Edit</button> */}
-                    
-                    <button onClick={handleDeleteBtn} className="button">Delete</button>
-                    {isPsast &&
+                    <div className="cardButtons">
+                        <button onClick={handleDeleteBtn} className="button">Delete</button>
+                        {isPsast &&
 
-                    <button className='button' onClick={handleViewInvitedBtn}>Invite</button>
-                    }
+                        <button className='button' onClick={handleViewInvitedBtn}>Invite</button>
+                        }
+                    </div>
                     </div>
 
                 </div>
@@ -112,4 +113,4 @@ function PublicCard({ challenge, getoneChallenge, setType }) {
     );
 }
 
-export default PublicCard;
+export default PrivateCard;

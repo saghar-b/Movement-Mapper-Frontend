@@ -20,6 +20,10 @@
     text-align: center;
 }
 
+.cardButtons{
+    margin-top: 5%;
+}
+
 .msg {
     color: red;
 }

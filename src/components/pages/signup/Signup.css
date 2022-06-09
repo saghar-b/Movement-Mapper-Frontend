@@ -23,3 +23,9 @@
 .signup-form button{
     padding: 10px !important;
 }
+
+.signBtn{
+        background-color: white;
+        width: fit-content;
+        border-radius: 6px;
+}

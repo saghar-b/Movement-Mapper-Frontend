@@ -108,7 +108,7 @@ function Signup() {
             />
           </div>
 
-          <button className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
+          <button className="signBtn" type="button" onClick={handleFormSubmit}>
             Submit
           </button>
 

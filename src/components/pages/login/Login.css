@@ -20,6 +20,12 @@
     padding: 10px;
 }
 
+.loginBtn{
+        background-color: white;
+        width: fit-content;
+        border-radius: 6px;
+}
+
 
 
 @media screen and (max-width: 390px) {

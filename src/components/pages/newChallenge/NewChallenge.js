@@ -49,41 +49,44 @@ function NewChallenge() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const t = localStorage.getItem('SavedToken');
-
-        const challengeObj = {
-            Challenge_name: formTitle,
-            description: formDescription,
-            Challenge_type: formType,
-            start_time: dateFormat(formStartDate, "isoUtcDateTime"),
-            end_time: dateFormat(formEndDate, "isoUtcDateTime"),
-            picture_path: imagepath,
-            unit: unit,
-            user_name: jwt(t).user_name,
-            creator_id: jwt(t).id
+        if (formTitle === "") {
+            alert("Please enter a valid Challenge Title")
         }
+        else {
 
-        fetch(`${getBaseUrl()}/api/challenges/new`, {
-            method: "POST",
-            body: JSON.stringify(challengeObj),
-            headers: {
-                "Content-Type": "application/json",
-                authorization: "Bearer " + t
+            const t = localStorage.getItem('SavedToken');
+
+            const challengeObj = {
+                Challenge_name: formTitle,
+                description: formDescription,
+                Challenge_type: formType,
+                start_time: dateFormat(formStartDate, "isoUtcDateTime"),
+                end_time: dateFormat(formEndDate, "isoUtcDateTime"),
+                picture_path: imagepath,
+                unit: unit,
+                user_name: jwt(t).user_name,
+                creator_id: jwt(t).id
             }
-        }).then(res => {
-            console.log("res")
-            console.log(res)
 
-            if (res.ok) {
-                insertToDB(jwt(t).id, formTitle)
-                alert("new challenge created!!")
-                navigate(`/profile/`, { state: { id: jwt(t).id, name: jwt(t).user_name } });
+            fetch(`${getBaseUrl()}/api/challenges/new`, {
+                method: "POST",
+                body: JSON.stringify(challengeObj),
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: "Bearer " + t
+                }
+            }).then(res => {
 
-            } else {
-                alert("Challenge Exist!!")
-            }
-        })
+                if (res.ok) {
+                    insertToDB(jwt(t).id, formTitle)
+                    alert("new challenge created!!")
+                    navigate(`/profile/`, { state: { id: jwt(t).id, name: jwt(t).user_name } });
 
+                } else {
+                    alert("Challenge Exist!!")
+                }
+            })
+        }
 
         setTitle('');
         setFormDescription('');
@@ -98,7 +101,6 @@ function NewChallenge() {
         fetch(`${getBaseUrl()}/challenges/score/id/${challenge_name}`, {
             headers: {
                 "Content-Type": "application/json",
-                // authorization: "Bearer " + localStorage.getItem("SavedToken")
             }
         }).then(res => res.json()).then(newChallengesId => {
             const addToScore = {

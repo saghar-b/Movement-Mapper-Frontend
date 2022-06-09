@@ -16,8 +16,6 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
         const end = new Date(challenge.end_time);
         if (end < today) {
           setIsPsast(false)
-          console.log("past")
-          console.log(isPsast)
         } else {
           setIsPsast(true)
         }
@@ -31,7 +29,6 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
     function handleJoinBtn(e) {
         e.preventDefault();
         const tokenrow= localStorage.getItem("SavedToken")
-        console.log(tokenrow)
         if(tokenrow){
             const t = "Bearer "+tokenrow;
             // setToken(jwt(t))
@@ -40,8 +37,6 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
                 user_id: jwt(t).id,
                 distance: "0"
             }
-            console.log(addChallenge)
-            console.log(jwt(t))
             insertToDB(addChallenge)
           }else{
            
@@ -104,7 +99,7 @@ function PrivateCard({ challenge, getoneChallenge, setType }) {
                         }
                     </div>
                     </div>
-
+                    <div >{challenge.scores.length}</div>
                 </div>
             </section >
         </div>

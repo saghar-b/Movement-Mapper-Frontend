@@ -1,4 +1,4 @@
-// import React from 'react';
+
 import './Score.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
@@ -25,8 +25,6 @@ export default function Score() {
         "Content-Type": "application/json"
       }
     }).then(res => res.json()).then(data => {
-
-      console.log(data)
       setChallenge(data)
       setScores(data.scores)
 
@@ -35,7 +33,6 @@ export default function Score() {
       const end = new Date(data.end_time);
       if (start < today && end > today) {
         setIsCurrent(true)
-        console.log("current")
       } else {
         setIsCurrent(false)
       }
@@ -63,7 +60,7 @@ export default function Score() {
           setIsJoined(false)
         } else {
           setIsJoined(true)
-          console.log("joined")
+
 
         }
       })
@@ -73,7 +70,6 @@ export default function Score() {
 
   }
 
-  console.log(scores)
 
   return (
     <>
@@ -84,25 +80,25 @@ export default function Score() {
           </div>
           <div className='cardBody'>
             <div>
-            <div className='challenge'>
-              {/* <label for="challenge">Challenge:</label> */}
-              {challenge.Challenge_name} Challenge
-            </div>
-            <div className='titles'>
-              <div id="participantHead">Participant:</div>
-              <div id="participantStats">Stats:</div>
-            </div>
-            <div className='scores'>
-              {scores.map(part => (
-                <li key="{part.id}">
-                  <p id="name">{part.user_name}</p>
-                  <p id="score">{part.score.distance}</p>
-                </li>
-              ))}
-            </div>
+              <div className='challenge'>
+                {challenge.Challenge_name} Challenge
+              </div>
+              <div className='titles'>
+                <div id="participantHead">Participant:</div>
+                <div id="participantStats">Stats:</div>
+              </div>
+              <div className='scores'>
+                {scores.map(part => (
+                  <li key="{part.id}">
+                    <p id="name">{part.user_name}</p>
+                    <p id="score">{part.score.distance}</p>
+                    <p id="unit">{challenge.unit}</p>
+                  </li>
+                ))}
+              </div>
             </div>
             <div className='picture'>
-            <img className= "challengePic" src={challenge.picture_path}/>
+              <img className="challengePic" src={challenge.picture_path} />
             </div>
             <p>Description:{challenge.description}</p>
           </div>

@@ -44,7 +44,7 @@ export default function Home() {
             className="d-block w-100">
           </div>
           <Carousel.Caption className='headers'>
-            <h3 id="welcome">Welcome to MoveMovement Mapper</h3>
+            <h3 id="welcome">Welcome to Movement Mapper</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

@@ -1,18 +1,55 @@
-label{
-padding: 10px;
+label {
+    padding: 10px;
 }
 
-.inviteUser{
-margin: 20px;
+.inviteUser {
+    margin: 20px;
 }
 
-.button{
+.button {
     background-color: white;
     width: fit-content;
     border-radius: 6px;
 }
 
-.box{
+.box {
     margin: 30px;
+
+}
+
+.find{
+    font-size: 20px;
+}
+
+.inviteContainer {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid black;
+}
+
+@media screen and (max-width: 390px) {
+    label {
+        padding: 5px;
+    }
+    
+    .inviteUser {
+        margin: 20px;
+    }
+    
+    .button {
+        background-color: white;
+        width: fit-content;
+        border-radius: 6px;
+    }
+    
+    .box {
+        margin: 30px;
+    
+    }
+
+    .find{
+        font-size: 20px;
+    }
 
 }

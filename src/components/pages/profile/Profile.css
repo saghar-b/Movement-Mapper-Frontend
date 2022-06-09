@@ -6,6 +6,7 @@
 .profile-title{
   margin-left: 6%;
   font-size: 32px;
+  text-decoration: underline;
   /* text-align: center; */
 }
 .createdChallenges{
@@ -68,6 +69,10 @@
   display: flex;
   align-content: center;
   justify-content: center;
+}
+
+.createdChallenges:empty{
+  display: none;
 }
 @media screen and (max-width: 390px) {
    .profile-title{

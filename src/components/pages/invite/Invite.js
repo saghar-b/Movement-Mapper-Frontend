@@ -18,8 +18,6 @@ function Invite() {
   const [message, setmessage] = useState("");
   const location = useLocation();
 
-
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'userName') {
@@ -31,8 +29,6 @@ function Invite() {
       alert("Please enter a valid name")
     }
     else {
-
-
       e.preventDefault();
       //   find the searched username
       fetch(`${getBaseUrl()}/user/${userName}`, {
@@ -96,8 +92,6 @@ function Invite() {
 
     }
   }
-
-
 
   return (
     <div className='inviteContainer'>

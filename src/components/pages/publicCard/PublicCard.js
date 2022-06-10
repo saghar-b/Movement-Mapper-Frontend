@@ -12,12 +12,12 @@ function PublicCard({ challenge, getoneChallenge, token }) {
     const [participants, setParticipants] = useState([]);
     const [isJoined, setIsJoined] = useState(false);
     useEffect(() => {
-    
+
         getJoinedUsers()
         const today = new Date();
         const start = new Date(challenge.start_time);
         const end = new Date(challenge.end_time);
-        if (end < today ) {
+        if (end < today) {
             setIsPast(true)
         } else {
             setIsPast(false)
@@ -25,17 +25,19 @@ function PublicCard({ challenge, getoneChallenge, token }) {
 
         checkJoined();
     }, [])
-function getJoinedUsers(){
-    fetch(`${getBaseUrl()}/challenge/${challenge.id}`, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => res.json()).then(data => {
 
-        setParticipants(data.scores)
 
-    })
-}
+    function getJoinedUsers() {
+        fetch(`${getBaseUrl()}/challenge/${challenge.id}`, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json()).then(data => {
+
+            setParticipants(data.scores)
+
+        })
+    }
 
 
     function handleChallengeClick(e) {
@@ -57,11 +59,11 @@ function getJoinedUsers(){
 
             insertToDB(addChallenge)
             window.location.reload(false);
-           
+
         } else {
             alert("please log in")
         }
-       
+
     }
     function checkJoined() {
         if (token != "") {
@@ -73,9 +75,9 @@ function getJoinedUsers(){
                 }
             }).then(res => res.json()).then(data => {
                 if (data.msg === "NO") {
-                   
+
                     setIsJoined(false)
-                    
+
                 } else {
                     setIsJoined(true)
 

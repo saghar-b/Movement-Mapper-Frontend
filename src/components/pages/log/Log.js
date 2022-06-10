@@ -1,10 +1,10 @@
-// import React from 'react';
+
 import './Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from '../unitConvert/UnitConverter';
 import jwt from 'jwt-decode'
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
 
 
 
@@ -18,9 +18,9 @@ export default function Log(props) {
     setScore(score)
     const tokenrow = localStorage.getItem('SavedToken');
     if (tokenrow) {
-     const t = "Bearer " + tokenrow;
+      const t = "Bearer " + tokenrow;
       setToken(t)
-    
+
     }
     else {
       alert("Please log in")
@@ -35,10 +35,6 @@ export default function Log(props) {
 
     }
 
-    console.log(localStorage.getItem("SavedToken"))
-    console.log("props.challenge.id vagheannnnnn")
-    console.log(props.challenge.id)
-    console.log(scoreObj)
     // save the log
     fetch(`${getBaseUrl()}/api/scores/new`, {
       method: "POST",
@@ -48,8 +44,7 @@ export default function Log(props) {
         authorization: "Bearer " + localStorage.getItem("SavedToken")
       }
     }).then(res => {
-      console.log("res")
-      console.log(res)
+
       if (res.ok) {
         window.location.reload(false);
       } else {
@@ -72,14 +67,14 @@ export default function Log(props) {
       <h2 className='logHead'>Log Activity</h2>
       <form className="Form logInput" onSubmit={handleFormSubmit}>
         <input placeholder="text" name="text" type="number" value={score} onChange={(e) => { setScore(e.target.value) }} />
-        <label>{props.challenge.unit.charAt(0).toUpperCase()+props.challenge.unit.slice(1)}(s)</label>
-        
+        <label>{props.challenge.unit.charAt(0).toUpperCase() + props.challenge.unit.slice(1)}(s)</label>
+
         <button className="button">Log New Activity!</button>
       </form>
-<div className='unitConvert'>
+      <div className='unitConvert'>
 
-      <UnitConverter setScore={setScore} />
-</div>
+        <UnitConverter setScore={setScore} />
+      </div>
     </>
   );
 }

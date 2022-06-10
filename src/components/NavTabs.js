@@ -1,4 +1,4 @@
-// import React from 'react';
+
 import '../styles/Navbar.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +41,7 @@ function NavTabs(props) {
     const tok = localStorage.getItem('SavedToken');
     if (tok) {
       navigate(`/profile/`, { state: { id: jwt(tok).id, name: jwt(tok).user_name } });
-    } else{
+    } else {
       alert("Please log in")
     }
   }

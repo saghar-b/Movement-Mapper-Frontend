@@ -21,7 +21,7 @@ export default function Challenges() {
       const t = "Bearer " + tokenrow;
       setToken(t)
     }
-    // 
+    //get all the challenges 
     fetch(`${getBaseUrl()}/challenges/types/no/${location.state.type}`, {
       headers: {
         "Content-Type": "application/json"
@@ -36,30 +36,25 @@ export default function Challenges() {
 
   function getoneChallenge(oneChallenge) {
 
-    console.log(token)
     if (token != "") {
-      console.log("tokennnnnn")
-      console.log(token)
       navigate(`/Leaderboard`, { state: { id: jwt(token).id, name: jwt(token).name, challenge_id: oneChallenge } })
 
     } else {
-      console.log("Notlogedin")
-
       navigate(`/leaderboard`, { state: { id: "", name: "", challenge_id: oneChallenge } })
     }
 
   }
   return (
     <>
-    <div className="category-page">
-      <div className='category'>CATEGORY: {location.state.type}</div>
-      <h1 className='challenges-title'>Challenges</h1>
-      <div className='challengeCards'>
-        {challenges.map(chal => (
-          <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
-        ))}
+      <div className="category-page">
+        <div className='category'>CATEGORY: {location.state.type}</div>
+        <h1 className='challenges-title'>Challenges</h1>
+        <div className='challengeCards'>
+          {challenges.map(chal => (
+            <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 } 

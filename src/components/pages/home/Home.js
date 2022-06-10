@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../card/Card';
 import { Carousel } from 'react-bootstrap';
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
 import './Home.css';
 import '../../../../src/global.css'
 
@@ -14,21 +14,14 @@ export default function Home() {
     fetch(`${getBaseUrl()}/challenges/types`, {
       headers: {
         "Content-Type": "application/json"
-        //  authorization: localStorage.getItem("SavedToken")
       }
     }).then(res => res.json()).then(data => {
       setTypes(data)
       setType(type)
-      // 
-      // console.log("/////////")
-      console.log(types)
-      // console.log(type)
     })
   }, [])
   const getChallenge = (selectedType) => {
-
-    console.log(selectedType)
-
+    // get challenges for that type
     navigate(`/challenges/`, { state: { type: selectedType } });
 
   }
@@ -45,7 +38,7 @@ export default function Home() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-        <div id="box2"
+          <div id="box2"
             className="d-block w-100">
           </div>
           <Carousel.Caption className='headers'>
@@ -53,7 +46,7 @@ export default function Home() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-        <div id="box3"
+          <div id="box3"
             className="d-block w-100">
           </div>
 

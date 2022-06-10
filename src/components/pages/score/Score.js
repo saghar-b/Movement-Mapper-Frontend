@@ -91,16 +91,16 @@ export default function Score() {
                 {scores.map(part => (
                   <li key="{part.id}">
                     <p id="name">{part.user_name}</p>
-                    <p id="score">{part.score.distance} {challenge.unit.charAt(0).toUpperCase()+challenge.unit.slice(1)}(s)</p>
+                    <p id="score">{part.score.distance} {challenge.unit.charAt(0).toUpperCase() + challenge.unit.slice(1)}(s)</p>
                   </li>
                 ))}
               </div>
-              </div>
-              <div className='picture'>
+            </div>
+            <div className='picture'>
               <img className="challengePic" src={challenge.picture_path} />
             </div>
-            
-            
+
+
             <p className='leaderboard-description'><em><strong>Description:</strong></em> {challenge.description}</p>
           </div>
         </section>

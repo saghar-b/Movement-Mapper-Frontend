@@ -10,9 +10,7 @@ import weight from '../../../assets/weight.png'
 
 
 const Card = ({ card, getChallenge, setType }) => {
-    console.log("card", card)
     const [image, setImage] = useState(false);
-    // const [isRun, setIsRun] = useState(false);
     useEffect(() => {
         if (card === "Run") {
             setImage(run)

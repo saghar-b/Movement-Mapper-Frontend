@@ -6,44 +6,43 @@
     text-align: center;
 }
 
-.login-title{
+.login-title {
     margin: 30px;
     font-size: 48px;
 }
 
-.login-form div{
+.login-form div {
     margin: 20px;
 }
 
-.login-form input{
+.login-form input {
     width: 40%;
     padding: 10px;
 }
 
 
-
-
-
 @media screen and (max-width: 390px) {
-    .contact{
+    .contact {
         display: flex;
         flex-direction: column;
         margin-left: 10%;
     }
-    
 
 
-    .login-form input{
+
+    .login-form input {
         width: 70%;
         padding: 10px;
     }
-    .login-form h2{
+
+    .login-form h2 {
         font-size: 22px;
     }
-   p{
-      
-       font-size: 9px;
-       padding: 10px;
-   }
-    
-  }
+
+    p {
+
+        font-size: 9px;
+        padding: 10px;
+    }
+
+}

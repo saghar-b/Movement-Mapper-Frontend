@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import jwt from 'jwt-decode'
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
 import "../../../global.css"
 
 
@@ -20,7 +20,7 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
+
     getCreatedChallenges();
     getParticipatingChallenges();
     getPendingChallenges();
@@ -40,7 +40,7 @@ export default function Profile() {
         }
       }).then(res => res.json()).then(challengesDB => {
         setCreatedChallenges(challengesDB)
-     
+
       })
     } else {
       alert("please log in")
@@ -110,7 +110,7 @@ export default function Profile() {
       <h3 id='user-dashboard' style={{ textAlign: "center" }}>{location.state.name}'s dashboard</h3>
       <p style={{ textAlign: "center", display: "none" }}>User ID: {location.state.id}</p>
       <div id="challBtn">
-      <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
+        <button className='button' onClick={handleNewViewBtn}>Create a New Challenge</button>
       </div>
       {/* start of creator's card */}
       <h1 className='profile-title'>Created Challenges</h1>

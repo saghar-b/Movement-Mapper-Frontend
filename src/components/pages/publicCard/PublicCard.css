@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-   height: 450px;
+   height: 500px;
     margin: 30px;
 }
 
@@ -47,7 +47,7 @@
 
 .public-img > img {
     width: 100%;
-    height: auto;
+    height: 200px;
 }
 
 .public-card-body h4{

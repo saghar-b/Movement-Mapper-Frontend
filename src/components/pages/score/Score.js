@@ -101,7 +101,7 @@ export default function Score() {
             </div>
             
             
-            <p className='leaderboard-description'>Description:{challenge.description}</p>
+            <p className='leaderboard-description'><em><strong>Description:</strong></em> {challenge.description}</p>
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&

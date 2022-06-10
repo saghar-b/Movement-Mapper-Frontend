@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-    height: 450px;
+    height: 500px;
     margin: 30px;
    
 }
@@ -36,6 +36,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    height: auto;
 }
 
 .pending-card-body h4{

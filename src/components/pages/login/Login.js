@@ -82,7 +82,7 @@ function Login(props) {
             />
           </div>
 
-          <button className="loginBtn" type="button" onClick={handleFormSubmit}>
+          <button className="button " type="button" onClick={handleFormSubmit}>
             Submit
           </button>
           <a href="/signup"> Sign Up! </a>

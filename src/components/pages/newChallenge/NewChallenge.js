@@ -179,7 +179,7 @@ function NewChallenge() {
                     <button
                         type="submit"
                         value="Submit"
-                        className="challenge-submit-btn">
+                        className="button">
                         Submit
                     </button>
                     <div id="challenge-confirmation"></div>

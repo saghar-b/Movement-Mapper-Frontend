@@ -12,59 +12,74 @@ label {
     border-radius: 6px;
 }
 
-#searchBtn{
+#searchBtn {
     margin-top: 5px;
 }
+
 .box {
     margin: 30px;
 
 }
 
-.invite{
-margin-left: 30px;
+.invite {
+    margin-left: 30px;
 }
 
-.find{
+.find {
     font-size: 20px;
 }
 
 .inviteContainer {
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
     margin-right: 20px;
     border: 3px solid rgb(184, 211, 211);
     border-radius: 10px;
     width: 500px;
 }
-
+input {
+    width: 250px;
+    border-radius: 5px;
+}
+.inviteUser p{
+    font-size: 18px;
+}
 @media screen and (max-width: 390px) {
     label {
         padding: 5px;
+        font-size: 12px;
     }
-    
+
     .inviteUser {
         margin: 20px;
     }
-    
+    .inviteUser p{
+        font-size: 14px;
+    }
+
     .button {
         background-color: white;
         width: fit-content;
         border-radius: 6px;
     }
-    
+
     .box {
         margin: 30px;
-    
-    }
 
-    .find{
+    }
+ input {
+    width: 200px;
+}
+    .find {
         font-size: 20px;
     }
 
     .inviteContainer {
-        margin-top: 10px;
+        margin-top: 5px;
+        margin-left: 13px;
         border: 3px solid rgb(184, 211, 211);
         border-radius: 10px;
         width: 350px;
     }
+
 }

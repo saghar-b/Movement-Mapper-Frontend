@@ -72,9 +72,9 @@ export default function Log(props) {
       <h2 className='logHead'>Log Activity</h2>
       <form className="Form logInput" onSubmit={handleFormSubmit}>
         <input placeholder="text" name="text" type="number" value={score} onChange={(e) => { setScore(e.target.value) }} />
-        <label>{props.challenge.unit}</label>
-
-        <button>Log New Activity!</button>
+        <label>{props.challenge.unit.charAt(0).toUpperCase()+props.challenge.unit.slice(1)}(s)</label>
+        
+        <button className="button">Log New Activity!</button>
       </form>
 <div className='unitConvert'>
 

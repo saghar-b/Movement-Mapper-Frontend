@@ -42,7 +42,7 @@ export default function UnitConverter(props) {
           <option value="meter">feet to meter</option>
 
         </select>
-        <button>Convert!</button>
+        <button className="button">Convert!</button>
       </form>
 
     </>

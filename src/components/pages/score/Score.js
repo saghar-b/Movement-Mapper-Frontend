@@ -91,7 +91,7 @@ export default function Score() {
                 {scores.map(part => (
                   <li key="{part.id}">
                     <p id="name">{part.user_name}</p>
-                    <p id="score">{part.score.distance} {challenge.unit}</p>
+                    <p id="score">{part.score.distance} {challenge.unit.charAt(0).toUpperCase()+challenge.unit.slice(1)}(s)</p>
                   </li>
                 ))}
               </div>

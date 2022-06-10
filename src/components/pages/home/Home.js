@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../card/Card';
 import { Carousel } from 'react-bootstrap';
 import {getBaseUrl} from '../../../utils/API'
-// import {Container} from 'react-bootstrap';
-// import {Col} from 'react-bootstrap';
-// import {Row} from 'react-bootstrap';
 import './Home.css';
 import '../../../../src/global.css'
 

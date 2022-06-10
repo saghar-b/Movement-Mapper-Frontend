@@ -22,45 +22,28 @@
 
 
 
+
+
 @media screen and (max-width: 390px) {
     .contact{
         display: flex;
         flex-direction: column;
         margin-left: 10%;
     }
-    aside{
-        /* background-color: yellow; */
-        display: flex;
-        flex-direction: column;
-     
-        min-height: 100px;
-       
-    }
-    .line {
-
-        /* width: 50%; */
     
-        border-bottom: 3px solid var(--dark-navy);
-        position:relative;
-        right: 15px;
-        margin-left: 10px;
-    }
 
-    input , textarea{
-        width: 250px;
-        border: 1px solid gray;
-        border-radius: 5px;
-        
+
+    .login-form input{
+        width: 70%;
+        padding: 10px;
+    }
+    .login-form h2{
+        font-size: 22px;
     }
    p{
       
        font-size: 9px;
        padding: 10px;
    }
-    .btn {
-        background-color: var(--dark-navy);
-        line-height: 1px;
-        width: 250px;
-       
-    }
+    
   }

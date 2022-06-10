@@ -1,63 +1,69 @@
-:root {
-    --light-gray: #EDF6F9;
-    --light-teal: #83C5BE;
-    --dark-teal: #006D77;
-    --light-beige: #FFDDD2;
-    --dark-beige: #E29578;
-
-    --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
-    --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    --fs-8: 8px;
-    --fs-10: 10px;
-    --fs-12: 12px;
-    --fs-13: 13px;
-    --fs-14: 14px;
-    --fs-16: 16px;
-    --fs-18: 18px;
-    --fs-20: 20px;
-    --fs-22: 22px;
-    --fs-60: 60px;
-
-}
 
 .Scorecard {
     width: 60%;
-    margin: 20px;
-    border: 2px solid var(--dark-teal)
+    border: 2px solid var(--ming);
 }
 
 .cardHead {
-    background-color: var(--light-teal);
+    background-color: var(--MBG);
+
+}
+
+.leaderboard-description{
+    margin: 20px;
+    word-break: break-all;
 }
 
 .Leaderboard {
     margin: 5%;
 }
 
-label {
+.saghar{
+    margin-top: 2%;
+    
+}
 
-    font-size: var(--fs-20);
+.titles {
+    display: flex;
+    flex-direction: row;
+}
+
+#participantHead{
+    margin-left: 30px;
+    width: 100px;
     font-weight: bold;
+}
+#name{
+    margin-left: 5%;
+    width: 100px;
+}
+
+#score  {
+    margin-left: 16%;
+    text-align: right;
+}
+ #participantStats  {
+    margin-left: 15%;
+    text-align: right;
+    font-weight: bold;
+}
+.scores {
+    margin: 10px;
 }
 
 li {
     display: flex;
     flex-direction: row;
-    font-size: var(--fs-20);
+    font-size: 15px;
 }
 
-p {
-    padding-right: 20px;
-}
 
-.log  {
+.log {
     margin-top: 60px;
-    margin-left: 20px;
 }
 
 .Leaderboard>h1 {
-    padding-left: 20px;
-    font-size: var(--fs-60);
+    font-size: 35px;
 }
 
 .challenge p {
@@ -72,62 +78,114 @@ h3 {
     padding: 20px;
 }
 
-.challenge{
+.challenge {
     text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.cardBody-information{
+    width: 50%;
+}
+
+.picture{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.challengePic {
+   
+    width: 200px;
+    height: 200px;
+    width: 35%;
 }
 
 @media screen and (max-width: 390px) {
     .Leaderboard>h1 {
-        padding-left: 20px;
-        font-size: var(--fs-16);
+        font-size: 20px;
     }
 
     .Scorecard {
-        width: 90%;
-        margin: 20px;
-        border: 1px solid var(--dark-teal)
+        width: 100%;
+        border: 1px solid var(--ming);
     }
 
     .card-head {
-        background-color: var(--light-teal);
+        padding: 20px;
     }
 
-    label {
-        font-size: var(--fs-12);
-        font-weight: normal;
-        padding: 0%;
-    }
-
-    li {
-        display: flex;
+    .titles {
+        display:flex;
+        position: relative;
         flex-direction: row;
-        font-size: var(--fs-20);
-        padding: 0%;
     }
-
-    p {
-        padding-right: 10px;
+    
+     #participantHead{
+        font-size: 15px;
+        margin-left: 8%;
+        font-weight: bold;
+    } 
+    #name{
+        font-size: 10px;
     }
-
+    
+    #score  {
+        margin-left: 2%;
+        text-align: right;
+        font-size: 10px;
+    }
+     #participantStats  {
+        font-size: 15px;
+        margin-left: 10px;
+        text-align: center;
+        font-weight: bold;
+    } */
+    .scores {
+        margin: 10px;
+    }
     .log {
-        margin: 20px;
+        margin-top: 10px;
     }
-    .log input{
-       width: 30%;
+
+    .cardHead {
+        background-color: var(--MBG);
     }
-  
-    .challenge p {
-        padding: 0%;
-        margin-left: 40px;
+
+    .cardBody{
+        display:block;
+        flex-direction: column;
+    
+    }
+    .picture {
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .challengePic {
+        width: 100%;
+        height: 100%;
+    
+    }
+
+    .cardBody-information{
+        width: 100%;
+    }
+
+    .score li{
+        margin-right: 25px;;
     }
 
 
-    .card-head {
-        padding: 6px;
-    }
-
-  .log>  h2{
-        font-size: var(--fs-14)
-    }
 
 }

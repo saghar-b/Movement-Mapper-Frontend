@@ -32,8 +32,8 @@ export default function UnitConverter(props) {
   return (
     <>
 
-      <h2>Unit Conventor</h2>
-      <form className="Form Conventor" onSubmit={handleFormSubmit}>
+      <h2 className='unitCon'>Unit Converter</h2>
+      <form className="form converter" onSubmit={handleFormSubmit}>
         <input placeholder="0" name="originalalue" type="number" value={originalValue} onChange={(e) => { setOriginalValue(e.target.value) }} />
         <select className="unit" name="unit" value={unit} onChange={(e) => { setUnit(e.target.value) }}>
           <option value="mile">km to mile</option>
@@ -42,7 +42,7 @@ export default function UnitConverter(props) {
           <option value="meter">feet to meter</option>
 
         </select>
-        <button>Convert!</button>
+        <button className="button">Convert!</button>
       </form>
 
     </>

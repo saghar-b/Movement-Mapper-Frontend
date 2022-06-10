@@ -1,18 +1,19 @@
-
- h1{
-    font-size:12px
+.logHead{
+    font-size: 20px;
 }
-  
 
+.logInput button{
+    text-align: center;
+}
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 375px) {
 
-    h2{
-        font-size: var(--fs-10);
+    .logHead{
+        font-size: 20px
     }
 
     .logInput> input{
-        width: 10%;
+        width: 30%;
     }
     Form> button{
         font-size: var(--fs-10);

@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 import PublicCard from '../publicCard/PublicCard';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jwt-decode'
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
+import './Challenges.css';
 
 export default function Challenges() {
   const [challenges, setChallenges] = useState([]);
@@ -14,20 +15,21 @@ export default function Challenges() {
 
 
   useEffect(() => {
-    const t =""
+    const t = ""
     const tokenrow = localStorage.getItem('SavedToken');
     if (tokenrow) {
-     const t = "Bearer " + tokenrow;
+      const t = "Bearer " + tokenrow;
       setToken(t)
     }
-      fetch(`${getBaseUrl()}/challenges/types/no/${location.state.type}`, {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(res => res.json()).then(challengesDB => {
-        setChallenges(challengesDB)
-  
-      })
+    // 
+    fetch(`${getBaseUrl()}/challenges/types/no/${location.state.type}`, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json()).then(challengesDB => {
+      setChallenges(challengesDB)
+
+    })
 
   }, [])
 
@@ -49,12 +51,15 @@ export default function Challenges() {
   }
   return (
     <>
-      <div>{location.state.type}</div>
-      <h1>Challenges</h1>
-      {challenges.map(chal => (
-        <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
-      ))}
-
+    <div className="category-page">
+      <div className='category'>CATEGORY: {location.state.type}</div>
+      <h1 className='challenges-title'>Challenges</h1>
+      <div className='challengeCards'>
+        {challenges.map(chal => (
+          <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
+        ))}
+      </div>
+    </div>
     </>
   );
 } 

@@ -1,11 +1,11 @@
 
  .unit{
     margin-right: 20px;
+    margin-left: 20px;
 }
-.Conventor{
-    margin-bottom: 70PX;
+.unitCon{
+    font-size: 20px;
 }
-
 .Conventor input{
   
     margin-right: 20px;
@@ -16,10 +16,10 @@
         font-size: var(--fs-14)
     }
 
-    /* .Conventor input{
-        width: 30%;
+    .converter input{
+        width: 20%;
         margin-right: 10px;
-    } */
+    }
     .Form{
         padding-bottom: 10px;
     }
@@ -27,12 +27,17 @@
         font-size: var(--fs-10);
         background-color: white;
     }
-    /* .unit{
+    .unit{
         margin-right: 10px;
-    } */
+        margin-left: 10px;
+    }
 
     .Conventor{
         margin-bottom: 40PX;
+    }
+
+    .unitCon{
+        font-size: 15px;
     }
     
 }

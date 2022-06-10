@@ -36,7 +36,7 @@ header{
   border-radius: 20px;
 }
 
-img {
+.nav-img {
   height: 100px;
   width: 100px;
 }
@@ -54,7 +54,7 @@ img {
     height: 130px;
   }
   .navbar {
-    background: #dab317;
+    background: var(--MBG);
     height: 90px;
     display: flex;
     /* flex-direction: column; */
@@ -81,10 +81,9 @@ img {
     margin: 5px;
     /* line-height: 3; */
   }
-  img {
-    height: 75px;
-    width: 75px;
-  
+  .nav-img {
+    height: 70px;
+    width: 50px;
   }
 
 }

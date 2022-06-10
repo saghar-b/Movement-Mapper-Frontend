@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../card/Card';
 import { Carousel } from 'react-bootstrap';
 import {getBaseUrl} from '../../../utils/API'
-// import {Container} from 'react-bootstrap';
-// import {Col} from 'react-bootstrap';
-// import {Row} from 'react-bootstrap';
 import './Home.css';
 import '../../../../src/global.css'
 
@@ -44,7 +41,7 @@ export default function Home() {
             className="d-block w-100">
           </div>
           <Carousel.Caption className='headers'>
-            <h3 id="welcome">Welcome to MoveMovement Mapper</h3>
+            <h3 id="welcome">Welcome to Movement Mapper</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

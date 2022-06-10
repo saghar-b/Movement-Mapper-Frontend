@@ -1,11 +1,11 @@
-// import React from 'react';
+
 import './Score.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Log from '../log/Log';
 import Chart from '../chart/Chart';
-import {getBaseUrl} from '../../../utils/API'
-
+import { getBaseUrl } from '../../../utils/API'
+import "../../../global.css"
 
 export default function Score() {
   const location = useLocation();
@@ -25,8 +25,6 @@ export default function Score() {
         "Content-Type": "application/json"
       }
     }).then(res => res.json()).then(data => {
-
-      console.log(data)
       setChallenge(data)
       setScores(data.scores)
 
@@ -35,7 +33,6 @@ export default function Score() {
       const end = new Date(data.end_time);
       if (start < today && end > today) {
         setIsCurrent(true)
-        console.log("current")
       } else {
         setIsCurrent(false)
       }
@@ -63,7 +60,7 @@ export default function Score() {
           setIsJoined(false)
         } else {
           setIsJoined(true)
-          console.log("joined")
+
 
         }
       })
@@ -73,38 +70,38 @@ export default function Score() {
 
   }
 
-  console.log(scores)
 
   return (
     <>
       <div className='Leaderboard'>
-        <h1 className='saghar'>Leaderboard</h1>
-
         <section className='Scorecard'>
           <div className='cardHead'>
             <h3>{challenge.Challenge_type}</h3>
           </div>
           <div className='cardBody'>
-            <div className='challenge'>
-
-              <label for="challenge">Challenge:</label>
-              {challenge.Challenge_name}
+            <div className='cardBody-information'>
+              <div className='challenge'>
+                {challenge.Challenge_name} challenge
+              </div>
+              <div className='titles'>
+                <div id="participantHead">Participant:</div>
+                <div id="participantStats">Stats:</div>
+              </div>
+              <div className='scores'>
+                {scores.map(part => (
+                  <li key="{part.id}">
+                    <p id="name">{part.user_name}</p>
+                    <p id="score">{part.score.distance} {challenge.unit.charAt(0).toUpperCase()+challenge.unit.slice(1)}(s)</p>
+                  </li>
+                ))}
+              </div>
+              </div>
+              <div className='picture'>
+              <img className="challengePic" src={challenge.picture_path} />
             </div>
-            <div>
-
-              <label for="participant">Participant:</label>
-            </div>
-            <ul>
-              {/* show all the participants */}
-              {scores.map(part => (
-                <li key="{part.id}">
-                  <p>{part.user_name}</p>
-                  <p>{part.score.distance}</p>
-
-                </li>
-              ))}
-            </ul>
-
+            
+            
+            <p className='leaderboard-description'><em><strong>Description:</strong></em> {challenge.description}</p>
           </div>
         </section>
         {isCurrent && location.state.id && isJoined &&
@@ -113,6 +110,7 @@ export default function Score() {
 
           </div>
         }
+        <h1 className='saghar'>Leaderboard</h1>
         <div className='chart'>
 
           <Chart scores={scores}></Chart>

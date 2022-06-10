@@ -39,6 +39,8 @@
 .homepage-cards{
     display: flex;
     flex-direction: row;
+    align-content: center;
+    justify-content: center;
 
 }
 
@@ -66,17 +68,17 @@
 
 #welcome{
     text-align: center;
-    margin-bottom: 200px;
+    margin-bottom: 23%;
 }
 
 #join{
     text-align: center;
-    margin-bottom: 200px;
+    margin-bottom: 23%;
 }
 
 #create{
     text-align: center;
-    margin-bottom: 200px;
+    margin-bottom: 23%;
 }
 
 @media screen and (max-width: 750px) {

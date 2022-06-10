@@ -23,3 +23,20 @@
 .signup-form button{
     padding: 10px !important;
 }
+
+.signBtn{
+        background-color: white;
+        width: fit-content;
+        border-radius: 6px;
+}
+
+@media screen and (max-width: 390px) {
+    .signup-form input{
+        width: 70%;
+        /* padding: 10px; */
+    }
+    .signup-form h2{
+        font-size: 22px;
+        padding: 0%;
+    }
+  }

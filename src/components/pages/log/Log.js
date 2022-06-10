@@ -1,10 +1,11 @@
 // import React from 'react';
-// import './Styles/Log.css';
+import './Log.css';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import UnitConverter from '../unitConvert/UnitConverter';
 import jwt from 'jwt-decode'
 import {getBaseUrl} from '../../../utils/API'
+
 
 
 export default function Log(props) {
@@ -68,12 +69,12 @@ export default function Log(props) {
   return (
     <>
 
-      <h2>Log Activity</h2>
+      <h2 className='logHead'>Log Activity</h2>
       <form className="Form logInput" onSubmit={handleFormSubmit}>
         <input placeholder="text" name="text" type="number" value={score} onChange={(e) => { setScore(e.target.value) }} />
-        <label>{props.challenge.unit}</label>
-
-        <button>Log new Score!</button>
+        <label>{props.challenge.unit.charAt(0).toUpperCase()+props.challenge.unit.slice(1)}(s)</label>
+        
+        <button className="button">Log New Activity!</button>
       </form>
 <div className='unitConvert'>
 

@@ -1,6 +1,18 @@
+#user-dashboard{
+  margin-top: 20px;
+  font-size: 24px;
+}
 
+.profile-title{
+  margin-left: 6%;
+  font-size: 32px;
+  text-decoration: underline;
+  /* text-align: center; */
+}
 .createdChallenges{
-    margin: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
     width: 90%;
     /* background-color: rgb(184, 211, 211); */
     border: 3px solid rgb(184, 211, 211);
@@ -11,7 +23,9 @@
 }
 
 .joinedChallenges {
-  margin: 5%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
   width: 90%;
   /* background-color: rgb(240, 218, 158); */
   border: 3px solid rgb(240, 218, 158);
@@ -25,11 +39,21 @@
   display: none;
 }
 
+.pendingChallenges:empty{
+  display: none;
+}
 
-.buttons{
-  background-color: white;
-  width: fit-content;
-  border-radius: 6px;
+.pendingChallenges {
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 90%;
+  /* background-color: rgb(240, 218, 158); */
+  border: 3px solid var(--silk);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #challBtn{
@@ -37,10 +61,15 @@
   align-content: center;
   justify-content: center;
 }
+
+.createdChallenges:empty{
+  display: none;
+}
 @media screen and (max-width: 390px) {
    .profile-title{
+     font-size: 24px;
      text-align: center;
-     margin-top: 40px;
+     margin-top: 8%;
    }
 
    .private-card-body{

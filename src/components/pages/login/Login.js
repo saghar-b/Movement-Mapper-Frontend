@@ -82,7 +82,7 @@ function Login(props) {
             />
           </div>
 
-          <button className="btn btn-outline-warning" type="button" onClick={handleFormSubmit}>
+          <button className="button " type="button" onClick={handleFormSubmit}>
             Submit
           </button>
           <a href="/signup"> Sign Up! </a>

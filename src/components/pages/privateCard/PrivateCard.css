@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-    height: 400px;
+    height: 500px;
     margin: 30px;
 }
 
@@ -11,15 +11,57 @@
     align-content: center;
     justify-content: center;
     flex-direction: column;
+    margin: 10px;
+    position: absolute;
+    /* top: 50px; */
+    width: 90%;
 }
 
-.card-hearder {
-    background-color: rgb(75, 105, 105);
-    padding: 20px;
-    height: 200px;
+.private-card-body h6{
+    text-decoration: underline;
+}
+
+.participant-circle{
+    background-color: var(--MBG);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 1%;
+    float: right;
+}
+
+.card-body1{
+    position: relative;
+    top: 20px;
+}
+
+.card-body1 img{
+    float: right;
+    margin-top: 1%;
+
+}
+
+.participant-number{
+    color: var(--aliceBlue);
+}
+
+.private-card-body button{
+    margin-top: 5px;
+    width: 50%;
+    text-align: center;
+}
+
+.cardButtons{
+    margin-top: 5%;
 }
 
 .msg {
+    color: green;
+}
+.errmsg {
     color: red;
 }
 
@@ -29,17 +71,18 @@
     margin-top: 10px;
 }
 
-.private-img{ 
+.private-img {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;  
+    text-align: center;
+    width: 100%;
+    height: 200px;
 }
 
-.private-buttons button{
-    display: flex !important;
-    align-content: center !important;
-    justify-content: center !important;
+.private-img > img{
+    width: 100%;
+    height: 200px;
 }
 
 .private-card-body h4{
@@ -55,8 +98,20 @@
     .private-card-body{
         margin: 30px;
     }
-    .card-hearder{
+    .card-header{
         height: 150px;
+    }
+    .card-body1{
+        position: relative;
+        top: 20px;
+    }
+
+    .privateCard {
+        /* background-color: darkslategray; */
+        border: 1px solid gray;
+        width: 300px;
+        height: 540px;
+        margin: 30px;
     }
 }
 
@@ -65,10 +120,10 @@
         font-size: 24px;
     }
     .private-card-body{
-        margin-top:10px;
+        margin-top:5px;
         margin-left: 10px;
     }
-    .card-hearder{
+    .card-header{
         height: 225px;
     }
 }

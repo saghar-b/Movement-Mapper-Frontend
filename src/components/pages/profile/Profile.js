@@ -20,6 +20,7 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     getCreatedChallenges();
     getParticipatingChallenges();
     getPendingChallenges();
@@ -39,6 +40,7 @@ export default function Profile() {
         }
       }).then(res => res.json()).then(challengesDB => {
         setCreatedChallenges(challengesDB)
+     
       })
     } else {
       alert("please log in")

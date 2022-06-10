@@ -14,6 +14,7 @@ function Invite() {
   }
   const [userName, setUserName] = useState('');
   const [foundUser, setfoundUser] = useState(inviteObj);
+  const [errorMessage, seterrorMessage] = useState("");
   const [message, setmessage] = useState("");
   const location = useLocation();
 
@@ -31,48 +32,49 @@ function Invite() {
     }
     else {
 
-    
-    e.preventDefault();
-    //   find the searched username
-    fetch(`${getBaseUrl()}/user/${userName}`, {
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("SavedToken")
-      }
-    }).then(res => res.json()).then(data => {
-      if (data.msg != "NO") {
-        setfoundUser(data)
-      } else {
-        setmessage("user name not found")
-      }
-    })
 
-    
-  }
+      e.preventDefault();
+      //   find the searched username
+      fetch(`${getBaseUrl()}/user/${userName}`, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: "Bearer " + localStorage.getItem("SavedToken")
+        }
+      }).then(res => res.json()).then(data => {
+        if (data.msg != "NO") {
+          setfoundUser(data)
+          seterrorMessage("")
+        } else {
+          setmessage("");
+          seterrorMessage("user name not found")
+        }
+      })
+
+
+    }
   };
   const handleInviteBtn = async () => {
     if (userName === "") {
       alert("Please enter a valid name")
     }
-    else { 
-    const tokenrow = localStorage.getItem("SavedToken")
-    console.log(tokenrow)
-    if (tokenrow) {
-      const t = "Bearer " + tokenrow;
-      inviteObj = {
-        challenge_id: location.state.challenge.id,
-        user_id: foundUser.id,
-        distance: "0",
-        join: false
+    else {
+      const tokenrow = localStorage.getItem("SavedToken")
+      if (tokenrow) {
+        const t = "Bearer " + tokenrow;
+        inviteObj = {
+          challenge_id: location.state.challenge.id,
+          user_id: foundUser.id,
+          distance: "0",
+          join: false
+        }
+
+        saveInvite(inviteObj)
+      } else {
+
+        alert("please log in")
       }
-
-      saveInvite(inviteObj)
-    } else {
-
-      alert("please log in")
     }
-  }
-  setUserName('');
+    setUserName('');
   }
   async function saveInvite(inviteObj) {
     const response = await fetch(`${getBaseUrl()}/api/scores/invite`, {
@@ -85,10 +87,11 @@ function Invite() {
 
     })
     if (response.ok) {
+      seterrorMessage("")
       setmessage(`${foundUser.user_name} is invited to the challenge!!`)
 
     } else {
-
+      seterrorMessage("")
       setmessage(`${foundUser.user_name} is already joined`)
 
     }
@@ -98,36 +101,37 @@ function Invite() {
 
   return (
     <div className='inviteContainer'>
-    <div className='inviteUser' >
-      <p className='find'>Find user to invite to challenge: </p>
-      <form className="form box">
-        <div>
-          <input
-            value={userName}
-            name="userName"
-            onChange={handleInputChange}
-            type="text"
-            placeholder="User Name"
-          />
-        </div>
-
-        <button id='searchBtn' className="button" type="button" onClick={handleFormSubmit}>
-          Search
-        </button>
-      </form>
-      <div>
-        {foundUser.id != 0 &&
-          <div className='invite'>
-            <button className='button' onClick={handleInviteBtn}>Invite</button>
-            <label>{foundUser.user_name}</label>
-            <label>To</label>
-            <label>{location.state.challenge.Challenge_name}</label>
-            <label>Challenge</label>
+      <div className='inviteUser' >
+        <p className='find'>Find user to invite to challenge: </p>
+        <form className="form box">
+          <div className='userNameInvite'>
+            <input
+              value={userName}
+              name="userName"
+              onChange={handleInputChange}
+              type="text"
+              placeholder="User Name"
+            />
           </div>
-        }
-        <label className='msg'>{message}</label>
+
+          <button id='searchBtn' className="button" type="button" onClick={handleFormSubmit}>
+            Search
+          </button>
+        </form>
+        <div>
+          {foundUser.id != 0 &&
+            <div className='invite'>
+              <button className='button' onClick={handleInviteBtn}>Invite</button>
+              <label>{foundUser.user_name}</label>
+              <label>To</label>
+              <label>{location.state.challenge.Challenge_name}</label>
+              <label>Challenge</label>
+            </div>
+          }
+          <label className='errmsg'>{errorMessage}</label>
+          <label className='msg'>{message}</label>
+        </div>
       </div>
-    </div>
     </div>
   )
 }

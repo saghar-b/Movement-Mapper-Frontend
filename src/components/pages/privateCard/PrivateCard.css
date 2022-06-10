@@ -51,6 +51,9 @@
 }
 
 .msg {
+    color: green;
+}
+.errmsg {
     color: red;
 }
 

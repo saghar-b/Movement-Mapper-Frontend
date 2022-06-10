@@ -46,7 +46,7 @@ function Invite() {
           seterrorMessage("")
         } else {
           setmessage("");
-          seterrorMessage("user name not found")
+          seterrorMessage("Username not found")
         }
       })
 
@@ -88,11 +88,11 @@ function Invite() {
     })
     if (response.ok) {
       seterrorMessage("")
-      setmessage(`${foundUser.user_name} is invited to the challenge!!`)
+      setmessage(`${foundUser.user_name} has been invited to the challenge!!`)
 
     } else {
-      seterrorMessage("")
-      setmessage(`${foundUser.user_name} is already joined`)
+      seterrorMessage("");
+      setmessage(`${foundUser.user_name} has already joined`);
 
     }
   }
@@ -110,7 +110,7 @@ function Invite() {
               name="userName"
               onChange={handleInputChange}
               type="text"
-              placeholder="User Name"
+              placeholder="Username"
             />
           </div>
 
@@ -125,7 +125,6 @@ function Invite() {
               <label>{foundUser.user_name}</label>
               <label>To</label>
               <label>{location.state.challenge.Challenge_name}</label>
-              <label>Challenge</label>
             </div>
           }
           <label className='errmsg'>{errorMessage}</label>

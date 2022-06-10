@@ -50,7 +50,7 @@ function NavTabs(props) {
     <header >
       <nav className='navbar'>
         <div className='logo'>
-          <img src={M} className="d-inline-block align-text-center  "></img>
+          <img src={M} className="d-inline-block align-text-center nav-img"></img>
         </div>
         <ul className="nav nav-tabs">
           <li className="nav-item">

@@ -2,7 +2,7 @@
     /* background-color: darkslategray; */
     border: 1px solid gray;
     width: 300px;
-    height: auto;
+    height: 500px;
     margin: 30px;
 }
 
@@ -72,7 +72,7 @@
 
 .private-img > img{
     width: 100%;
-    height: auto;
+    height: 100px;
 }
 
 .private-card-body h4{

@@ -1,43 +1,48 @@
-
- .unit{
+.unit {
     margin-right: 20px;
     margin-left: 20px;
 }
-.unitCon{
+
+.unitCon {
     font-size: 20px;
 }
-.Conventor input{
-  
+
+.Conventor input {
+
     margin-right: 20px;
 }
+
 @media screen and (max-width: 390px) {
 
-    h2{
+    h2 {
         font-size: var(--fs-14)
     }
 
-    .converter input{
+    .converter input {
         width: 20%;
         margin-right: 10px;
     }
-    .Form{
+
+    .Form {
         padding-bottom: 10px;
     }
-    button{
+
+    button {
         font-size: var(--fs-10);
         background-color: white;
     }
-    .unit{
+
+    .unit {
         margin-right: 10px;
         margin-left: 10px;
     }
 
-    .Conventor{
+    .Conventor {
         margin-bottom: 40PX;
     }
 
-    .unitCon{
+    .unitCon {
         font-size: 15px;
     }
-    
+
 }

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './Signup.css';
-// import { checkPassword, validateEmail } from '../../utils/helpers';
 import { checkPassword, validateEmail } from '../../../utils/helpers';
 import { useNavigate } from 'react-router-dom';
-import {getBaseUrl} from '../../../utils/API'
+import { getBaseUrl } from '../../../utils/API'
 
 
 function Signup() {
@@ -56,7 +55,7 @@ function Signup() {
       }
     }).then(res => res.json()).then(res => {
       let token = res.token;
-      localStorage.setItem("SavedToken",token);
+      localStorage.setItem("SavedToken", token);
       if (res.token) {
 
         navigate(`/profile/`, { state: { id: res.user.id, name: res.user.user_name } });
@@ -73,8 +72,8 @@ function Signup() {
   };
 
   return (
-    <div className ='signup-form'  >
-      <h2 className = 'signup-title'>Signup</h2>
+    <div className='signup-form'  >
+      <h2 className='signup-title'>Signup</h2>
 
       <div >
 

@@ -14,16 +14,17 @@
   --detailColor: #ffc107;
 
 }
-header{
+
+header {
   height: 120px;
 }
+
 .navbar {
   background: var(--ming);
   height: 120px;
   text-align: end;
   justify-content: end;
   display: flex;
-  /* justify-content: space-between; */
 }
 
 
@@ -31,7 +32,7 @@ header{
 .logo img {
   display: flex;
   flex-direction: row;
-  margin-left: 10px; 
+  margin-left: 10px;
   width: 125px;
   border-radius: 20px;
 }
@@ -50,27 +51,26 @@ header{
 }
 
 @media screen and (max-width: 390px) {
-  header{
+  header {
     height: 130px;
   }
+
   .navbar {
     background: var(--MBG);
     height: 90px;
     display: flex;
-    /* flex-direction: column; */
-    /* text-align:left; */
-  
-  justify-content: left;
- 
-  justify-content:flex-start;
+    justify-content: left;
+
+    justify-content: flex-start;
   }
-  .navbar ul{
+
+  .navbar ul {
     display: flex;
     flex-direction: row;
-    /* justify-content: left; */
     font-size: 8px;
   }
-  .navbar ul li a{
+
+  .navbar ul li a {
     color: var(--dark-navy);
   }
 
@@ -79,8 +79,8 @@ header{
     font-size: 0.5rem;
     text-decoration: none;
     margin: 5px;
-    /* line-height: 3; */
   }
+
   .nav-img {
     height: 70px;
     width: 50px;

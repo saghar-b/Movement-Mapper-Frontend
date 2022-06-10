@@ -1,4 +1,4 @@
-.newchallenge-form form{
+.newchallenge-form form {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -11,43 +11,41 @@
     margin: 40px;
 }
 
-.challengeform-container{ 
+.challengeform-container {
     display: flex;
     align-content: center;
     justify-content: center;
     padding: 10px;
     margin: 10px;
-    /* width: 50%; */
-    /* background-color: grey; */
 }
 
-.newchallenge-form label{
+.newchallenge-form label {
     font-size: 24px;
     margin: 10px;
 }
 
-.newchallenge-form input{
+.newchallenge-form input {
     width: 80%;
 }
 
-.newchallenge-form select{
+.newchallenge-form select {
     width: 80%;
 }
 
-.newchallenge-form button{
+.newchallenge-form button {
     margin: 20px;
     width: 80%;
 }
 
-img[src=""]{
-    display:none;  
+img[src=""] {
+    display: none;
 }
 
-.newchallenge-form img{
+.newchallenge-form img {
     width: 300px;
     height: 300px;
 }
 
-.newchallenge-form textarea{
+.newchallenge-form textarea {
     width: 80%;
 }

@@ -51,13 +51,15 @@ export default function Challenges() {
   }
   return (
     <>
-      <div>{location.state.type}</div>
-      <h1>Challenges</h1>
+    <div className="category-page">
+      <div className='category'>CATEGORY: {location.state.type}</div>
+      <h1 className='challenges-title'>Challenges</h1>
       <div className='challengeCards'>
         {challenges.map(chal => (
           <PublicCard challenge={chal} getoneChallenge={getoneChallenge} token={token}></PublicCard>
         ))}
       </div>
+    </div>
     </>
   );
 } 

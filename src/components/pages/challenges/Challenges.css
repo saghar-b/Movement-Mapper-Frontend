@@ -3,3 +3,26 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.category{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 3%;
+}
+
+.challenges-title{
+    text-align: center;
+}
+
+.category-page{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 390px) {
+    .category{
+        font-size: 24px;
+    }
+}

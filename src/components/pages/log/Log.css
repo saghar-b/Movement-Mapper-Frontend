@@ -13,7 +13,7 @@
     }
 
     .logInput> input{
-        width: 10%;
+        width: 30%;
     }
     Form> button{
         font-size: var(--fs-10);

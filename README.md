@@ -37,7 +37,8 @@ As a user, I want to be able to create an exercise challenge so that I can motiv
 
 
 * Dashboard Page for mobile: 
-<img width="273" alt="Screen Shot 2022-06-13 at 1 55 28 PM" src="https://user-images.githubusercontent.com/101743933/173470616-0a2f8808-fb0a-48b8-8962-c4b30e37b3ee.png"
+<img width="273" alt="Screen Shot 2022-06-13 at 1 55 28 PM" src="https://user-images.githubusercontent.com/101743933/173470616-0a2f8808-fb0a-48b8-8962-c4b30e37b3ee.png">
+
 ## Deployed link
 [Deployed Link](https://movementmapper-front.herokuapp.com/users)
 
